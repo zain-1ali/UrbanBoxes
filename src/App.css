@@ -1,0 +1,17 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+/* #mydate:required:invalid::-webkit-datetime-edit {
+  color: transparent;
+}
+#mydate:focus::-webkit-datetime-edit {
+  color: black !important;
+} */
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="date"]::-webkit-clear-button {
+  display: none;
+}
