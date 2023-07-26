@@ -17,14 +17,17 @@ const ProductMailBox = () => {
                 <img
                   src={bigDisplay}
                   alt=""
-                  className="w-[100%] h-[100%] rounded-3xl"
+                  className="w-[100%] h-[544px] rounded-3xl"
                 />
               </div>
               <div
                 className="w-[97%] flex justify-between"
-                onClick={() => setBigDisplay(box2)}
+                // onClick={() => setBigDisplay(box2)}
               >
-                <div className="w-[31%] h-[140px] cursor-pointer">
+                <div
+                  className="w-[31%] h-[140px] cursor-pointer"
+                  onClick={() => setBigDisplay(box2)}
+                >
                   <img
                     src={box2}
                     alt=""
@@ -119,12 +122,12 @@ const ProductMailBox = () => {
             <div className="w-[100%] h-[570px] mt-1 bg-[#EEFFF3] rounded-[13px] p-4">
               <div className="flex w-[100%] items-center">
                 <h2
-                  className="font-[600]  w-[20%]"
+                  className="font-[600]  w-[22%]"
                   style={{ fontFamily: "Roboto" }}
                 >
                   Product Information
                 </h2>
-                <div className="w-[80%] h-[1px] bg-[#C5BDBD]"></div>
+                <div className="w-[78%] h-[1px] bg-[#C5BDBD]"></div>
               </div>
               <div className="w-[100%] mt-[15px] flex items-center justify-between">
                 <div className="w-[31%] h-[63px] ">
@@ -214,12 +217,12 @@ const ProductMailBox = () => {
               <div className="w-[100%] mt-[20px]">
                 <div className="flex w-[100%] items-center">
                   <h2
-                    className="font-[600]  w-[20%]"
+                    className="font-[600]  w-[22%]"
                     style={{ fontFamily: "Roboto" }}
                   >
                     Contact Information
                   </h2>
-                  <div className="w-[80%] h-[1px] bg-[#C5BDBD]"></div>
+                  <div className="w-[78%] h-[1px] bg-[#C5BDBD]"></div>
                 </div>
 
                 <div className="w-[100%] h-[63px] mt-[15px]">
@@ -276,7 +279,7 @@ const ProductMailBox = () => {
                     </span>
                   </p>
                 </div>
-                <button className="w-[129px] h-[51px] bg-[#449F5A] hover:bg-[#6AD37F] rounded-[8px] text-white  font-[500] mt-2">
+                <button className="w-[129px] h-[51px] bg-[#449F5A] hover:bg-[#6AD37F] rounded-[8px] text-white  font-[500] mt-3">
                   Submit
                 </button>
               </div>

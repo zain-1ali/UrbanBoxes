@@ -1,11 +1,11 @@
 import React from "react";
 import { GiSandsOfTime } from "react-icons/gi";
-import truck from "../../imgs/truckIcons.png";
-import timer from "../../imgs/sandTimer.png";
-import box from "../../imgs/orthoBox.png";
-import tablet from "../../imgs/tablet.png";
-import allout from "../../imgs/allout.png";
-import dollar from "../../imgs/lowPrice.png";
+import truck from "../../imgs/InTransit3x.png";
+import timer from "../../imgs/sandTimer3x.png";
+import box from "../../imgs/OrthogonalView3x.png";
+import tablet from "../../imgs/WacomTablet3x.png";
+import allout from "../../imgs/AllOut3x.png";
+import dollar from "../../imgs/LowPrice3x.png";
 
 const ProductServices = () => {
   return (
@@ -42,7 +42,7 @@ const ProductServices = () => {
               }}
             >
               {/* <GiSandsOfTime className="text-5xl" /> */}
-              <img src={timer} alt="" />
+              <img src={timer} alt="" className="h-[65px] w-[65px]" />
             </div>
             <p
               className="font-[500] text-[16px]"
@@ -60,7 +60,7 @@ const ProductServices = () => {
               }}
             >
               {/* <GiSandsOfTime className="text-5xl" /> */}
-              <img src={truck} alt="" />
+              <img src={truck} alt="" className="h-[65px] w-[65px]" />
             </div>
             <p
               className="font-[500] text-[16px]"
@@ -79,7 +79,7 @@ const ProductServices = () => {
             >
               {/* <GiSandsOfTime className="text-5xl" />
                */}
-              <img src={box} alt="" />
+              <img src={box} alt="" className="h-[65px] w-[65px]" />
             </div>
             <p
               className="font-[500] text-[16px]"
@@ -97,7 +97,7 @@ const ProductServices = () => {
               }}
             >
               {/* <GiSandsOfTime className="text-5xl" /> */}
-              <img src={tablet} alt="" />
+              <img src={tablet} alt="" className="h-[65px] w-[65px]" />
             </div>
             <p
               className="font-[500] text-[16px]"
@@ -115,7 +115,7 @@ const ProductServices = () => {
               }}
             >
               {/* <GiSandsOfTime className="text-5xl" /> */}
-              <img src={dollar} alt="" />
+              <img src={dollar} alt="" className="h-[65px] w-[65px]" />
             </div>
             <p
               className="font-[500] text-[16px]"
@@ -134,7 +134,7 @@ const ProductServices = () => {
             >
               {/* <GiSandsOfTime className="text-5xl" />
                */}
-              <img src={allout} alt="" />
+              <img src={allout} alt="" className="h-[65px] w-[65px]" />
             </div>
             <p
               className="font-[500] text-[16px]"

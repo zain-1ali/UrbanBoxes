@@ -43,73 +43,73 @@ const ProductSepecification = () => {
   return (
     <div className="w-[100%] mt-[60px]">
       <div className="w-[100%] flex justify-center">
-        <div className="w-[87%] h-[1060px]  flex justify-between">
-          <div className="h-[100%] w-[15%] border">
+        <div className="w-[85%] h-[650px]  flex justify-between">
+          <div className="h-[100%] w-[13%] border">
             <div
-              className={`w-[100%] h-[212px] border cursor-pointer ${
+              className={`w-[100%] h-[130px] border cursor-pointer ${
                 isSepecification ? `bg-[#A6EAB8] shadow-xl ` : `bg-[#449F5A]`
               }  flex justify-center items-center flex-col hover:bg-[#A6EAB8]`}
               onClick={() => dispatch(openSepecification())}
             >
-              <FaClipboardList className="text-[80px] text-white" />
+              <FaClipboardList className="text-[50px] text-white" />
               <p
                 style={{ fontFamily: "Poppins" }}
-                className="font-[600] text-[20px] text-white mt-2"
+                className="font-[600] text-[16px] text-white mt-2"
               >
                 {" "}
                 Specifications
               </p>
             </div>
             <div
-              className={`w-[100%] h-[212px] border cursor-pointer ${
+              className={`w-[100%] h-[130px] border cursor-pointer ${
                 isDetails ? `bg-[#A6EAB8] shadow-xl ` : `bg-[#449F5A]`
               } flex justify-center items-center flex-col hover:bg-[#A6EAB8]`}
               onClick={() => dispatch(openDetails())}
             >
               {" "}
-              <BiSolidDetail className="text-[80px] text-white" />
+              <BiSolidDetail className="text-[50px] text-white" />
               <p
                 style={{ fontFamily: "Poppins" }}
-                className="font-[600] text-[20px] text-white mt-2"
+                className="font-[600] text-[16px] text-white mt-2"
               >
                 {" "}
                 Details
               </p>{" "}
             </div>
             <div
-              className={`w-[100%] h-[212px] border cursor-pointer ${
+              className={`w-[100%] h-[130px] border cursor-pointer ${
                 isCapabilities ? `bg-[#A6EAB8] shadow-xl ` : `bg-[#449F5A]`
               } flex justify-center items-center flex-col hover:bg-[#A6EAB8]`}
               onClick={() => dispatch(openCapabilities())}
             >
               {" "}
-              <SiMoleculer className="text-[80px] text-white" />
+              <SiMoleculer className="text-[50px] text-white" />
               <p
                 style={{ fontFamily: "Poppins" }}
-                className="font-[600] text-[20px] text-white mt-2 text-center"
+                className="font-[600] text-[16px] text-white mt-2 text-center"
               >
                 {" "}
                 Special Capabilities
               </p>{" "}
             </div>
             <div
-              className={`w-[100%] h-[212px] border cursor-pointer ${
+              className={`w-[100%] h-[130px] border cursor-pointer ${
                 isCoating ? `bg-[#A6EAB8] shadow-xl ` : `bg-[#449F5A]`
               } flex justify-center items-center flex-col hover:bg-[#A6EAB8]`}
               onClick={() => dispatch(openCoating())}
             >
               {" "}
-              <BsInboxesFill className="text-[80px] text-white" />
+              <BsInboxesFill className="text-[50px] text-white" />
               <p
                 style={{ fontFamily: "Poppins" }}
-                className="font-[600] text-[20px] text-white mt-2 text-center"
+                className="font-[600] text-[16px] text-white mt-2 text-center"
               >
                 {" "}
                 Coating & Lamination
               </p>{" "}
             </div>
             <div
-              className={`w-[100%] h-[212px] border cursor-pointer ${
+              className={`w-[100%] h-[130px] border cursor-pointer ${
                 isSpecialCapabilities
                   ? `bg-[#A6EAB8] shadow-xl `
                   : `bg-[#449F5A]`
@@ -117,18 +117,18 @@ const ProductSepecification = () => {
               onClick={() => dispatch(openSpecialCapabilities())}
             >
               {" "}
-              <BsFillClipboardCheckFill className="text-[80px] text-white" />
+              <BsFillClipboardCheckFill className="text-[50px] text-white" />
               <p
                 style={{ fontFamily: "Poppins" }}
-                className="font-[600] text-[20px] text-white mt-2 text-center"
+                className="font-[600] text-[16px] text-white mt-2 text-center"
               >
                 {" "}
-                Special Capabilities
+                Special Finishes
               </p>{" "}
             </div>
           </div>
 
-          <div className="h-[100%] w-[83%] ">
+          <div className="h-[100%] w-[85%]">
             {isSepecification && <Sepecifications />}
             {isDetails && <Details />}
             {isCapabilities && <Capabilities />}

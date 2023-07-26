@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../Components/Navbar";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { LiaGreaterThanSolid } from "react-icons/lia";
@@ -16,6 +16,12 @@ const SingleCategory = () => {
   let imgUrl = location.state.imgUrl;
   let bgClr = location.state.bgClr;
   const uid = params.categoryid;
+
+  // let location = useLocation();
+  let { pathname } = location;
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <div className="w-[100%]">

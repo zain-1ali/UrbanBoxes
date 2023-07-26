@@ -8,16 +8,20 @@ import {
 } from "react-icons/bi";
 import { useMemo } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
-import { BsTelephone, BsTelephoneFill } from "react-icons/bs";
+import {
+  BsTelephone,
+  BsTelephoneFill,
+  BsFillTelephoneFill,
+} from "react-icons/bs";
 import { FaBoxOpen } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import logo from "../imgs/Urbanlogo1.png";
 import MediaQuery from "react-responsive";
 // import Drawer from "./Drawer";
 import TheDrawer from "./Drawer";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const Navbar = ({ navigate }) => {
+const Navbar = () => {
   let [drawer, setDrawer] = useState(false);
 
   let handleDrawer = () => {
@@ -28,6 +32,8 @@ const Navbar = ({ navigate }) => {
   let closeDrawer = () => {
     setDrawer(false);
   };
+
+  let navigate = useNavigate();
 
   return (
     <>
@@ -85,12 +91,15 @@ const Navbar = ({ navigate }) => {
             >
               Help
             </div>
+            {/* <Link to="/gogreen"> */}
             <div
               className="sm:w-[151px] w-[90px] sm:text-[16px] text-sm bg-[#449F5A] hover:bg-[#6AD37F] text-white flex justify-center items-center font-medium cursor-pointer text-[16px]"
               style={{ fontFamily: "Roboto" }}
+              onClick={() => navigate("/gogreen")}
             >
               Go Green
             </div>
+            {/* </Link> */}
           </div>
         </div>
         <div className=" w-[100%] h-[175px] flex flex-col items-center">
@@ -123,7 +132,7 @@ const Navbar = ({ navigate }) => {
             <MediaQuery minWidth={640}>
               <div className="h-[52px] flex items-center">
                 <div className="lg:w-[47px] lg:h-[47px] md:w-[40px] md:h-[40px] rounded-full flex justify-center items-center border border-[#449F5A]">
-                  <BsTelephone className="text-[#449F5A] lg:text-2xl md:text-xl" />
+                  <BsFillTelephoneFill className="text-[#449F5A] lg:text-2xl md:text-xl" />
                 </div>
 
                 <div className="ml-2">
@@ -145,7 +154,7 @@ const Navbar = ({ navigate }) => {
             <MediaQuery minWidth={640}>
               <div className="h-[52px] flex items-center">
                 <div className="w-[35px] h-[35px] lg:w-[47px] lg:h-[47px] md:w-[40px] md:h-[40px] rounded-full flex justify-center items-center border border-[#449F5A]">
-                  <FaBoxOpen className="text-[#449F5A] text-2xl md:text-xl" />
+                  <FaBoxOpen className="text-[#449F5A] text-3xl md:text-xl" />
                 </div>
 
                 <div className="ml-2">
@@ -163,7 +172,7 @@ const Navbar = ({ navigate }) => {
               <div className="flex mt-[40px] w-[100%] justify-around">
                 <div className=" flex items-center mr-4">
                   <div className="w-[40px] h-[40px]  rounded-full flex justify-center items-center border border-[#449F5A]">
-                    <BsTelephoneFill className="text-[#449F5A] text-xl " />
+                    <BsFillTelephoneFill className="text-[#449F5A] text-xl " />
                   </div>
 
                   <div className="ml-2">

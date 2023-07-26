@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../Components/Navbar";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate, useLocation } from "react-router-dom";
 import { LiaGreaterThanSolid } from "react-icons/lia";
 import ProductMailBox from "../Components/ProductsComponents/ProductMailBox";
 import ProductServices from "../Components/ProductsComponents/ProductServices";
@@ -14,6 +14,11 @@ const SinglePorduct = () => {
   const category = params.categoryid;
   const product = params.productid;
   let navigate = useNavigate();
+  let location = useLocation();
+  let { pathname } = location;
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <div className="w-[100%]">
