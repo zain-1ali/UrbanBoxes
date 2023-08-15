@@ -1,5 +1,7 @@
 import React from "react";
 import logo from "../imgs/Urbanlogowhite1.png";
+import blacklogo from "../imgs/Urbanlogo1.png";
+
 import {
   BsFillPersonFill,
   BsTelephoneFill,
@@ -19,14 +21,17 @@ import {
   BiLogoLinkedin,
 } from "react-icons/bi";
 
-const Footer = () => {
+const Footer = ({ bg, textClr }) => {
   return (
-    <div className="sm:h-[500px] h-[200px] w-[100%]  bg-[#2C703C] sm:mt-[65px] mt-[25px]">
+    <div
+      className="sm:h-[500px] h-[200px] w-[100%] sm:mt-[65px] mt-[25px]"
+      style={{ backgroundColor: bg }}
+    >
       <div className="h-[90%] w-[100%] flex justify-evenly">
         <div className=" sm:mt-[50px] mt-[30px]">
           <div className="flex items-center">
             <img
-              src={logo}
+              src={textClr === "white" ? logo : blacklogo}
               alt="Logo"
               className="sm:h-[70px] sm:w-[290px] h-[30px] w-[120px]"
             />
@@ -39,13 +44,13 @@ const Footer = () => {
           </div>
           <h2
             className="sm:mt-[35px] mt-[20px] font-[700] sm:text-[38px] text-[12px] text-white sm:w-[370px] w-[170px]  "
-            style={{ fontFamily: "Inter" }}
+            style={{ fontFamily: "Inter", color: textClr }}
           >
             Custom Printed Boxes & Packaging
           </h2>
           <p
             className="sm:text-xl text-[7px] sm:w-[369px] w-[170px] font-[400] text-[#FFFFFF] sm:mt-[7px] mt-[7px] "
-            style={{ fontFamily: "Roboto" }}
+            style={{ fontFamily: "Roboto", color: textClr }}
           >
             Lorem ipsum dolor sit amet consectetur. Scelerisque quam tempor eget
             cras quis. Cursus pulvinar fusce scelerisque tempus mus ullamcorper{" "}
@@ -54,56 +59,56 @@ const Footer = () => {
 
         <div className="sm:mt-[50px] mt-[30px]">
           <h2
-            className="sm:text-2xl text-[12px] sm:font-[700] font-[500]  text-white"
-            style={{ fontFamily: "Roboto" }}
+            className="sm:text-2xl text-[12px] sm:font-[700] font-[500]"
+            style={{ fontFamily: "Roboto", color: textClr }}
           >
             COMPANY
           </h2>
           <p
-            className="sm:mt-[10px] mt-[5px] sm:text-lg text-[7px] font-[400]  text-white"
-            style={{ fontFamily: "Roboto" }}
+            className="sm:mt-[10px] mt-[5px] sm:text-lg text-[7px] font-[400]"
+            style={{ fontFamily: "Roboto", color: textClr }}
           >
             About Us
           </p>
           <p
-            className="sm:mt-[10px] mt-[5px] sm:text-lg text-[7px] font-[400]  text-white"
-            style={{ fontFamily: "Roboto" }}
+            className="sm:mt-[10px] mt-[5px] sm:text-lg text-[7px] font-[400]"
+            style={{ fontFamily: "Roboto", color: textClr }}
           >
             Bolg
           </p>
           <p
-            className="sm:mt-[10px] mt-[5px] sm:text-lg text-[7px] font-[400]  text-white"
-            style={{ fontFamily: "Roboto" }}
+            className="sm:mt-[10px] mt-[5px] sm:text-lg text-[7px] font-[400]"
+            style={{ fontFamily: "Roboto", color: textClr }}
           >
             FAQ's
           </p>{" "}
           <p
-            className="sm:mt-[10px] mt-[5px] sm:text-lg text-[7px] font-[400]  text-white"
-            style={{ fontFamily: "Roboto" }}
+            className="sm:mt-[10px] mt-[5px] sm:text-lg text-[7px] font-[400]"
+            style={{ fontFamily: "Roboto", color: textClr }}
           >
             Terms & Conditions
           </p>{" "}
           <p
-            className="sm:mt-[10px] mt-[5px] sm:text-lg text-[7px] font-[400]  text-white"
-            style={{ fontFamily: "Roboto" }}
+            className="sm:mt-[10px] mt-[5px] sm:text-lg text-[7px] font-[400]"
+            style={{ fontFamily: "Roboto", color: textClr }}
           >
             Privacy Policy
           </p>{" "}
           <p
-            className="sm:mt-[10px] mt-[5px] sm:text-lg text-[7px] font-[400]  text-white"
-            style={{ fontFamily: "Roboto" }}
+            className="sm:mt-[10px] mt-[5px] sm:text-lg text-[7px] font-[400]"
+            style={{ fontFamily: "Roboto", color: textClr }}
           >
             Custom Quote
           </p>
           <p
-            className="sm:mt-[10px] mt-[5px] sm:text-lg text-[7px] font-[400]  text-white"
-            style={{ fontFamily: "Roboto" }}
+            className="sm:mt-[10px] mt-[5px] sm:text-lg text-[7px] font-[400]"
+            style={{ fontFamily: "Roboto", color: textClr }}
           >
             Contact Us
           </p>
           <p
-            className="sm:mt-[10px] mt-[5px] sm:text-lg text-[7px] font-[400]  text-white"
-            style={{ fontFamily: "Roboto" }}
+            className="sm:mt-[10px] mt-[5px] sm:text-lg text-[7px] font-[400]"
+            style={{ fontFamily: "Roboto", color: textClr }}
           >
             Sitemaps
           </p>
@@ -111,45 +116,57 @@ const Footer = () => {
 
         <div className="sm:mt-[50px] mt-[30px]">
           <h2
-            className="sm:text-2xl text-[12px] sm:font-[700] font-[500]  text-white"
-            style={{ fontFamily: "Roboto" }}
+            className="sm:text-2xl text-[12px] sm:font-[700] font-[500]"
+            style={{ fontFamily: "Roboto", color: textClr }}
           >
             CONTACT
           </h2>
           <div className="flex items-center sm:mt-[20px] mt-[5px]">
-            <RiPhoneFill className="sm:text-2xl text-[7px] text-white mr-1 sm:mr-2" />
+            <RiPhoneFill
+              className="sm:text-2xl text-[7px]  mr-1 sm:mr-2"
+              style={{ color: textClr }}
+            />
             <p
               className="  sm:text-lg text-[7px] font-[400]  text-white "
-              style={{ fontFamily: "Roboto" }}
+              style={{ fontFamily: "Roboto", color: textClr }}
             >
               0000-000-0000
             </p>
           </div>
 
           <div className="flex sm:mt-[20px] mt-[5px] items-center">
-            <MdEmail className="sm:text-2xl text-[7px] text-white mr-1 sm:mr-2" />
+            <MdEmail
+              className="sm:text-2xl text-[7px]  mr-1 sm:mr-2"
+              style={{ color: textClr }}
+            />
             <p
               className="  sm:text-lg text-[7px] font-[400]  text-white"
-              style={{ fontFamily: "Roboto" }}
+              style={{ fontFamily: "Roboto", color: textClr }}
             >
               company@boxes.com
             </p>
           </div>
 
           <div className="flex sm:mt-[20px] mt-[5px] items-center">
-            <HiLocationMarker className="sm:text-2xl text-[7px] text-white mr-1 sm:mr-2" />
+            <HiLocationMarker
+              className="sm:text-2xl text-[7px]  mr-1 sm:mr-2"
+              style={{ color: textClr }}
+            />
             <p
               className="  sm:text-lg text-[7px] font-[400]  text-white"
-              style={{ fontFamily: "Roboto" }}
+              style={{ fontFamily: "Roboto", color: textClr }}
             >
               Los Vegas, LV 22001
             </p>
           </div>
           <div className="flex sm:mt-[20px] mt-[5px] items-center">
-            <BsFillStopwatchFill className="sm:text-2xl text-[7px] text-white mr-1 sm:mr-2" />
+            <BsFillStopwatchFill
+              className="sm:text-2xl text-[7px]  mr-1 sm:mr-2"
+              style={{ color: textClr }}
+            />
             <p
               className="  sm:text-lg text-[7px] font-[400]  text-white"
-              style={{ fontFamily: "Roboto" }}
+              style={{ fontFamily: "Roboto", color: textClr }}
             >
               Mon - Fri: 8:00 - 6:00 PM
             </p>
@@ -157,28 +174,64 @@ const Footer = () => {
           <div className=" sm:mt-[20px] mt-[10px]">
             <h2
               className="sm:text-xl text-[11px] font-[600] text-white"
-              style={{ fontFamily: "Roboto" }}
+              style={{ fontFamily: "Roboto", color: textClr }}
             >
               Follow Us on:
             </h2>
             <div className=" flex  sm:mt-3 mt-1">
-              <div className="sm:h-[33px] sm:w-[33px] h-[10px] w-[10px] border rounded-full flex justify-center items-center border-white  cursor-pointer">
-                <BiLogoFacebook className="text-white sm:text-2xl text-[5px]" />
+              <div
+                className="sm:h-[33px] sm:w-[33px] h-[10px] w-[10px] border rounded-full flex justify-center items-center   cursor-pointer"
+                style={{ borderColor: textClr }}
+              >
+                <BiLogoFacebook
+                  className=" sm:text-2xl text-[5px]"
+                  style={{ color: textClr }}
+                />
               </div>
-              <div className="sm:h-[33px] sm:w-[33px] h-[10px] w-[10px] border rounded-full flex justify-center items-center border-white sm:ml-5 ml-1 cursor-pointer">
-                <BiLogoInstagramAlt className="text-white sm:text-2xl text-[5px]" />
+              <div
+                className="sm:h-[33px] sm:w-[33px] h-[10px] w-[10px] border rounded-full flex justify-center items-center  sm:ml-5 ml-1 cursor-pointer"
+                style={{ borderColor: textClr }}
+              >
+                <BiLogoInstagramAlt
+                  className=" sm:text-2xl text-[5px]"
+                  style={{ color: textClr }}
+                />
               </div>
-              <div className="sm:h-[33px] sm:w-[33px] h-[10px] w-[10px] border rounded-full flex justify-center items-center border-white sm:ml-5 ml-1 cursor-pointer">
-                <BiLogoYoutube className="text-white sm:text-2xl text-[5px]" />
+              <div
+                className="sm:h-[33px] sm:w-[33px] h-[10px] w-[10px] border rounded-full flex justify-center items-center  sm:ml-5 ml-1 cursor-pointer"
+                style={{ borderColor: textClr }}
+              >
+                <BiLogoYoutube
+                  className=" sm:text-2xl text-[5px]"
+                  style={{ color: textClr }}
+                />
               </div>
-              <div className="sm:h-[33px] sm:w-[33px] h-[10px] w-[10px] border rounded-full flex justify-center items-center border-white sm:ml-5 ml-1 cursor-pointer">
-                <BiLogoTwitter className="text-white sm:text-2xl text-[5px]" />
+              <div
+                className="sm:h-[33px] sm:w-[33px] h-[10px] w-[10px] border rounded-full flex justify-center items-center  sm:ml-5 ml-1 cursor-pointer"
+                style={{ borderColor: textClr }}
+              >
+                <BiLogoTwitter
+                  className=" sm:text-2xl text-[5px]"
+                  style={{ color: textClr }}
+                />
               </div>
-              <div className="sm:h-[33px] sm:w-[33px] h-[10px] w-[10px] border rounded-full flex justify-center items-center border-white sm:ml-5 ml-1 cursor-pointer">
-                <BiLogoLinkedin className="text-white sm:text-xl  text-[5px]" />
+              <div
+                className="sm:h-[33px] sm:w-[33px] h-[10px] w-[10px] border rounded-full flex justify-center items-center  sm:ml-5 ml-1 cursor-pointer"
+                style={{ borderColor: textClr }}
+              >
+                <BiLogoLinkedin
+                  className=" sm:text-xl  text-[5px]"
+                  style={{ color: textClr }}
+                />
               </div>
-              <div className="sm:h-[33px] sm:w-[33px] h-[10px] w-[10px] border rounded-full flex justify-center items-center border-white sm:ml-5 ml-1 cursor-pointer">
-                <RiWhatsappFill className="text-white sm:text-2xl text-[5px]" />
+              <div
+                className="sm:h-[33px] sm:w-[33px] h-[10px] w-[10px] border rounded-full flex justify-center items-center  sm:ml-5 ml-1 cursor-pointer"
+                style={{ borderColor: textClr }}
+              >
+                <RiWhatsappFill
+                  className=" sm:text-2xl text-[5px]"
+                  style={{ color: textClr }}
+                />
               </div>
             </div>
           </div>
@@ -188,8 +241,8 @@ const Footer = () => {
       <div className="border-t h-[10%] lg:w-[100%] md:W-[100%] w-[100%]">
         <div className="flex h-[100%]   sm:ml-[135px] ml-[35px] items-center">
           <h2
-            className="font-[600] sm:text-[14px] text-[5px] text-white"
-            style={{ fontFamily: "Poppins" }}
+            className="font-[600] sm:text-[14px] text-[5px]"
+            style={{ fontFamily: "Poppins", color: textClr }}
           >
             2023 Logoipsum Software Inc.
           </h2>
@@ -197,8 +250,8 @@ const Footer = () => {
           <div className="w-[1px] sm:h-[32px] h-[15px] bg-[#6B6A6A] sm:ml-5 ml-2"></div>
 
           <h2
-            className="font-[600] sm:text-[14px] text-[5px] text-white sm:ml-5 ml-2"
-            style={{ fontFamily: "Poppins" }}
+            className="font-[600] sm:text-[14px] text-[5px] sm:ml-5 ml-2"
+            style={{ fontFamily: "Poppins", color: textClr }}
           >
             Support
           </h2>
@@ -206,8 +259,8 @@ const Footer = () => {
           <div className="w-[1px] sm:h-[32px] h-[15px] bg-[#6B6A6A] sm:ml-5 ml-2"></div>
 
           <h2
-            className="font-[600] sm:text-[14px] text-[5px] text-white sm:ml-5 ml-2"
-            style={{ fontFamily: "Poppins" }}
+            className="font-[600] sm:text-[14px] text-[5px] sm:ml-5 ml-2"
+            style={{ fontFamily: "Poppins", color: textClr }}
           >
             PrivacyPolicy
           </h2>
@@ -215,8 +268,8 @@ const Footer = () => {
           <div className="w-[1px] sm:h-[32px] h-[15px] bg-[#6B6A6A] sm:ml-5 ml-2"></div>
 
           <h2
-            className="font-[600] sm:text-[14px] text-[5px] text-white sm:ml-5 ml-2"
-            style={{ fontFamily: "Poppins" }}
+            className="font-[600] sm:text-[14px] text-[5px] sm:ml-5 ml-2"
+            style={{ fontFamily: "Poppins", color: textClr }}
           >
             Terms of Use
           </h2>
@@ -224,8 +277,8 @@ const Footer = () => {
           <div className="w-[1px] sm:h-[32px] h-[15px] bg-[#6B6A6A] sm:ml-5 ml-2"></div>
 
           <h2
-            className="font-[600] sm:text-[14px] text-[5px] text-white sm:ml-5 ml-2"
-            style={{ fontFamily: "Poppins" }}
+            className="font-[600] sm:text-[14px] text-[5px] sm:ml-5 ml-2"
+            style={{ fontFamily: "Poppins", color: textClr }}
           >
             CookiePolicy
           </h2>

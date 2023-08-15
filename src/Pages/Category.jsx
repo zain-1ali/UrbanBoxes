@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar";
 import CategoryUpper from "../Components/CategoryComponents/CategoryUpper";
 import Custom from "../Components/CategoryComponents/Custom";
@@ -8,8 +8,22 @@ import { LiaGreaterThanSolid } from "react-icons/lia";
 import { Link, useNavigate } from "react-router-dom";
 import cosmeticboxes from "../imgs/cosmeticboxes.png";
 import box from "../imgs/herobox.png";
+import axios from "axios";
 const Category = () => {
   let navigate = useNavigate();
+
+  let [category, setCategory] = useState([]);
+  let baseUrl = import.meta.env.VITE_BASE_URL;
+  useEffect(() => {
+    let getcategory = async () => {
+      let res = await axios.get(`${baseUrl}/api/getAllCategories`);
+      setCategory(res.data.data);
+    };
+    getcategory();
+  }, []);
+
+  console.log(category);
+
   return (
     <div className="w-[100%]">
       <Navbar />
@@ -44,14 +58,20 @@ const Category = () => {
         bgClr="#CDF6D8"
         smtext="18px"
       />
-      <Custom
-        heading="Cosmetics Packaging"
-        bgClr="#FEF3FE"
-        paragraph="Our custom boxes are inclusive of everything that you require to package your products, ranging from small boxes to customized luxury packaging."
-        path="/singlecategory/Cosmetics"
-        imgUrl={cosmeticboxes}
-      />
-      <Custom
+
+      {category?.map((elm) => {
+        return (
+          <Custom
+            heading={elm?.name}
+            bgClr="#FEF3FE"
+            paragraph={elm?.description}
+            path={`/singlecategory/${elm?.id}`}
+            imgUrl={cosmeticboxes}
+          />
+        );
+      })}
+
+      {/* <Custom
         heading="Eco Friendly Packaging"
         bgClr="#E8FFB6"
         paragraph="Our custom boxes are inclusive of everything that you require to package your products, ranging from small boxes to customized luxury packaging."
@@ -64,9 +84,9 @@ const Category = () => {
         paragraph="Our custom boxes are inclusive of everything that you require to package your products, ranging from small boxes to customized luxury packaging."
         path="/singlecategory/SpecialProduct"
         imgUrl={box}
-      />
-      <HomeOptions />
-      <Footer />
+      /> */}
+      <HomeOptions bg="#EAFFEF" btnClr="#449F5A" />
+      <Footer bg="#2C703C" textClr="white" />
     </div>
   );
 };

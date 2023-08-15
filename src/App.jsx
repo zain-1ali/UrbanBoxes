@@ -13,6 +13,9 @@ import Category from "./Pages/Category";
 import SingleCategory from "./Pages/SingleCategory";
 import SinglePorduct from "./Pages/SinglePorduct";
 import GoGreen from "./Pages/GoGreen";
+import LuxuryFinishes from "./Pages/LuxuryFinishes";
+import AboutUs from "./Pages/AboutUs";
+import ContactUs from "./Pages/ContactUs";
 
 function App() {
   return (
@@ -27,12 +30,12 @@ function App() {
             path="/singlecategory/:categoryid"
             element={<SingleCategory />}
           />
-          <Route
-            path="/singleproduct/:categoryid/:productid"
-            element={<SinglePorduct />}
-          />
+          <Route path="/singleproduct/:productid" element={<SinglePorduct />} />
 
           <Route path="/gogreen" element={<GoGreen />} />
+          <Route path="/luxurayFinishes" element={<LuxuryFinishes />} />
+          <Route path="/aboutUs" element={<AboutUs />} />
+          <Route path="/contactus" element={<ContactUs />} />
         </Routes>
       </BrowserRouter>
 

@@ -28,7 +28,7 @@ const Coating = () => {
           project.
         </p>
       </div>
-      <div className="overflow-y-scroll h-[80%] w-[100%] scrollbar-hide">
+      <div className="overflow-y-scroll h-[80%] w-[100%] pr-3">
         <div className="flex justify-between mt-[30px] w-[100%] ">
           <div className="w-[23%] h-[320px] shadow-sm rounded-[19px] bg-[#CDF6D8]">
             <div className="w-[100%] h-[60%]  flex justify-center items-center">

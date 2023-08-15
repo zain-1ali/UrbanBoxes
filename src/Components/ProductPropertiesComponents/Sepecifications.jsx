@@ -12,9 +12,9 @@ const Sepecifications = () => {
     <div className="p-2 w-[100%] h-[100%] flex justify-center items-center flex-col">
       <div className="w-[100%]  flex flex-col items-center">
         <div className="w-[100%] flex justify-center items-center  ">
-          <div className="sm:w-[40%] w-[22%] h-[1px]  bg-[#696262] mr-2"></div>
+          <div className="sm:w-[40%] w-[18%] h-[1px]  bg-[#696262] mr-2"></div>
           <h2
-            className="sm:text-2xl text-[16px] sm:font-[600] font-[500]"
+            className="sm:text-2xl text-[15px] sm:font-[600] font-[500]"
             style={{ fontFamily: "Poppins" }}
           >
             {/* {isDesktopOrLaptop
@@ -22,7 +22,7 @@ const Sepecifications = () => {
               : "Get Discounted Price"} */}
             Specification
           </h2>
-          <div className="sm:w-[40%] w-[22%] h-[1px]  bg-[#696262] ml-2 "></div>
+          <div className="sm:w-[40%] w-[18%] h-[1px]  bg-[#696262] ml-2 "></div>
         </div>
 
         <p

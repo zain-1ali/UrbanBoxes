@@ -3,11 +3,26 @@ import { CgNotes } from "react-icons/cg";
 import { BiLogoZoom } from "react-icons/bi";
 import { LuFileClock } from "react-icons/lu";
 
-const HomeOptions = () => {
+const HomeOptions = ({ bg, btnClr }) => {
+  let btnStyle = {
+    fontFamily: "Roboto",
+    backgroundColor: btnClr,
+    // ":hover": {
+    //   backgroundColor: "green",
+
+    // },
+  };
+
   return (
-    <div className="w-[100%] sm:h-[342px] h-[200px]  bg-[#EAFFEF] mt-[50px] flex items-center justify-around">
+    <div
+      className={`w-[100%] sm:h-[342px] h-[200px]   mt-[50px] flex items-center justify-around`}
+      style={{ backgroundColor: bg }}
+    >
       <div className="sm:h-[224px] h-[150px]  flex items-center flex-col justify-between">
-        <div className="sm:h-[77px] sm:w-[77px] h-[40px] w-[40px] rounded-full flex justify-center items-center bg-[#449F5A]">
+        <div
+          className="sm:h-[77px] sm:w-[77px] h-[40px] w-[40px] rounded-full flex justify-center items-center "
+          style={{ backgroundColor: btnClr }}
+        >
           <CgNotes className="sm:text-[40px] text-[15px]  text-white" />
         </div>
         <h2
@@ -24,14 +39,17 @@ const HomeOptions = () => {
         </p>
         <div
           className="sm:w-[153px] sm:h-[42px] w-[80px] h-[25px] bg-[#449F5A] hover:bg-[#6AD37F] sm:mt-[10px] mt-[7px]  sm:rounded-lg rounded-md flex justify-center items-center text-white font-medium sm:text-[16px] text-[10px] cursor-pointer"
-          style={{ fontFamily: "Roboto" }}
+          style={btnStyle}
         >
           Call Now
         </div>
       </div>
 
       <div className="sm:h-[224px]  h-[150px]  flex items-center flex-col justify-between">
-        <div className="sm:h-[77px] sm:w-[77px] h-[40px] w-[40px] rounded-full flex justify-center items-center bg-[#449F5A]">
+        <div
+          className="sm:h-[77px] sm:w-[77px] h-[40px] w-[40px] rounded-full flex justify-center items-center "
+          style={{ backgroundColor: btnClr }}
+        >
           <LuFileClock className="sm:text-[40px] text-[15px]  text-white" />
         </div>
         <h2
@@ -47,15 +65,18 @@ const HomeOptions = () => {
           Seamless way to reach Via Schedule call at desired time.
         </p>
         <div
-          className="sm:w-[153px] sm:h-[42px] w-[80px] h-[25px] bg-[#449F5A] hover:bg-[#6AD37F] sm:mt-[10px] mt-[7px]  sm:rounded-lg rounded-md flex justify-center items-center text-white font-medium sm:text-[16px] text-[10px] cursor-pointer"
-          style={{ fontFamily: "Roboto" }}
+          className="sm:w-[153px] sm:h-[42px] w-[80px] h-[25px]  sm:mt-[10px] mt-[7px]  sm:rounded-lg rounded-md flex justify-center items-center text-white font-medium sm:text-[16px] text-[10px] cursor-pointer"
+          style={{ fontFamily: "Roboto", backgroundColor: btnClr }}
         >
           Get a Qoute
         </div>
       </div>
 
       <div className="sm:h-[224px]  h-[150px]  flex items-center flex-col justify-between">
-        <div className="sm:h-[77px] sm:w-[77px] h-[40px] w-[40px] rounded-full flex justify-center items-center bg-[#449F5A]">
+        <div
+          className="sm:h-[77px] sm:w-[77px] h-[40px] w-[40px] rounded-full flex justify-center items-center "
+          style={{ fontFamily: "Roboto", backgroundColor: btnClr }}
+        >
           <BiLogoZoom className="sm:text-[40px] text-[15px]  text-white" />
         </div>
         <h2
@@ -71,8 +92,9 @@ const HomeOptions = () => {
           Enhance your trust in us by getting more clarity in your designs.
         </p>
         <div
-          className="sm:w-[153px] sm:h-[42px] w-[80px] h-[25px] bg-[#449F5A] hover:bg-[#6AD37F] sm:mt-[10px] mt-[7px]  sm:rounded-lg rounded-md flex justify-center items-center text-white font-medium sm:text-[16px] text-[10px] cursor-pointer"
-          style={{ fontFamily: "Roboto" }}
+          className="sm:w-[153px] sm:h-[42px] w-[80px] h-[25px]   sm:mt-[10px] mt-[7px]  sm:rounded-lg rounded-md flex justify-center items-center text-white font-medium sm:text-[16px] text-[10px] cursor-pointer"
+          // hover:bg-[#6AD37F]
+          style={{ fontFamily: "Roboto", backgroundColor: btnClr }}
         >
           Call Now
         </div>

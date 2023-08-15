@@ -82,6 +82,7 @@ const Navbar = () => {
             <div
               className="hover:bg-[#F2F2F2] sm:w-[120px] w-[88px] sm:text-[16px] text-sm   text-[#585656] flex justify-center items-center font-[400] border-l cursor-pointer"
               style={{ fontFamily: "Roboto" }}
+              onClick={() => navigate("/contactus")}
             >
               Contact Us
             </div>
@@ -204,7 +205,7 @@ const Navbar = () => {
               <Link to="/">
                 <div
                   className="text-[16px] font-medium cursor-pointer"
-                  style={{ fontFamily: "Roboto" }}
+                  style={{ fontFamily: "Poppins" }}
                   // onClick={navigate("/")}
                 >
                   Home
@@ -213,33 +214,45 @@ const Navbar = () => {
               <Link to="/category">
                 <div
                   className="text-[16px] font-medium flex ml-5 items-center cursor-pointer"
-                  style={{ fontFamily: "Roboto" }}
+                  style={{ fontFamily: "Poppins" }}
                 >
                   Category
                   {/* <IoIosArrowDown className="ml-1" /> */}
                 </div>
               </Link>
+              <Link to="/gogreen">
+                <div
+                  className="text-[16px] font-medium flex ml-5 items-center"
+                  style={{ fontFamily: "Poppins" }}
+                >
+                  Go Green
+                </div>
+              </Link>
 
-              <div
-                className="text-[16px] font-medium flex ml-5 items-center"
-                style={{ fontFamily: "Roboto" }}
-              >
-                Luxury Rigid Boxes <IoIosArrowDown className="ml-1" />
-              </div>
-
-              <div
-                className="text-[16px] font-medium ml-5"
-                style={{ fontFamily: "Roboto" }}
-              >
-                By style
-              </div>
-
-              <div
-                className="text-[16px] font-medium ml-5"
-                style={{ fontFamily: "Roboto" }}
-              >
-                Luxury Finishes
-              </div>
+              <Link to="/luxurayFinishes">
+                <div
+                  className="text-[16px] font-medium ml-5"
+                  style={{ fontFamily: "Poppins" }}
+                >
+                  Luxury Finishes
+                </div>
+              </Link>
+              <Link to="/aboutUs">
+                <div
+                  className="text-[16px] font-medium ml-5"
+                  style={{ fontFamily: "Poppins" }}
+                >
+                  About Us
+                </div>
+              </Link>
+              <Link to="/contactus">
+                <div
+                  className="text-[16px] font-medium ml-5"
+                  style={{ fontFamily: "Poppins" }}
+                >
+                  Contact Us
+                </div>
+              </Link>
             </div>
           </MediaQuery>
         </div>

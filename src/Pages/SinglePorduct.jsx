@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar";
 import { Link, useParams, useNavigate, useLocation } from "react-router-dom";
 import { LiaGreaterThanSolid } from "react-icons/lia";
@@ -8,6 +8,7 @@ import ProductSepecification from "../Components/ProductsComponents/ProductPrope
 import RelatedProducts from "../Components/ProductsComponents/RelatedProducts";
 import HomeOptions from "../Components/HomeOptions";
 import Footer from "../Components/Footer";
+import axios from "axios";
 
 const SinglePorduct = () => {
   const params = useParams();
@@ -20,10 +21,45 @@ const SinglePorduct = () => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
+  let [Product, setProduct] = useState({});
+  let [Products, setProducts] = useState([]);
+
+  console.log(Product?.details);
+
+  let baseUrl = import.meta.env.VITE_BASE_URL;
+  useEffect(() => {
+    let getSingleProduct = async () => {
+      let res = await axios
+        .get(`${baseUrl}/api/getProductById/${product}`)
+        .then(async (resp) => {
+          setProduct(resp.data.data);
+          let thedata = await axios.get(
+            `${baseUrl}/api/getProductsByCategoryId/${resp?.data.data.category_id}`
+          );
+          setProducts(thedata.data.data);
+        });
+    };
+
+    getSingleProduct();
+  }, []);
+
+  // useEffect(() => {
+  //   let getProducts = async () => {
+  //     let res = await axios.get(
+  //       `${baseUrl}/api/getProductsByCategoryId/${Product?.category_id}`
+  //     );
+  //     setProducts(res.data.data);
+  //   };
+
+  //   getProducts();
+  // }, [Product?.category_id]);
+
+  console.log(Products);
+
   return (
     <div className="w-[100%]">
       <Navbar />
-      <div className="w-[100%] flex justify-center items-center">
+      {/* <div className="w-[100%] flex justify-center items-center">
         <div className="lg:w-[87%] w-[90%] md:w-[93%] lg:mt-[40px] mt-[20px]">
           <div className="flex items-center ml-2">
             <Link to="/">
@@ -61,13 +97,13 @@ const SinglePorduct = () => {
             </h2>
           </div>
         </div>
-      </div>
+      </div> */}
       <ProductMailBox />
       <ProductServices />
-      <ProductSepecification />
-      <RelatedProducts />
-      <HomeOptions />
-      <Footer />
+      <ProductSepecification details={Product?.details} />
+      <RelatedProducts relatedProducts={Products} />
+      <HomeOptions bg="#EAFFEF" btnClr="#449F5A" />
+      <Footer bg="#2C703C" textClr="white" />
     </div>
   );
 };

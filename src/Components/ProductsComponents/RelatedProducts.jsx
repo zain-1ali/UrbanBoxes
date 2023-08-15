@@ -1,12 +1,14 @@
 import React from "react";
+import box from "../../imgs/herobox.png";
 
-const RelatedProducts = () => {
+const RelatedProducts = ({ relatedProducts }) => {
+  console.log(relatedProducts);
   return (
     <div className="w-[100%] mt-[50px]">
       <div className="w-[100%] flex flex-col items-center">
         <div className="w-[100%] flex flex-col items-center">
           <div className="w-[95%] flex justify-center items-center mt-[30px]">
-            <div className="sm:w-[35%] w-[22%] h-[1px]  bg-[#696262] mr-2"></div>
+            <div className="sm:w-[35%] w-[25%] h-[1px]  bg-[#696262] mr-2"></div>
             <h2
               className="sm:text-2xl text-[16px] sm:font-[600] font-[500]"
               style={{ fontFamily: "Poppins" }}
@@ -16,7 +18,7 @@ const RelatedProducts = () => {
               : "Get Discounted Price"} */}
               Related Products
             </h2>
-            <div className="sm:w-[35%] w-[22%] h-[1px]  bg-[#696262] ml-2 "></div>
+            <div className="sm:w-[35%] w-[25%] h-[1px]  bg-[#696262] ml-2 "></div>
           </div>
 
           <p
@@ -29,8 +31,29 @@ const RelatedProducts = () => {
             project.
           </p>
         </div>
-        <div className="w-[87%] flex justify-between mt-[30px] ">
-          <div className="h-[293px] w-[23%]  rounded-[19px] shadow-lg">
+        <div className="w-[87%] flex sm:justify-between justify-center mt-[30px] flex-wrap h-max">
+          {relatedProducts?.map((elm, i) => {
+            return (
+              <div
+                className="h-[293px] sm:w-[23%] w-[80%] mt-5  rounded-[19px] shadow-lg"
+                key={i}
+              >
+                <div className="w-[100%] h-[224px] rounded-[19px] bg-[#CDF6D8] shadow-md">
+                  <img src={box} alt="" />
+                </div>
+                <div className="w-[100%] h-[69px] flex justify-center items-center">
+                  <p
+                    className="font-[500] text-[20px]"
+                    style={{ fontFamily: "Roboto" }}
+                  >
+                    {elm?.name}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+
+          {/* <div className="h-[293px] sm:w-[23%] w-[80%] mt-5  rounded-[19px] shadow-lg">
             <div className="w-[100%] h-[224px] rounded-[19px] bg-[#CDF6D8] shadow-md"></div>
             <div className="w-[100%] h-[69px] flex justify-center items-center">
               <p
@@ -41,20 +64,7 @@ const RelatedProducts = () => {
               </p>
             </div>
           </div>
-
-          <div className="h-[293px] w-[23%]  rounded-[19px] shadow-lg">
-            <div className="w-[100%] h-[224px] rounded-[19px] bg-[#CDF6D8] shadow-md"></div>
-            <div className="w-[100%] h-[69px] flex justify-center items-center">
-              <p
-                className="font-[500] text-[20px]"
-                style={{ fontFamily: "Roboto" }}
-              >
-                Rigid Boxes
-              </p>
-            </div>
-          </div>
-
-          <div className="h-[293px] w-[23%]  rounded-[19px] shadow-lg">
+          <div className="h-[293px] sm:w-[23%] w-[80%] mt-5  rounded-[19px] shadow-lg">
             <div className="w-[100%] h-[224px] rounded-[19px] bg-[#CDF6D8] shadow-md"></div>
             <div className="w-[100%] h-[69px] flex justify-center items-center">
               <p
@@ -66,7 +76,7 @@ const RelatedProducts = () => {
             </div>
           </div>
 
-          <div className="h-[293px] w-[23%]  rounded-[19px] shadow-lg">
+          <div className="h-[293px] sm:w-[23%] w-[80%] mt-5  rounded-[19px] shadow-lg">
             <div className="w-[100%] h-[224px] rounded-[19px] bg-[#CDF6D8] shadow-md"></div>
             <div className="w-[100%] h-[69px] flex justify-center items-center">
               <p
@@ -76,7 +86,7 @@ const RelatedProducts = () => {
                 Custom Mailer Boxes
               </p>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

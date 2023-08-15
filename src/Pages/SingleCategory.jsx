@@ -51,7 +51,7 @@ const SingleCategory = () => {
               style={{ fontFamily: "Roboto" }}
               className="font-[400] text-[14px] ml-1 cursor-pointer text-[#449F5A]"
             >
-              {uid}
+              Single Category
             </h2>
           </div>
         </div>
@@ -63,10 +63,10 @@ const SingleCategory = () => {
         bgClr={bgClr}
         smtext="12px"
       />
-      <SingleCategoryProducts />
+      <SingleCategoryProducts id={uid} />
       <SingleCategoryDescription />
-      <HomeOptions />
-      <Footer />
+      <HomeOptions bg="#EAFFEF" btnClr="#449F5A" />
+      <Footer bg="#2C703C" textClr="white" />
     </div>
   );
 };

@@ -1,8 +1,9 @@
 import React from "react";
 
-const Details = () => {
+const Details = ({ details }) => {
+  console.log(details);
   return (
-    <div className="p-2 w-[100%] h-[100%] flex justify-center items-center flex-col">
+    <div className="p-2 w-[100%] h-[100%] flex  items-center flex-col">
       <div className="w-[100%]  flex flex-col items-center">
         <div className="w-[100%] flex justify-center items-center  ">
           <div className="sm:w-[40%] w-[22%] h-[1px]  bg-[#696262] mr-2"></div>
@@ -29,7 +30,7 @@ const Details = () => {
         </p>
       </div>
       <div className="w-[100%]">
-        <div className="mt-2">
+        {/* <div className="mt-2">
           <h2
             className="font-[700] text-2xl text-[#449F5A]"
             style={{ fontFamily: "Roboto" }}
@@ -52,8 +53,27 @@ const Details = () => {
             importance, as well as the value of different packaging boxes, is
             what makes us different.
           </p>
-        </div>
+        </div> */}
 
+        {details?.map((elm, i) => {
+          return (
+            <div className="mt-2" key={i}>
+              <h2
+                className="font-[600] text-xl text-[#449F5A]"
+                style={{ fontFamily: "Roboto" }}
+              >
+                {elm?.heading}
+              </h2>
+              <p
+                className="font-[400] text-[16px] text-[#505050]"
+                style={{ fontFamily: "Roboto" }}
+              >
+                {elm?.description}
+              </p>
+            </div>
+          );
+        })}
+        {/* 
         <div className="mt-2">
           <h2
             className="font-[600] text-xl text-[#449F5A]"
@@ -77,32 +97,7 @@ const Details = () => {
             importance, as well as the value of different packaging boxes, is
             what makes us different.
           </p>
-        </div>
-
-        <div className="mt-2">
-          <h2
-            className="font-[600] text-xl text-[#449F5A]"
-            style={{ fontFamily: "Roboto" }}
-          >
-            Custom Rigid Boxes with The Finest Options
-          </h2>
-          <p
-            className="font-[400] text-[16px] text-[#505050]"
-            style={{ fontFamily: "Roboto" }}
-          >
-            How do you perceive that the item you've received is of sheer
-            importance? By seeing the way it has been packed? Creative rigid
-            boxes are the best carriers for any kind of product. There is a
-            whole market out there that can provide you with different boxes but
-            if you want the perfect quality with magnificent printing, then
-            Custom Boxes Hub is your paramount choice. With the help of our
-            competitive price, you will be able to make such amazing rigid boxes
-            that can stimulate and anticipate your customers with their premium
-            quality. It is a very competitive age and understanding the
-            importance, as well as the value of different packaging boxes, is
-            what makes us different.
-          </p>
-        </div>
+        </div> */}
       </div>
     </div>
   );

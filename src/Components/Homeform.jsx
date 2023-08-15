@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../App.css";
 import {
   BsFillPersonFill,
@@ -9,9 +9,60 @@ import { MdEmail } from "react-icons/md";
 import MediaQuery from "react-responsive";
 
 import { useMediaQuery } from "react-responsive";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // import MediaQuery from "react-responsive/types/Component";
 const Homeform = () => {
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
+  let baseUrl = import.meta.env.VITE_BASE_URL;
+  let [data, setData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    orderType: "quote",
+    boxType: "",
+    dimentions: "",
+    quantity: "",
+  });
+
+  // -----------------------------------------------save data to db----------------------------------------
+
+  let saveToDb = async () => {
+    console.log("testing");
+    const formData = new FormData();
+    formData.append("name", data.name);
+    formData.append("email", data.email);
+    formData.append("phone", data.phone);
+    formData.append("boxType", data.boxType);
+    formData.append("orderType", "quote");
+    formData.append("units", "inch");
+    formData.append("dimentions", data.dimentions);
+    formData.append("quantity", data.quantity);
+
+    try {
+      await axios.post(`${baseUrl}/api/submitOrder`, formData).then((resp) => {
+        console.log("testing2");
+        // console.log(resp?.response?.data?.message);
+        toast.success(resp?.data?.message);
+        setData({
+          name: "",
+          email: "",
+          phone: "",
+          orderType: "quote",
+          boxType: "",
+          dimentions: "",
+          quantity: "",
+        });
+      });
+
+      // console.log(res);
+    } catch (error) {
+      // console.log(error.response.data.message);
+      toast.error(error?.response?.data?.message);
+    }
+  };
+
   return (
     <div className="w-[100%] sm:mt-[50px] mt-[20px]">
       <div className="w-[100%] flex flex-col items-center">
@@ -104,6 +155,10 @@ const Homeform = () => {
                         type="text"
                         placeholder="Full Name"
                         className="outline-none p-2 w-[88%] placeholder:text-sm"
+                        onChange={(e) =>
+                          setData({ ...data, name: e.target.value })
+                        }
+                        value={data?.name}
                       />
                     </div>
                     <div
@@ -115,6 +170,10 @@ const Homeform = () => {
                         type="text"
                         placeholder="Email"
                         className="outline-none p-2 w-[88%] placeholder:text-sm"
+                        onChange={(e) =>
+                          setData({ ...data, email: e.target.value })
+                        }
+                        value={data?.email}
                       />
                     </div>
                   </div>
@@ -126,6 +185,10 @@ const Homeform = () => {
                         type="text"
                         placeholder="Phone"
                         className="outline-none p-2 w-[88%] placeholder:text-sm"
+                        onChange={(e) =>
+                          setData({ ...data, phone: e.target.value })
+                        }
+                        value={data?.phone}
                       />
                     </div>
                     <div
@@ -172,12 +235,25 @@ const Homeform = () => {
               <div className="w-[100%] flex justify-center">
                 <div className="w-[87%]  sm:mt-[35px] mt-[20px]">
                   <div className="w-[100%] flex sm:justify-between items-center sm:flex-row flex-col">
+                    {/* <div>
+                      <p
+                        className="font-[400] sm:text-[12px]  text-[10px]"
+                        style={{ fontFamily: "Poppins", lineHeight: "13px" }}
+                      >
+                        Dimensions <span className="text-red-500 ">*</span>
+                      </p>
+                    </div> */}
                     <div className="sm:w-[47%] w-[90%] h-[47px] border rounded-lg flex justify-end items-center">
                       {/* <BsFillPersonFill className="text-[#449F5A] text-2xl " /> */}
+
                       <input
                         type="text"
-                        placeholder="Full Name"
+                        placeholder="Name or Box Type *"
                         className="outline-none p-2 w-[98%] placeholder:text-sm"
+                        onChange={(e) =>
+                          setData({ ...data, boxType: e.target.value })
+                        }
+                        value={data?.boxType}
                       />
                     </div>
                     <div
@@ -187,8 +263,12 @@ const Homeform = () => {
                       {/* <MdEmail className="text-[#449F5A] text-2xl " /> */}
                       <input
                         type="text"
-                        placeholder="Email"
+                        placeholder="Required Size * (LxWxH)"
                         className="outline-none p-2 w-[98%] placeholder:text-sm"
+                        onChange={(e) =>
+                          setData({ ...data, dimentions: e.target.value })
+                        }
+                        value={data?.dimentions}
                       />
                     </div>
                   </div>
@@ -196,10 +276,15 @@ const Homeform = () => {
                   <div className="sm:mt-[25px] mt-[14px] w-[100%] flex sm:justify-between items-center sm:flex-row flex-col">
                     <div className="sm:w-[47%] w-[90%] border rounded-lg flex justify-end items-center">
                       {/* <BsTelephoneFill className="text-[#449F5A] text-2xl " /> */}
+
                       <input
                         type="text"
-                        placeholder="Phone"
+                        placeholder="Required Quantity *"
                         className="outline-none p-2 w-[98%] placeholder:text-sm"
+                        onChange={(e) =>
+                          setData({ ...data, quantity: e.target.value })
+                        }
+                        value={data?.quantity}
                       />
                     </div>
                     <div
@@ -209,7 +294,7 @@ const Homeform = () => {
                       {/* <BsBuildingsFill className="text-[#449F5A] text-2xl " /> */}
                       <input
                         type="text"
-                        placeholder="Company Name"
+                        placeholder="Delivery Date *"
                         className="outline-none p-2 w-[98%] placeholder:text-sm"
                       />
                     </div>
@@ -297,6 +382,7 @@ const Homeform = () => {
                 <div
                   className="sm:w-[155px] sm:h-[55px] w-[100px] h-[40px] sm:text-[20px] text-[14px] rounded-md flex justify-center items-center bg-[#449F5A] hover:bg-[#6AD37F] font-[600] text-white cursor-pointer"
                   style={{ fontFamily: "Inter" }}
+                  onClick={() => saveToDb()}
                 >
                   Submit
                 </div>
@@ -305,7 +391,7 @@ const Homeform = () => {
           </div>
         </div>
       </div>
-
+      <ToastContainer position="bottom-right" autoClose={1500} />
       <br />
     </div>
   );

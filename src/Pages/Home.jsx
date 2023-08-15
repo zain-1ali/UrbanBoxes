@@ -14,6 +14,9 @@ import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   let navigate = useNavigate();
+
+  let baseUrl = import.meta.env.VITE_BASE_URL;
+  console.log(baseUrl);
   return (
     <div className="w-[100%] scrollbar-hide">
       <Navbar navigate={navigate} />
@@ -24,9 +27,9 @@ const Home = () => {
       <HomePremium />
       <HomeGreen />
       <HomeBrandTrust />
-      <HomeOptions />
+      <HomeOptions bg="#EAFFEF" btnClr="#449F5A" />
       <HomeFAQ />
-      <Footer />
+      <Footer bg="#2C703C" textClr="white" />
     </div>
   );
 };
