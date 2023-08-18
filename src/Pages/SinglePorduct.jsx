@@ -9,6 +9,7 @@ import RelatedProducts from "../Components/ProductsComponents/RelatedProducts";
 import HomeOptions from "../Components/HomeOptions";
 import Footer from "../Components/Footer";
 import axios from "axios";
+import MailboxSkel from "../Components/Skeletons/MailboxSkel";
 
 const SinglePorduct = () => {
   const params = useParams();
@@ -54,7 +55,8 @@ const SinglePorduct = () => {
   //   getProducts();
   // }, [Product?.category_id]);
 
-  console.log(Products);
+  console.log(Product?.images);
+  console.log(Product);
 
   return (
     <div className="w-[100%]">
@@ -98,7 +100,12 @@ const SinglePorduct = () => {
           </div>
         </div>
       </div> */}
-      <ProductMailBox />
+      {Product?.images ? (
+        <ProductMailBox images={Product?.images} />
+      ) : (
+        <MailboxSkel />
+      )}
+      {/* <MailboxSkel /> */}
       <ProductServices />
       <ProductSepecification details={Product?.details} />
       <RelatedProducts relatedProducts={Products} />

@@ -47,7 +47,7 @@ const ProductSepecification = ({ details }) => {
           <div className="sm:h-[100%] sm:w-[13%] w-[100%] h-[150px] flex sm:flex-col border">
             <div
               className={`sm:w-[100%] sm:h-[130px] w-[20%] border cursor-pointer ${
-                isSepecification ? `bg-[#A6EAB8] shadow-xl ` : `bg-[#449F5A]`
+                isSepecification ? `bg-[#A6EAB8] shadow-2xl ` : `bg-[#449F5A]`
               }  flex justify-center items-center flex-col hover:bg-[#A6EAB8]`}
               onClick={() => dispatch(openSepecification())}
             >

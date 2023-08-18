@@ -24,7 +24,8 @@ const SingleCategoryProducts = ({ id }) => {
 
   return (
     <div className="lg:mt-[50px] md:mt-[40px] mt-[25px] w-[100%] flex justify-center">
-      <div className="lg:w-[85%] w-[85%] md:w-[87%] flex justify-around md:justify-between flex-wrap">
+      <div className="lg:w-[85%] w-[85%] md:w-[87%] grid sm:grid-cols-3 grid-cols-1 gap-4 ">
+        {/* flex justify-around md:justify-between flex-wrap */}
         {Products?.map((elm, i) => {
           return (
             <div
@@ -32,7 +33,17 @@ const SingleCategoryProducts = ({ id }) => {
               onClick={() => navigate(`/singleproduct/${elm?.id}`)}
               key={i}
             >
-              <div className="lg:h-[279px] md:h-[279px] h-[250px] rounded-[19px] bg-[#FEF3FE]"></div>
+              <div className="lg:h-[279px] md:h-[279px] h-[250px] rounded-[19px] bg-[#FEF3FE] flex justify-center items-center">
+                <img
+                  src={
+                    elm?.images[0]?.image
+                      ? elm?.images[0]?.image
+                      : "https://placehold.co/200x200"
+                  }
+                  alt=""
+                  className="h-[200px] w-[200px]"
+                />
+              </div>
               <div className="w-[100%] flex justify-center">
                 <div className="w-[85%] mt-3">
                   <h2

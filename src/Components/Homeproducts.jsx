@@ -44,15 +44,19 @@ const Homeproducts = () => {
         </p>
       </div>
       <div className="w-[100%] flex flex-col items-center">
-        <div className="sm:w-[87%] w-[95%]  mt-[30px] flex justify-evenly flex-wrap">
+        <div className="sm:w-[87%] w-[95%]  mt-[30px] flex sm:justify-start justify-evenly flex-wrap">
           {/* grid sm:grid-cols-4 grid-cols-2  gap-x-4 gap-y-2 */}
           {latestProducts?.map((elm) => {
             return (
               <div
-                className="sm:h-[240px] sm:w-[250px] w-[160px] h-[140px] rounded-[4px] sm:mt-[20px] mt-[15px] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer  relative"
+                className="sm:h-[240px] sm:w-[250px] w-[160px] h-[140px] rounded-[4px] sm:mt-[20px] mt-[15px] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer  relative ml-[3%] border"
                 onClick={() => navigate(`/singleproduct/${elm?.id}`)}
               >
-                <img src={box} alt="" />
+                <img
+                  src={elm?.images[0]?.image ? elm?.images[0]?.image : box}
+                  alt=""
+                  className="h-[100%] w-[100%]"
+                />
                 <p className="w-[100%] text-center absolute bottom-5 font-medium text-[16px] text-[#A4A2A2] ">
                   {elm?.name}
                 </p>

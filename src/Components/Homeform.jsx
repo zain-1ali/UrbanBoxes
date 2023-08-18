@@ -12,8 +12,24 @@ import { useMediaQuery } from "react-responsive";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AiOutlineCalendar } from "react-icons/ai";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { TextField } from "@mui/material";
+
 // import MediaQuery from "react-responsive/types/Component";
+
 const Homeform = () => {
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  let mm = today.getMonth() + 1; // Months start at 0!
+  let dd = today.getDate();
+
+  if (dd < 10) dd = "0" + dd;
+  if (mm < 10) mm = "0" + mm;
+
+  const formattedToday = mm + "/" + dd + "/" + yyyy;
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
   let baseUrl = import.meta.env.VITE_BASE_URL;
   let [data, setData] = useState({
@@ -24,6 +40,8 @@ const Homeform = () => {
     boxType: "",
     dimentions: "",
     quantity: "",
+    deliveryDate: "",
+    company: "",
   });
 
   // -----------------------------------------------save data to db----------------------------------------
@@ -53,6 +71,8 @@ const Homeform = () => {
           boxType: "",
           dimentions: "",
           quantity: "",
+          company: "",
+          deliveryDate: "",
         });
       });
 
@@ -61,6 +81,20 @@ const Homeform = () => {
       // console.log(error.response.data.message);
       toast.error(error?.response?.data?.message);
     }
+  };
+
+  let reset = () => {
+    setData({
+      name: "",
+      email: "",
+      phone: "",
+      orderType: "quote",
+      boxType: "",
+      dimentions: "",
+      quantity: "",
+      company: "",
+      deliveryDate: "",
+    });
   };
 
   return (
@@ -149,7 +183,7 @@ const Homeform = () => {
               <div className="w-[100%] flex justify-center">
                 <div className="w-[87%]  sm:mt-[35px] mt-[20px]">
                   <div className="w-[100%] flex sm:justify-between items-center sm:flex-row flex-col">
-                    <div className="sm:w-[47%] w-[90%] h-[47px] border rounded-lg flex justify-end items-center">
+                    <div className="sm:w-[47%] w-[90%] h-[47px] border rounded-md border-[#c4c4c4] flex justify-end items-center">
                       <BsFillPersonFill className="text-[#449F5A] text-2xl " />
                       <input
                         type="text"
@@ -162,14 +196,14 @@ const Homeform = () => {
                       />
                     </div>
                     <div
-                      className="sm:w-[47%] w-[90%] border rounded-lg flex justify-end items-center"
+                      className="sm:w-[47%] w-[90%] border rounded-md border-[#c4c4c4] flex justify-end items-center"
                       style={isDesktopOrLaptop ? null : { marginTop: "14px" }}
                     >
                       <MdEmail className="text-[#449F5A] text-2xl " />
                       <input
                         type="text"
                         placeholder="Email"
-                        className="outline-none p-2 w-[88%] placeholder:text-sm"
+                        className="outline-none p-2 w-[85%] placeholder:text-sm mr-1"
                         onChange={(e) =>
                           setData({ ...data, email: e.target.value })
                         }
@@ -179,12 +213,12 @@ const Homeform = () => {
                   </div>
 
                   <div className="sm:mt-[25px] mt-[14px] w-[100%] flex sm:justify-between items-center sm:flex-row flex-col">
-                    <div className="sm:w-[47%] w-[90%] border rounded-lg flex justify-end items-center">
+                    <div className="sm:w-[47%] w-[90%] border rounded-md border-[#c4c4c4] flex justify-end items-center">
                       <BsTelephoneFill className="text-[#449F5A] text-2xl " />
                       <input
                         type="text"
                         placeholder="Phone"
-                        className="outline-none p-2 w-[88%] placeholder:text-sm"
+                        className="outline-none p-2 w-[85%]  placeholder:text-sm mr-1"
                         onChange={(e) =>
                           setData({ ...data, phone: e.target.value })
                         }
@@ -192,14 +226,18 @@ const Homeform = () => {
                       />
                     </div>
                     <div
-                      className="sm:w-[47%] w-[90%] border rounded-lg flex justify-end items-center"
+                      className="sm:w-[47%] w-[90%] border rounded-md border-[#c4c4c4] flex justify-end items-center"
                       style={isDesktopOrLaptop ? null : { marginTop: "14px" }}
                     >
                       <BsBuildingsFill className="text-[#449F5A] text-2xl " />
                       <input
                         type="text"
                         placeholder="Company Name"
-                        className="outline-none p-2 w-[88%] placeholder:text-sm"
+                        className="outline-none p-2 w-[85%] placeholder:text-sm mr-1"
+                        onChange={(e) =>
+                          setData({ ...data, company: e.target.value })
+                        }
+                        value={data?.company}
                       />
                     </div>
                   </div>
@@ -235,21 +273,21 @@ const Homeform = () => {
               <div className="w-[100%] flex justify-center">
                 <div className="w-[87%]  sm:mt-[35px] mt-[20px]">
                   <div className="w-[100%] flex sm:justify-between items-center sm:flex-row flex-col">
-                    {/* <div>
-                      <p
-                        className="font-[400] sm:text-[12px]  text-[10px]"
-                        style={{ fontFamily: "Poppins", lineHeight: "13px" }}
-                      >
-                        Dimensions <span className="text-red-500 ">*</span>
-                      </p>
-                    </div> */}
-                    <div className="sm:w-[47%] w-[90%] h-[47px] border rounded-lg flex justify-end items-center">
+                    <div className="sm:w-[47%] w-[90%]  ">
                       {/* <BsFillPersonFill className="text-[#449F5A] text-2xl " /> */}
-
+                      <div>
+                        <p
+                          className="font-[400] sm:text-[12px]  text-[10px]"
+                          style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                        >
+                          Name or Box Type{" "}
+                          <span className="text-red-500 ">*</span>
+                        </p>
+                      </div>
                       <input
                         type="text"
-                        placeholder="Name or Box Type *"
-                        className="outline-none p-2 w-[98%] placeholder:text-sm"
+                        // placeholder="Name or Box Type *"
+                        className="outline-none p-2 w-[100%] border rounded-md border-[#c4c4c4] placeholder:text-sm  mt-1"
                         onChange={(e) =>
                           setData({ ...data, boxType: e.target.value })
                         }
@@ -257,14 +295,21 @@ const Homeform = () => {
                       />
                     </div>
                     <div
-                      className="sm:w-[47%] w-[90%] border rounded-lg flex justify-end items-center"
+                      className="sm:w-[47%] w-[90%] "
                       style={isDesktopOrLaptop ? null : { marginTop: "14px" }}
                     >
-                      {/* <MdEmail className="text-[#449F5A] text-2xl " /> */}
+                      <div>
+                        <p
+                          className="font-[400] sm:text-[12px]  text-[10px]"
+                          style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                        >
+                          Required Size <span className="text-red-500 ">*</span>
+                        </p>
+                      </div>
                       <input
                         type="text"
-                        placeholder="Required Size * (LxWxH)"
-                        className="outline-none p-2 w-[98%] placeholder:text-sm"
+                        placeholder="(LxWxH)"
+                        className="outline-none p-2 w-[100%] border rounded-md border-[#c4c4c4] placeholder:text-sm mt-1"
                         onChange={(e) =>
                           setData({ ...data, dimentions: e.target.value })
                         }
@@ -274,13 +319,21 @@ const Homeform = () => {
                   </div>
 
                   <div className="sm:mt-[25px] mt-[14px] w-[100%] flex sm:justify-between items-center sm:flex-row flex-col">
-                    <div className="sm:w-[47%] w-[90%] border rounded-lg flex justify-end items-center">
-                      {/* <BsTelephoneFill className="text-[#449F5A] text-2xl " /> */}
+                    <div className="sm:w-[47%] w-[90%] ">
+                      <div>
+                        <p
+                          className="font-[400] sm:text-[12px]  text-[10px]"
+                          style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                        >
+                          Required Quantity{" "}
+                          <span className="text-red-500 ">*</span>
+                        </p>
+                      </div>
 
                       <input
                         type="text"
-                        placeholder="Required Quantity *"
-                        className="outline-none p-2 w-[98%] placeholder:text-sm"
+                        // placeholder="Required Quantity *"
+                        className="outline-none p-2 w-[100%] border rounded-md border-[#c4c4c4] placeholder:text-sm mt-1 "
                         onChange={(e) =>
                           setData({ ...data, quantity: e.target.value })
                         }
@@ -288,30 +341,60 @@ const Homeform = () => {
                       />
                     </div>
                     <div
-                      className="sm:w-[47%] w-[90%] border rounded-lg flex justify-end items-center"
+                      className="sm:w-[47%] w-[90%] "
                       style={isDesktopOrLaptop ? null : { marginTop: "14px" }}
                     >
-                      {/* <BsBuildingsFill className="text-[#449F5A] text-2xl " /> */}
-                      <input
-                        type="text"
-                        placeholder="Delivery Date *"
-                        className="outline-none p-2 w-[98%] placeholder:text-sm"
-                      />
+                      <div>
+                        <p
+                          className="font-[400] sm:text-[12px]  text-[10px]"
+                          style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                        >
+                          Delivery Date <span className="text-red-500 ">*</span>
+                        </p>
+                      </div>
+                      {/* <div className="outline-none p-2 w-[100%] border rounded-lg placeholder:text-sm mt-1 h-[42px] flex items-center justify-around">
+                        <div className="w-[90%]"></div>
+
+                        <label for="date" className=" flex items-center">
+                          <AiOutlineCalendar className="text-[#BFBDBD] text-xl " />
+
+                          <input
+                            type="date"
+                            name="date"
+                            id="date"
+                            className="opacity-0 w-[0px] h-[0px]"
+                            
+                          />
+                        </label>
+                      </div> */}
+                      {/* <input
+                        type="date"
+                        
+                      /> */}
+                      <LocalizationProvider dateAdapter={AdapterDayjs}>
+                        <DatePicker
+                          slotProps={{
+                            textField: { size: "small", error: false },
+                          }}
+                          onChange={(e) =>
+                            setData({ ...data, deliveryDate: e.target.value })
+                          }
+                          value={
+                            data?.deliveryDate
+                            //     ? data?.deliveryDate
+                            //     : formattedToday
+                          }
+                          sx={{
+                            width: "265px",
+                            marginTop: "4px",
+                            outline: "none",
+                            borderRadius: "8px",
+                          }}
+                        />
+                      </LocalizationProvider>
+                      <div></div>
                     </div>
                   </div>
-
-                  {/* <div className="w-[100%] flex mt-5 items-center">
-                    <input
-                      type="checkbox"
-                      className="h-[18px] w-[18px] rounded-md outline-none border"
-                    />
-                    <h2
-                      className="sm:text-[16px] text-[14px] font-medium ml-3"
-                      style={{ fontFamily: "Roboto" }}
-                    >
-                      Request A Callback
-                    </h2>
-                  </div> */}
                 </div>
               </div>
               {/* <div className="w-[100%] flex justify-center">
@@ -376,6 +459,7 @@ const Homeform = () => {
                 <div
                   className="hover:bg-[#F2F2F2] hover:text-[#585656] cursor-pointer hover:border-[#F2F2F2] sm:w-[155px] sm:h-[55px] w-[100px] h-[40px]  sm:text-[20px] text-[14px] rounded-md flex justify-center items-center mr-3 border border-[#449F5A]  font-[600] text-[#449F5A]"
                   style={{ fontFamily: "Inter" }}
+                  onClick={() => reset()}
                 >
                   Reset
                 </div>

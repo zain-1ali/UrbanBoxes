@@ -11,7 +11,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const ProductMailBox = () => {
+const ProductMailBox = ({ images }) => {
   let [bigDisplay, setBigDisplay] = useState(box1);
   const [checked, setChecked] = useState(false);
 
@@ -94,15 +94,20 @@ const ProductMailBox = () => {
     }
   };
 
+  // console.log(images[0]?.image);
   return (
     <div className="lg:mt-[50px] md:mt-[50px]  w-[100%]">
       <div className="w-[100%] flex justify-center">
         <div className="w-[90%] sm:h-[700px] h-max flex sm:flex-row flex-col sm:mt-0 mt-[25px]  sm:justify-between  items-center">
           <div className="lg:w-[36%] lg:h-[100%] md:w-[46%] md:h-[100%]  w-[90%] ">
             <div className="flex flex-col justify-between items-center w-[100%] h-[100%]">
-              <div className=" w-[97%]">
+              <div className=" w-[97%] ">
                 <img
-                  src={bigDisplay}
+                  src={
+                    images[0]?.image
+                      ? images[0]?.image
+                      : "https://placehold.co/600x800"
+                  }
                   alt=""
                   className="w-[100%] sm:h-[544px] h-[400px] rounded-3xl"
                 />
@@ -112,11 +117,16 @@ const ProductMailBox = () => {
                 // onClick={() => setBigDisplay(box2)}
               >
                 <div
-                  className="w-[31%] h-[140px] cursor-pointer"
+                  className="w-[31%] h-[140px] cursor-pointer "
                   onClick={() => setBigDisplay(box2)}
                 >
                   <img
-                    src={box2}
+                    src={
+                      // images[1]?.image
+                      //   ? images[0]?.image
+                      //   :
+                      "https://placehold.co/130x140"
+                    }
                     alt=""
                     className="w-[100%] h-[100%] rounded-3xl"
                   />
@@ -126,7 +136,12 @@ const ProductMailBox = () => {
                   onClick={() => setBigDisplay(box3)}
                 >
                   <img
-                    src={box3}
+                    src={
+                      // images[2]?.image
+                      //   ? images[0]?.image
+                      //   :
+                      "https://placehold.co/130x140"
+                    }
                     alt=""
                     className="w-[100%] h-[100%] rounded-3xl"
                   />
@@ -136,7 +151,12 @@ const ProductMailBox = () => {
                   onClick={() => setBigDisplay(box4)}
                 >
                   <img
-                    src={box4}
+                    src={
+                      // images[3]?.image
+                      //   ? images[0]?.image
+                      //   :
+                      "https://placehold.co/130x140"
+                    }
                     alt=""
                     className="w-[100%] h-[100%] rounded-3xl"
                   />

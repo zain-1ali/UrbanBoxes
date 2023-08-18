@@ -1,4 +1,5 @@
 import React from "react";
+import box from "../../imgs/box1.png";
 
 const Coating = () => {
   return (
@@ -23,16 +24,18 @@ const Coating = () => {
           // w-[70%] text-center mt-[25px] font-[400] text-xl text-[#2C2C2C]
           style={{ fontFamily: "Roboto" }}
         >
-          we strive to provide superior services and solutions that surpass your
+          We strive to provide superior services and solutions that surpass your
           expectations. Let us find the ideal packaging solution for your
           project.
         </p>
       </div>
       <div className="overflow-y-scroll h-[80%] w-[100%] pr-3">
         <div className="flex justify-between mt-[30px] w-[100%] ">
-          <div className="w-[23%] h-[320px] shadow-sm rounded-[19px] bg-[#CDF6D8]">
+          <div className="w-[23%] h-[320px] shadow-lg  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer">
             <div className="w-[100%] h-[60%]  flex justify-center items-center">
-              <div className="h-[87%] shadow-md w-[90%] bg-white rounded-[19px]"></div>
+              <div className="h-[87%] shadow-md w-[90%] bg-white rounded-[19px]">
+                <img src={box} alt="" className="h-[100%] w-[100%] " />
+              </div>
             </div>
             <div className="w-[100%] h-[35%]  flex flex-col justify-center pl-3">
               <h2
@@ -49,9 +52,11 @@ const Coating = () => {
               </p>
             </div>
           </div>
-          <div className="w-[23%] h-[320px] shadow-sm rounded-[19px] bg-[#CDF6D8]">
+          <div className="w-[23%] h-[320px] shadow-lg  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer">
             <div className="w-[100%] h-[60%]  flex justify-center items-center">
-              <div className="h-[87%] shadow-md w-[90%] bg-white rounded-[19px]"></div>
+              <div className="h-[87%] shadow-md w-[90%] bg-white rounded-[19px]">
+                <img src={box} alt="" className="h-[100%] w-[100%] " />
+              </div>
             </div>
             <div className="w-[100%] h-[35%]  flex flex-col justify-center pl-3">
               <h2
@@ -68,9 +73,11 @@ const Coating = () => {
               </p>
             </div>
           </div>
-          <div className="w-[23%] h-[320px] shadow-sm rounded-[19px] bg-[#CDF6D8]">
+          <div className="w-[23%] h-[320px] shadow-lg  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer">
             <div className="w-[100%] h-[60%]  flex justify-center items-center">
-              <div className="h-[87%] shadow-md w-[90%] bg-white rounded-[19px]"></div>
+              <div className="h-[87%] shadow-md w-[90%] bg-white rounded-[19px]">
+                <img src={box} alt="" className="h-[100%] w-[100%] " />
+              </div>
             </div>
             <div className="w-[100%] h-[35%]  flex flex-col justify-center pl-3">
               <h2
@@ -87,9 +94,11 @@ const Coating = () => {
               </p>
             </div>
           </div>
-          <div className="w-[23%] h-[320px] shadow-sm rounded-[19px] bg-[#CDF6D8]">
+          <div className="w-[23%] h-[320px] shadow-lg  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer">
             <div className="w-[100%] h-[60%]  flex justify-center items-center">
-              <div className="h-[87%] shadow-md w-[90%] bg-white rounded-[19px]"></div>
+              <div className="h-[87%] shadow-md w-[90%] bg-white rounded-[19px]">
+                <img src={box} alt="" className="h-[100%] w-[100%] " />
+              </div>
             </div>
             <div className="w-[100%] h-[35%]  flex flex-col justify-center pl-3">
               <h2
@@ -109,9 +118,11 @@ const Coating = () => {
         </div>
 
         <div className="flex justify-between mt-[30px] w-[100%] ">
-          <div className="w-[23%] h-[320px] shadow-sm rounded-[19px] bg-[#CDF6D8]">
+          <div className="w-[23%] h-[320px] shadow-lg  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer">
             <div className="w-[100%] h-[60%]  flex justify-center items-center">
-              <div className="h-[87%] shadow-md w-[90%] bg-white rounded-[19px]"></div>
+              <div className="h-[87%] shadow-md w-[90%] bg-white rounded-[19px]">
+                <img src={box} alt="" className="h-[100%] w-[100%]" />
+              </div>
             </div>
             <div className="w-[100%] h-[35%]  flex flex-col justify-center pl-3">
               <h2
@@ -128,9 +139,11 @@ const Coating = () => {
               </p>
             </div>
           </div>
-          <div className="w-[23%] h-[320px] shadow-sm rounded-[19px] bg-[#CDF6D8]">
+          <div className="w-[23%] h-[320px] shadow-lg  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer">
             <div className="w-[100%] h-[60%]  flex justify-center items-center">
-              <div className="h-[87%] shadow-md w-[90%] bg-white rounded-[19px]"></div>
+              <div className="h-[87%] shadow-md w-[90%] bg-white rounded-[19px]">
+                <img src={box} alt="" className="h-[100%] w-[100%]" />
+              </div>
             </div>
             <div className="w-[100%] h-[35%]  flex flex-col justify-center pl-3">
               <h2
@@ -147,9 +160,11 @@ const Coating = () => {
               </p>
             </div>
           </div>
-          <div className="w-[23%] h-[320px] shadow-sm rounded-[19px] bg-[#CDF6D8]">
+          <div className="w-[23%] h-[320px] shadow-lg  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer">
             <div className="w-[100%] h-[60%]  flex justify-center items-center">
-              <div className="h-[87%] shadow-md w-[90%] bg-white rounded-[19px]"></div>
+              <div className="h-[87%] shadow-md w-[90%] bg-white rounded-[19px]">
+                <img src={box} alt="" className="h-[100%] w-[100%]" />
+              </div>
             </div>
             <div className="w-[100%] h-[35%]  flex flex-col justify-center pl-3">
               <h2
@@ -167,9 +182,11 @@ const Coating = () => {
               </p>
             </div>
           </div>
-          <div className="w-[23%] h-[320px] shadow-sm rounded-[19px] bg-[#CDF6D8]">
+          <div className="w-[23%] h-[320px] shadow-lg  transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer">
             <div className="w-[100%] h-[60%]  flex justify-center items-center">
-              <div className="h-[87%] shadow-md w-[90%] bg-white rounded-[19px]"></div>
+              <div className="h-[87%] shadow-md w-[90%] bg-white rounded-[19px]">
+                <img src={box} alt="" className="h-[100%] w-[100%]" />
+              </div>
             </div>
             <div className="w-[100%] h-[35%]  flex flex-col justify-center pl-3">
               <h2
@@ -187,6 +204,7 @@ const Coating = () => {
             </div>
           </div>
         </div>
+        <br />
       </div>
     </div>
   );

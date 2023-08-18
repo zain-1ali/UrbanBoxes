@@ -30,7 +30,7 @@ const Sepecifications = () => {
           // w-[70%] text-center mt-[25px] font-[400] text-xl text-[#2C2C2C]
           style={{ fontFamily: "Roboto" }}
         >
-          we strive to provide superior services and solutions that surpass your
+          We strive to provide superior services and solutions that surpass your
           expectations. Let us find the ideal packaging solution for your
           project.
         </p>

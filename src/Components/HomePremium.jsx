@@ -1,5 +1,6 @@
 import React from "react";
 import crown from "../imgs/Crown.png";
+import box from "../imgs/herobox.png";
 
 const HomePremium = () => {
   return (
@@ -25,15 +26,49 @@ const HomePremium = () => {
           packaging.
         </p>
       </div>
+      <div className="w-[100%] h-[600px]   mt-[20px] sm:mt-[45px]">
+        <div className="w-[95%]   h-[340px] rounded-br-[60px] bg-[#e5f8f7] relative">
+          <div className="w-[240px] border h-[95%] absolute bottom-[-80px] left-[80px] rounded-xl bg-[#191c33] flex justify-center items-center">
+            <img src={box} alt="" />
+          </div>
+          <div className="w-[240px] border h-[60%] absolute top-[30px] left-[360px] rounded-xl bg-[#71b9db] flex justify-center items-center">
+            <img src={box} alt="" />
+          </div>
+          <div className="w-[240px] border h-[60%] absolute top-[60px] left-[630px] rounded-xl bg-[#8b0039] flex justify-center items-center">
+            <img src={box} alt="" />
+          </div>
+          <div className="w-[240px] border h-[80%] absolute top-[100px] left-[890px] rounded-xl bg-[#f3aa8d] flex justify-center items-center">
+            <img src={box} alt="" />
+          </div>
 
-      <div className="w-[100%] flex justify-center mt-[20px] sm:mt-[45px]">
+          {/* --------------------------- */}
+
+          <div className="w-[240px] border h-[40%] absolute bottom-[-240px] left-[80px] rounded-xl bg-[#002d44] flex justify-center items-center">
+            <img src={box} alt="" />
+          </div>
+          <div className="w-[240px] border h-[70%] absolute bottom-[-160px] left-[360px] rounded-xl bg-[#e1e7eb] flex justify-center items-center">
+            <img src={box} alt="" />
+          </div>
+          <div className="w-[240px] border h-[70%] absolute bottom-[-190px] left-[630px] rounded-xl bg-[#f5f5f5] flex justify-center items-center">
+            <img src={box} alt="" />
+          </div>
+          <div className="w-[240px] border h-[40%] absolute bottom-[-190px] left-[890px] rounded-xl bg-[#7b5a34] flex justify-center items-center">
+            <img src={box} alt="" />
+          </div>
+
+          {/*<div className="w-[200px] border"></div>
+          <div className="w-[200px] border"></div> */}
+        </div>
+      </div>
+
+      {/* <div className="w-[100%] flex justify-center mt-[20px] sm:mt-[45px]">
         <div className="sm:w-[87%] w-[94%] ">
           <div className="w-[92%] flex justify-end">
             <img src={crown} alt="crown" className="mb-[-8px]" />
           </div>
           <div className="w-[100%]  border-[#EFCE6F] sm:h-[500px] h-[170px]  sm:rounded-[45px] rounded-[25px]  border-[4px] flex justify-evenly ">
             <div className="w-[50%] h-[100%] flex  justify-center flex-col">
-              {/* #FFD164 */}
+      
               <h2
                 className="sm:text-[36px] text-[14px] sm:font-[600] font-[600] "
                 style={{ fontFamily: "Inter" }}
@@ -65,7 +100,7 @@ const HomePremium = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

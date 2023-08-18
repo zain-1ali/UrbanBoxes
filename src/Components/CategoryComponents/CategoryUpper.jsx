@@ -44,7 +44,7 @@ const CategoryUpper = ({ heading, paragraph, imgUrl, bgClr, smtext }) => {
             </p>
           </div>
           <div className="md:w-[45%] lg:[50%] h-[100%] flex justify-center items-center">
-            <img src={imgUrl} alt="" />
+            <img src={imgUrl} alt="" className="h-[270px] w-[270px]" />
           </div>
         </div>
       </div>

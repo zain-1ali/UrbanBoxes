@@ -22,9 +22,8 @@ const ContactUs = () => {
   let baseUrl = import.meta.env.VITE_BASE_URL;
 
   let saveToDb = async () => {
-    // if (msgInfo.name && msgInfo.email && msgInfo.phone && msgInfo.message) {
     try {
-      //
+    
       await axios
         .post(`${baseUrl}/api/submitContact`, {
           name: msgInfo.name,

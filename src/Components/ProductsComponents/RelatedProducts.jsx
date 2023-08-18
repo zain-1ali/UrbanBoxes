@@ -26,16 +26,18 @@ const RelatedProducts = ({ relatedProducts }) => {
             // w-[70%] text-center mt-[25px] font-[400] text-xl text-[#2C2C2C]
             style={{ fontFamily: "Roboto" }}
           >
-            we strive to provide superior services and solutions that surpass
+            We strive to provide superior services and solutions that surpass
             your expectations. Let us find the ideal packaging solution for your
             project.
           </p>
         </div>
-        <div className="w-[87%] flex sm:justify-between justify-center mt-[30px] flex-wrap h-max">
+        <div className="w-[87%]  flex   sm:justify-start justify-center  mt-[30px] flex-wrap h-max ">
+          {/* */}
+
           {relatedProducts?.map((elm, i) => {
             return (
               <div
-                className="h-[293px] sm:w-[23%] w-[80%] mt-5  rounded-[19px] shadow-lg"
+                className="h-[293px] sm:w-[23%] w-[80%] mt-5  rounded-[19px] shadow-lg sm:ml-[1.5%]"
                 key={i}
               >
                 <div className="w-[100%] h-[224px] rounded-[19px] bg-[#CDF6D8] shadow-md">

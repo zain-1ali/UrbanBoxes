@@ -33,7 +33,7 @@ const Custom = ({ heading, bgClr, paragraph, path, imgUrl }) => {
             </p>
           </div>
           <div className="md:w-[45%] lg:[50%] h-[100%] flex justify-center items-center">
-            <img src={box} alt="" />
+            <img src={imgUrl} alt="" className="h-[380px] w-[380px]" />
           </div>
         </div>
         <div className="w-[100%] flex justify-center  lg:h-[100px] md:h-[78px] h-[50px] items-center">

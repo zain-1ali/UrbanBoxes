@@ -32,21 +32,21 @@ const SingleCategory = () => {
             <Link to="/">
               <h2
                 style={{ fontFamily: "Roboto" }}
-                className="font-[400] text-[14px] cursor-pointer"
+                className="font-[400] text-[14px] cursor-pointer text-[#7E7C7C]"
               >
                 Home
               </h2>
             </Link>
-            <LiaGreaterThanSolid className="ml-1 text-sm" />
+            <LiaGreaterThanSolid className="ml-1 text-sm text-[#7E7C7C]" />
             <Link to="/category">
               <h2
                 style={{ fontFamily: "Roboto" }}
-                className="font-[400] text-[14px] ml-1 cursor-pointer "
+                className="font-[400] text-[14px] ml-1 cursor-pointer text-[#7E7C7C]"
               >
                 Category
               </h2>
             </Link>
-            <LiaGreaterThanSolid className="ml-1 text-sm" />
+            <LiaGreaterThanSolid className="ml-1 text-sm text-[#7E7C7C]" />
             <h2
               style={{ fontFamily: "Roboto" }}
               className="font-[400] text-[14px] ml-1 cursor-pointer text-[#449F5A]"
