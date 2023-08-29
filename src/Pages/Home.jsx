@@ -11,17 +11,22 @@ import HomeFAQ from "../Components/HomeFAQ";
 import HomeBrandTrust from "../Components/HomeBrandTrust";
 import Footer from "../Components/Footer";
 import { useNavigate } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
+import MobileNavbar from "../Components/MobileNavbar";
+import Branding from "../Components/Branding";
 
 const Home = () => {
+  const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
   let navigate = useNavigate();
 
   let baseUrl = import.meta.env.VITE_BASE_URL;
   console.log(baseUrl);
   return (
     <div className="w-[100%] scrollbar-hide">
-      <Navbar navigate={navigate} />
+      {isDesktopOrLaptop ? <Navbar navigate={navigate} /> : <MobileNavbar />}
       <HeroSection />
       <Homeproducts />
+      <Branding />
       <Homeform />
       <WhyUs />
       <HomePremium />

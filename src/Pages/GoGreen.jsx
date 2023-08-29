@@ -9,10 +9,13 @@ import InvestGreen from "../Components/GoGreenComponents/InvestGreen";
 import HomeOptions from "../Components/HomeOptions";
 import Footer from "../Components/Footer";
 import ecobox from "../imgs/ecofriendlyboxes.png";
+import { useMediaQuery } from "react-responsive";
+import MobileNavbar from "../Components/MobileNavbar";
 const GoGreen = () => {
+  const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
   return (
     <div className="w-[100%]">
-      <Navbar />
+      {isDesktopOrLaptop ? <Navbar /> : <MobileNavbar />}
       <StaticPageUpper
         img={ecobox}
         heading=" Go Greener with us to Create a Better Future for the Planet"

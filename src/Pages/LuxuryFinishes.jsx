@@ -9,11 +9,14 @@ import Uv from "../Components/LuxuryFinishs/Uv";
 import Aqueous from "../Components/LuxuryFinishs/Aqueous";
 import HomeOptions from "../Components/HomeOptions";
 import Footer from "../Components/Footer";
+import { useMediaQuery } from "react-responsive";
+import MobileNavbar from "../Components/MobileNavbar";
 
 const LuxuryFinishes = () => {
+  const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
   return (
     <div className="w-[100%]">
-      <Navbar />
+      {isDesktopOrLaptop ? <Navbar /> : <MobileNavbar />}
 
       <StaticPageUpper
         img={luxurybox}

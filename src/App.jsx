@@ -16,8 +16,11 @@ import GoGreen from "./Pages/GoGreen";
 import LuxuryFinishes from "./Pages/LuxuryFinishes";
 import AboutUs from "./Pages/AboutUs";
 import ContactUs from "./Pages/ContactUs";
+import Contactbar from "./Components/Contactbar";
+import { useMediaQuery } from "react-responsive";
 
 function App() {
+  const isMobile = useMediaQuery({ maxWidth: 500 });
   return (
     <div className="scrollbar-hide">
       <BrowserRouter>
@@ -37,6 +40,7 @@ function App() {
           <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/contactus" element={<ContactUs />} />
         </Routes>
+        {isMobile && <Contactbar />}
       </BrowserRouter>
 
       {/* <Home /> */}

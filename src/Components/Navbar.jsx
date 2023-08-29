@@ -35,6 +35,8 @@ const Navbar = () => {
 
   let navigate = useNavigate();
 
+  let path = window.location.pathname;
+
   return (
     <>
       <div className="w-[100%] h-[230px] border shadow-sm">
@@ -205,7 +207,11 @@ const Navbar = () => {
               <Link to="/">
                 <div
                   className="text-[16px] font-medium cursor-pointer"
-                  style={{ fontFamily: "Poppins" }}
+                  style={
+                    path === "/"
+                      ? { color: "#449F5A", fontFamily: "Poppins" }
+                      : { fontFamily: "Poppins" }
+                  }
                   // onClick={navigate("/")}
                 >
                   Home
@@ -214,7 +220,11 @@ const Navbar = () => {
               <Link to="/category">
                 <div
                   className="text-[16px] font-medium flex ml-5 items-center cursor-pointer"
-                  style={{ fontFamily: "Poppins" }}
+                  style={
+                    path === "/category"
+                      ? { color: "#449F5A", fontFamily: "Poppins" }
+                      : { fontFamily: "Poppins" }
+                  }
                 >
                   Category
                   {/* <IoIosArrowDown className="ml-1" /> */}
@@ -223,7 +233,11 @@ const Navbar = () => {
               <Link to="/gogreen">
                 <div
                   className="text-[16px] font-medium flex ml-5 items-center"
-                  style={{ fontFamily: "Poppins" }}
+                  style={
+                    path === "/gogreen"
+                      ? { color: "#449F5A", fontFamily: "Poppins" }
+                      : { fontFamily: "Poppins" }
+                  }
                 >
                   Go Green
                 </div>
@@ -232,7 +246,11 @@ const Navbar = () => {
               <Link to="/luxurayFinishes">
                 <div
                   className="text-[16px] font-medium ml-5"
-                  style={{ fontFamily: "Poppins" }}
+                  style={
+                    path === "/luxurayFinishes"
+                      ? { color: "#449F5A", fontFamily: "Poppins" }
+                      : { fontFamily: "Poppins" }
+                  }
                 >
                   Luxury Finishes
                 </div>
@@ -240,7 +258,11 @@ const Navbar = () => {
               <Link to="/aboutUs">
                 <div
                   className="text-[16px] font-medium ml-5"
-                  style={{ fontFamily: "Poppins" }}
+                  style={
+                    path === "/aboutUs"
+                      ? { color: "#449F5A", fontFamily: "Poppins" }
+                      : { fontFamily: "Poppins" }
+                  }
                 >
                   About Us
                 </div>
@@ -248,7 +270,11 @@ const Navbar = () => {
               <Link to="/contactus">
                 <div
                   className="text-[16px] font-medium ml-5"
-                  style={{ fontFamily: "Poppins" }}
+                  style={
+                    path === "/contactus"
+                      ? { color: "#449F5A", fontFamily: "Poppins" }
+                      : { fontFamily: "Poppins" }
+                  }
                 >
                   Contact Us
                 </div>

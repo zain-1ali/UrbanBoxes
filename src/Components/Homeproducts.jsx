@@ -23,7 +23,7 @@ const Homeproducts = () => {
   return (
     <div className="w-[100%] sm:mt-[50px] mt-[25px]">
       <div className="w-[100%] flex flex-col items-center">
-        <div className="w-[95%] flex justify-center items-center mt-[30px]">
+        <div className="w-[95%] flex justify-center items-center mt-[30px] ">
           <div className="sm:w-[38%] w-[23%] h-[1px]  bg-[#696262] mr-2"></div>
           <h2
             className="sm:text-2xl text-[16px] sm:font-[600] font-[500] "
@@ -44,7 +44,7 @@ const Homeproducts = () => {
         </p>
       </div>
       <div className="w-[100%] flex flex-col items-center">
-        <div className="sm:w-[87%] w-[95%]  mt-[30px] flex sm:justify-start justify-evenly flex-wrap">
+        <div className="sm:w-[90%] w-[95%]  mt-[30px] flex sm:justify-start justify-evenly flex-wrap">
           {/* grid sm:grid-cols-4 grid-cols-2  gap-x-4 gap-y-2 */}
           {latestProducts?.map((elm) => {
             return (

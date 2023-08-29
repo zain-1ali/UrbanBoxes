@@ -10,6 +10,9 @@ import HomeOptions from "../Components/HomeOptions";
 import Footer from "../Components/Footer";
 import axios from "axios";
 import MailboxSkel from "../Components/Skeletons/MailboxSkel";
+import { useMediaQuery } from "react-responsive";
+import MobileNavbar from "../Components/MobileNavbar";
+import Branding from "../Components/Branding";
 
 const SinglePorduct = () => {
   const params = useParams();
@@ -57,10 +60,11 @@ const SinglePorduct = () => {
 
   console.log(Product?.images);
   console.log(Product);
+  const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
 
   return (
     <div className="w-[100%]">
-      <Navbar />
+      {isDesktopOrLaptop ? <Navbar /> : <MobileNavbar />}
       {/* <div className="w-[100%] flex justify-center items-center">
         <div className="lg:w-[87%] w-[90%] md:w-[93%] lg:mt-[40px] mt-[20px]">
           <div className="flex items-center ml-2">
@@ -107,6 +111,7 @@ const SinglePorduct = () => {
       )}
       {/* <MailboxSkel /> */}
       <ProductServices />
+      <Branding />
       <ProductSepecification details={Product?.details} />
       <RelatedProducts relatedProducts={Products} />
       <HomeOptions bg="#EAFFEF" btnClr="#449F5A" />

@@ -6,6 +6,7 @@ const initialState = {
   isCapabilities: false,
   isCoating: false,
   isSpecialCapabilities: false,
+  isAvailbaleStyle: false,
 };
 
 export const productpropertySlice = createSlice({
@@ -18,6 +19,7 @@ export const productpropertySlice = createSlice({
       state.isCapabilities = false;
       state.isSpecialCapabilities = false;
       state.isCoating = false;
+      state.isAvailbaleStyle = false;
     },
 
     openDetails: (state) => {
@@ -26,6 +28,7 @@ export const productpropertySlice = createSlice({
       state.isCapabilities = false;
       state.isSpecialCapabilities = false;
       state.isCoating = false;
+      state.isAvailbaleStyle = false;
     },
 
     openCapabilities: (state) => {
@@ -34,6 +37,7 @@ export const productpropertySlice = createSlice({
       state.isCapabilities = true;
       state.isSpecialCapabilities = false;
       state.isCoating = false;
+      state.isAvailbaleStyle = false;
     },
 
     openSpecialCapabilities: (state) => {
@@ -42,6 +46,7 @@ export const productpropertySlice = createSlice({
       state.isCapabilities = false;
       state.isSpecialCapabilities = true;
       state.isCoating = false;
+      state.isAvailbaleStyle = false;
     },
 
     openCoating: (state) => {
@@ -50,6 +55,15 @@ export const productpropertySlice = createSlice({
       state.isCapabilities = false;
       state.isSpecialCapabilities = false;
       state.isCoating = true;
+      state.isAvailbaleStyle = false;
+    },
+    openAvailbaleStyle: (state) => {
+      state.isSepecification = false;
+      state.isDetails = false;
+      state.isCapabilities = false;
+      state.isSpecialCapabilities = false;
+      state.isCoating = false;
+      state.isAvailbaleStyle = true;
     },
   },
 });
@@ -61,6 +75,7 @@ export const {
   openCapabilities,
   openSpecialCapabilities,
   openCoating,
+  openAvailbaleStyle,
 } = productpropertySlice.actions;
 
 export default productpropertySlice.reducer;

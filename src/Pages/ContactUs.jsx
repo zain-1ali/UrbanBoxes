@@ -8,6 +8,8 @@ import { BsFillStopwatchFill } from "react-icons/bs";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useMediaQuery } from "react-responsive";
+import MobileNavbar from "../Components/MobileNavbar";
 
 const ContactUs = () => {
   let [msgInfo, setMsgInfo] = useState({
@@ -23,7 +25,6 @@ const ContactUs = () => {
 
   let saveToDb = async () => {
     try {
-    
       await axios
         .post(`${baseUrl}/api/submitContact`, {
           name: msgInfo.name,
@@ -49,9 +50,11 @@ const ContactUs = () => {
       toast.error(error?.response?.data?.message);
     }
   };
+
+  const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
   return (
     <div className="w-[100%]">
-      <Navbar />
+      {isDesktopOrLaptop ? <Navbar /> : <MobileNavbar />}
       <div className="w-[100%] flex justify-center mt-[40px]">
         <div className="w-[87%] lg:flex justify-between">
           <div className="lg:w-[41%] w-[95%]">

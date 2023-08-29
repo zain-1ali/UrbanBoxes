@@ -14,7 +14,7 @@ const Custom = ({ heading, bgClr, paragraph, path, imgUrl }) => {
           className="w-[100%] lg:h-[418px] md:h-[270px] h-[170px] border rounded-[19px] bg-[#FEF3FE] flex"
           style={{ backgroundColor: bgClr }}
         >
-          <div className="lg:w-[50%] md:w-[55%] h-[100%] flex justify-center items-center flex-col">
+          <div className="lg:w-[50%] md:w-[55%] w-[50%] h-[100%] flex justify-center items-center flex-col">
             <h2
               style={
                 isDesktopOrLaptop
@@ -32,8 +32,12 @@ const Custom = ({ heading, bgClr, paragraph, path, imgUrl }) => {
               {paragraph}
             </p>
           </div>
-          <div className="md:w-[45%] lg:[50%] h-[100%] flex justify-center items-center">
-            <img src={imgUrl} alt="" className="h-[380px] w-[380px]" />
+          <div className="md:w-[45%] lg:w-[50%] w-[50%] h-[100%] flex justify-center items-center">
+            <img
+              src={imgUrl}
+              alt=""
+              className="lg:h-[380px] lg:w-[380px] h-[90%] w-[90%]"
+            />
           </div>
         </div>
         <div className="w-[100%] flex justify-center  lg:h-[100px] md:h-[78px] h-[50px] items-center">

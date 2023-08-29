@@ -9,6 +9,8 @@ import { Link, useNavigate } from "react-router-dom";
 import cosmeticboxes from "../imgs/cosmeticboxes.png";
 import box from "../imgs/herobox.png";
 import axios from "axios";
+import MobileNavbar from "../Components/MobileNavbar";
+import { useMediaQuery } from "react-responsive";
 const Category = () => {
   let navigate = useNavigate();
 
@@ -23,11 +25,12 @@ const Category = () => {
   }, []);
 
   console.log(category);
+  const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
 
   return (
     <div className="w-[100%]">
-      <Navbar />
-      <div className="w-[100%] flex justify-center items-center">
+      {isDesktopOrLaptop ? <Navbar /> : <MobileNavbar />}
+      <div className="w-[100%] flex justify-center items-center sm:mt-0 mt-3">
         <div className="lg:w-[87%] w-[90%] md:w-[93%] lg:mt-[40px] mt-[20px]">
           <div className="flex items-center ml-2">
             <Link to="/">

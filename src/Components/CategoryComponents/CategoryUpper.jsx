@@ -26,10 +26,10 @@ const CategoryUpper = ({ heading, paragraph, imgUrl, bgClr, smtext }) => {
         </div> */}
 
         <div
-          className="w-[100%] sm:h-[302px] h-[150px]  rounded-2xl mt-[15px] flex "
+          className="w-[100%] sm:h-[302px] h-[150px]  rounded-2xl mt-[15px] flex border"
           style={{ backgroundColor: bgClr }}
         >
-          <div className="lg:w-[50%] md:w-[55%] h-[100%] flex justify-center items-center flex-col">
+          <div className="lg:w-[50%] md:w-[55%] w-[50%] h-[100%] flex justify-center items-center flex-col">
             <h2
               style={{ fontFamily: "Poppins", lineHeight: "44px" }}
               className={`lg:font-[600] md:font-[600] font-[600]  lg:text-[40px] md:text-[40px] text-[${smtext}] w-[80%] lg:w-[80%] md:w-[80%] `}
@@ -43,8 +43,12 @@ const CategoryUpper = ({ heading, paragraph, imgUrl, bgClr, smtext }) => {
               {paragraph}
             </p>
           </div>
-          <div className="md:w-[45%] lg:[50%] h-[100%] flex justify-center items-center">
-            <img src={imgUrl} alt="" className="h-[270px] w-[270px]" />
+          <div className="md:w-[45%] lg:w-[50%] w-[50%] h-[100%] flex justify-center items-center">
+            <img
+              src={imgUrl}
+              alt=""
+              className="sm:h-[270px] sm:w-[270px] h-[90%] w-[90%]"
+            />
           </div>
         </div>
       </div>

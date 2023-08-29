@@ -7,7 +7,7 @@ const HeroSection = () => {
   // , lineHeight: "70px"
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
   return (
-    <div className="sm:h-[558px] h-[300px] border w-[100%] bg-[#F3FFF6] flex">
+    <div className="sm:h-[558px] sm:mt-0  h-[300px] border w-[100%] bg-[#F3FFF6] flex">
       <div
         className=" sm:w-[57%] w-[55%]  flex flex-col justify-center items-end 
       "

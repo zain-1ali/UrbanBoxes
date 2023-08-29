@@ -9,11 +9,14 @@ import HomeOptions from "../Components/HomeOptions";
 import Footer from "../Components/Footer";
 import HomeBrandTrust from "../Components/HomeBrandTrust";
 import WhatWeDo from "../Components/Aboutus/WhatWeDo";
+import { useMediaQuery } from "react-responsive";
+import MobileNavbar from "../Components/MobileNavbar";
 
 const AboutUs = () => {
+  const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
   return (
     <div className="w-[100%]">
-      <Navbar />
+      {isDesktopOrLaptop ? <Navbar /> : <MobileNavbar />}
       <StaticPageUpper
         img={about}
         heading="About Us"
