@@ -27,8 +27,8 @@ const Capabilities = () => {
         </p>
       </div>
 
-      <div className="flex justify-between mt-[50px] w-[100%] ">
-        <div className="w-[23%] h-[320px] shadow-lg rounded-[19px] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer">
+      <div className="flex sm:justify-between justify-center mt-[50px] w-[100%] flex-wrap overflow-y-scroll scrollbar-hide">
+        <div className="sm:w-[23%] w-[80%] sm:mt-0 mt-7 h-[320px] shadow-lg rounded-[19px] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer">
           <div className="w-[100%] h-[60%]  flex justify-center items-center">
             <div className="h-[87%] shadow-md w-[90%] bg-white rounded-[19px]">
               <img
@@ -50,7 +50,7 @@ const Capabilities = () => {
             </p>
           </div>
         </div>
-        <div className="w-[23%] h-[320px] shadow-lg rounded-[19px] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer">
+        <div className="sm:w-[23%] w-[80%] sm:mt-0 mt-7 h-[320px] shadow-lg rounded-[19px] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer">
           <div className="w-[100%] h-[60%]  flex justify-center items-center">
             <div className="h-[87%] shadow-md w-[90%] bg-white rounded-[19px]">
               <img
@@ -72,7 +72,7 @@ const Capabilities = () => {
             </p>
           </div>
         </div>
-        <div className="w-[23%] h-[320px] shadow-lg rounded-[19px] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer">
+        <div className="sm:w-[23%] w-[80%] sm:mt-0 mt-7 h-[320px] shadow-lg rounded-[19px] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer">
           <div className="w-[100%] h-[60%]  flex justify-center items-center">
             <div className="h-[87%] shadow-md w-[90%] bg-white rounded-[19px]">
               <img
@@ -94,7 +94,7 @@ const Capabilities = () => {
             </p>
           </div>
         </div>
-        <div className="w-[23%] h-[320px] shadow-lg rounded-[19px] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer">
+        <div className="sm:w-[23%] w-[80%] sm:mt-0 mt-7 h-[320px] shadow-lg rounded-[19px] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer">
           <div className="w-[100%] h-[60%]  flex justify-center items-center">
             <div className="h-[87%] shadow-md w-[90%] bg-white rounded-[19px]">
               <img

@@ -20,9 +20,11 @@ import MediaQuery from "react-responsive";
 // import Drawer from "./Drawer";
 import TheDrawer from "./Drawer";
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   let [drawer, setDrawer] = useState(false);
+  const data = useSelector((state) => state.siteDetails.data);
 
   let handleDrawer = () => {
     setDrawer(!drawer);
@@ -110,7 +112,7 @@ const Navbar = () => {
             <MediaQuery minWidth={640}>
               <div className="flex items-center ">
                 <img
-                  src={logo}
+                  src={data?.data?.companyLogo}
                   alt="logo"
                   className="lg:h-[50px] lg:w-[200px] md:h-[40px] md:w-[180px]"
                 />
@@ -255,6 +257,20 @@ const Navbar = () => {
                   Luxury Finishes
                 </div>
               </Link>
+
+              <Link to="/bystyle">
+                <div
+                  className="text-[16px] font-medium ml-5"
+                  style={
+                    path === "/bystyle"
+                      ? { color: "#449F5A", fontFamily: "Poppins" }
+                      : { fontFamily: "Poppins" }
+                  }
+                >
+                  By Style
+                </div>
+              </Link>
+
               <Link to="/aboutUs">
                 <div
                   className="text-[16px] font-medium ml-5"
@@ -267,6 +283,7 @@ const Navbar = () => {
                   About Us
                 </div>
               </Link>
+
               <Link to="/contactus">
                 <div
                   className="text-[16px] font-medium ml-5"

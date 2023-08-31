@@ -29,7 +29,14 @@ const Category = () => {
 
   return (
     <div className="w-[100%]">
-      {isDesktopOrLaptop ? <Navbar /> : <MobileNavbar />}
+      {isDesktopOrLaptop ? (
+        <Navbar />
+      ) : (
+        <>
+          <MobileNavbar />
+          <br />
+        </>
+      )}
       <div className="w-[100%] flex justify-center items-center sm:mt-0 mt-3">
         <div className="lg:w-[87%] w-[90%] md:w-[93%] lg:mt-[40px] mt-[20px]">
           <div className="flex items-center ml-2">
@@ -60,6 +67,10 @@ const Category = () => {
         imgUrl={box}
         bgClr="#CDF6D8"
         smtext="18px"
+        bottomParagraph="Our custom boxes are inclusive of everything that you require to
+        package your products, ranging from small boxes to customized
+        luxury packaging."
+        bottomHeading="All Categories"
       />
 
       {category?.map((elm) => {

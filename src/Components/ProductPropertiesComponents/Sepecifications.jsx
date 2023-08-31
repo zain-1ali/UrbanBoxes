@@ -9,7 +9,7 @@ import { AiOutlineProfile } from "react-icons/ai";
 
 const Sepecifications = () => {
   return (
-    <div className="p-2 w-[100%] h-[100%] flex justify-center items-center flex-col">
+    <div className="sm:p-2 w-[100%] h-[100%] flex justify-center items-center flex-col">
       <div className="w-[100%]  flex flex-col items-center">
         <div className="w-[100%] flex justify-center items-center  ">
           <div className="sm:w-[40%] w-[18%] h-[1px]  bg-[#696262] mr-2"></div>
@@ -39,45 +39,45 @@ const Sepecifications = () => {
       <div className="w-[100%] h-[75%] border-[1px] border-[#449F5A] mt-[30px]">
         <div className="w-[100%] h-[33%] border-b-[1px] border-[#449F5A] flex">
           <div className="h-[100%] w-[33%]  border-r-[1px] border-[#449F5A] flex justify-center items-center flex-col">
-            <RxDimensions className="text-4xl" />
+            <RxDimensions className="sm:text-4xl text-3xl" />
             <h2
-              className="font-[400] text-[20px] mt-[2px]"
+              className="sm:font-[400] font-[500] sm:text-[20px] text-[16px] mt-[2px]"
               style={{ fontFamily: "Roboto" }}
             >
               Dimensions
             </h2>
             <p
-              className="font-[300] text-[18px] mt-[2px]"
+              className="font-[300] sm:text-[18px] text-[13px] text-center mt-[2px]"
               style={{ fontFamily: "Roboto" }}
             >
               All custom sizes & shapes
             </p>
           </div>
           <div className="h-[100%] w-[33%]  border-r-[1px] border-[#449F5A] flex justify-center items-center flex-col">
-            <BsListOl className="text-4xl" />
+            <BsListOl className="sm:text-4xl text-3xl" />
             <h2
-              className="font-[400] text-[20px] mt-[2px]"
+              className="sm:font-[400] font-[500] sm:text-[20px] text-[16px] mt-[2px]"
               style={{ fontFamily: "Roboto" }}
             >
               Min. quantity
             </h2>
             <p
-              className="font-[300] text-[18px] mt-[2px] text-center"
+              className="font-[300] sm:text-[18px] text-[13px] text-center mt-[2px]"
               style={{ fontFamily: "Roboto" }}
             >
               50 Boxes ( Hardproof Sample Option Available )
             </p>
           </div>
           <div className="h-[100%] w-[34%]  flex justify-center items-center flex-col">
-            <HiArrowPathRoundedSquare className="text-4xl" />
+            <HiArrowPathRoundedSquare className="sm:text-4xl text-3xl" />
             <h2
-              className="font-[400] text-[20px] mt-[2px]"
+              className="sm:font-[400] font-[500] sm:text-[20px] text-[16px] mt-[2px]"
               style={{ fontFamily: "Roboto" }}
             >
               Default process
             </h2>
             <p
-              className="font-[300] text-[18px] mt-[2px] text-center"
+              className="font-[300] sm:text-[18px] text-[13px] text-center mt-[2px]"
               style={{ fontFamily: "Roboto" }}
             >
               Die cutting, gluing, scoring, perforation
@@ -86,62 +86,62 @@ const Sepecifications = () => {
         </div>
         <div className="w-[100%] h-[33%] border-b-[1px] border-[#449F5A] flex">
           <div className="h-[100%] w-[33%]  border-r-[1px] border-[#449F5A] flex justify-center items-center flex-col">
-            <TfiPrinter className="text-4xl" />
+            <TfiPrinter className="sm:text-4xl text-3xl" />
             <h2
-              className="font-[400] text-[20px] mt-[2px]"
+              className="sm:font-[400] font-[500] sm:text-[20px] text-[16px] mt-[2px]"
               style={{ fontFamily: "Roboto" }}
             >
               Printing
             </h2>
             <p
-              className="font-[300] text-[18px] mt-[2px]"
+              className="font-[300] sm:text-[18px] text-[13px] text-center mt-[2px]"
               style={{ fontFamily: "Roboto" }}
             >
               Cmyk, pms, no printing
             </p>
           </div>
           <div className="h-[100%] w-[33%]  border-r-[1px] border-[#449F5A] flex justify-center items-center flex-col">
-            <BsOption className="text-4xl" />
+            <BsOption className="sm:text-4xl text-3xl" />
             <h2
-              className="font-[400] text-[20px] mt-[2px]"
+              className="sm:font-[400] font-[500] sm:text-[20px] text-[16px] mt-[2px]"
               style={{ fontFamily: "Roboto" }}
             >
               Options
             </h2>
             <p
-              className="font-[300] text-[18px] mt-[2px] text-center"
+              className="font-[300] sm:text-[18px] text-[13px] text-center mt-[2px]"
               style={{ fontFamily: "Roboto" }}
             >
               Custom window cut out, gold/silver foiling, raised ink, sheet.
             </p>
           </div>
-          <div className="h-[100%] w-[34%]  flex justify-center items-center flex-col">
-            <GiSandsOfTime className="text-4xl" />
+          <div className="h-[100%] w-[34%]   flex justify-center items-center flex-col">
+            <GiSandsOfTime className="sm:text-4xl text-3xl" />
             <h2
-              className="font-[400] text-[20px] mt-[2px]"
+              className="sm:font-[400] font-[500] sm:text-[20px] text-[14px] mt-[2px]"
               style={{ fontFamily: "Roboto" }}
             >
               Turn around time
             </h2>
             <p
-              className="font-[300] text-[18px] mt-[2px] text-center "
+              className="font-[300] sm:text-[18px] text-[13px] text-center mt-[2px] "
               style={{ fontFamily: "Roboto" }}
             >
-              10-12 business days , rush
+              10-12 business days,rush
             </p>
           </div>
         </div>
         <div className="w-[100%] h-[34%] flex">
           <div className="h-[100%] w-[33%]  border-r-[1px] border-[#449F5A] flex justify-center items-center flex-col">
-            <RiFilePaper2Line className="text-4xl" />
+            <RiFilePaper2Line className="sm:text-4xl text-3xl" />
             <h2
-              className="font-[400] text-[20px] mt-[2px]"
+              className="sm:font-[400] font-[500] sm:text-[20px] text-[16px] mt-[2px]"
               style={{ fontFamily: "Roboto" }}
             >
               Paper stock
             </h2>
             <p
-              className="font-[300] text-[17px] mt-[2px] text-center"
+              className="font-[300] sm:text-[18px] text-[13px] text-center mt-[2px]"
               style={{ fontFamily: "Roboto" }}
             >
               10pt to 28pt (60lb to 400lb) eco- friendly Kraft, bux board,
@@ -149,30 +149,30 @@ const Sepecifications = () => {
             </p>
           </div>
           <div className="h-[100%] w-[33%]  border-r-[1px] border-[#449F5A] flex justify-center items-center flex-col">
-            <AiOutlineProfile className="text-4xl" />
+            <AiOutlineProfile className="sm:text-4xl text-3xl" />
             <h2
-              className="font-[400] text-[20px] mt-[2px]"
+              className="sm:font-[400] font-[500] sm:text-[20px] text-[16px] mt-[2px]"
               style={{ fontFamily: "Roboto" }}
             >
               Proof
             </h2>
             <p
-              className="font-[300] text-[18px] mt-[2px] text-center"
+              className="font-[300] sm:text-[18px] text-[13px] text-center mt-[2px]"
               style={{ fontFamily: "Roboto" }}
             >
               Flat view, 3d mock-up, physical sampling (on Request)
             </p>
           </div>
           <div className="h-[100%] w-[34%]  flex justify-center items-center flex-col">
-            <HiOutlineSparkles className="text-4xl" />
+            <HiOutlineSparkles className="sm:text-4xl text-3xl" />
             <h2
-              className="font-[400] text-[20px] mt-[2px]"
+              className="sm:font-[400] font-[500] sm:text-[20px] text-[16px] mt-[2px]"
               style={{ fontFamily: "Roboto" }}
             >
               Finishes
             </h2>
             <p
-              className="font-[300] text-[18px] mt-[2px] text-center"
+              className="font-[300] sm:text-[18px] text-[13px] text-center mt-[2px]"
               style={{ fontFamily: "Roboto" }}
             >
               Top off your packaging with a finish option that completes your

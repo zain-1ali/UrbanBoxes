@@ -38,9 +38,9 @@ const AvalableStyle = () => {
         </p>
       </div>
       <div className="overflow-y-scroll h-[80%] w-[100%] ">
-        <div className="flex justify-around mt-[30px] w-[100%] ">
+        <div className="flex sm:justify-around justify-center flex-wrap overflow-y-scroll scrollbar-hide mt-[30px] w-[100%] ">
           <div
-            className="w-[23%] h-[320px] shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer"
+            className="sm:w-[23%] w-[75%] sm:mt-0 mt-5 h-[320px] shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer"
             onClick={() => handleModal()}
           >
             <div className="w-[100%] h-[60%]  flex justify-center items-center">
@@ -68,7 +68,7 @@ const AvalableStyle = () => {
             </div>
           </div>
           <div
-            className="w-[23%] h-[320px] shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer"
+            className="sm:w-[23%] w-[75%] sm:mt-0 mt-5 h-[320px] shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer"
             onClick={() => handleModal()}
           >
             <div className="w-[100%] h-[60%]  flex justify-center items-center">
@@ -97,7 +97,7 @@ const AvalableStyle = () => {
             </div>
           </div>
           <div
-            className="w-[23%] h-[320px] shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer"
+            className="sm:w-[23%] w-[75%] sm:mt-0 mt-5 h-[320px] shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer"
             onClick={() => handleModal()}
           >
             <div className="w-[100%] h-[60%]  flex justify-center items-center">
@@ -127,9 +127,9 @@ const AvalableStyle = () => {
           </div>
         </div>
 
-        <div className="flex justify-around mt-[30px] w-[100%] ">
+        <div className="flex sm:justify-around justify-center flex-wrap overflow-y-scroll scrollbar-hide mt-[30px] w-[100%] ">
           <div
-            className="w-[23%] h-[320px] shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer"
+            className="sm:w-[23%] w-[75%] sm:mt-0 mt-5 h-[320px] shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer"
             onClick={() => handleModal()}
           >
             <div className="w-[100%] h-[60%]  flex justify-center items-center">
@@ -158,7 +158,7 @@ const AvalableStyle = () => {
             </div>
           </div>
           <div
-            className="w-[23%] h-[320px] shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer"
+            className="sm:w-[23%] w-[75%] sm:mt-0 mt-5 h-[320px] shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer"
             onClick={() => handleModal()}
           >
             <div className="w-[100%] h-[60%]  flex justify-center items-center">
@@ -186,7 +186,7 @@ const AvalableStyle = () => {
             </div>
           </div>
           <div
-            className="w-[23%] h-[320px] shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer"
+            className="sm:w-[23%] w-[75%] sm:mt-0 mt-5 h-[320px] shadow-lg transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer"
             onClick={() => handleModal()}
           >
             <div className="w-[100%] h-[60%]  flex justify-center items-center">

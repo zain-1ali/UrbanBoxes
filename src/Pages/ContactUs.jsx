@@ -54,7 +54,14 @@ const ContactUs = () => {
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
   return (
     <div className="w-[100%]">
-      {isDesktopOrLaptop ? <Navbar /> : <MobileNavbar />}
+      {isDesktopOrLaptop ? (
+        <Navbar />
+      ) : (
+        <>
+          <MobileNavbar />
+          <br />
+        </>
+      )}
       <div className="w-[100%] flex justify-center mt-[40px]">
         <div className="w-[87%] lg:flex justify-between">
           <div className="lg:w-[41%] w-[95%]">

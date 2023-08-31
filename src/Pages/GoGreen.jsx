@@ -15,7 +15,14 @@ const GoGreen = () => {
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
   return (
     <div className="w-[100%]">
-      {isDesktopOrLaptop ? <Navbar /> : <MobileNavbar />}
+      {isDesktopOrLaptop ? (
+        <Navbar />
+      ) : (
+        <>
+          <MobileNavbar />
+          <br />
+        </>
+      )}
       <StaticPageUpper
         img={ecobox}
         heading=" Go Greener with us to Create a Better Future for the Planet"

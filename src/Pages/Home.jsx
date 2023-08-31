@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../Components/Navbar";
 import HeroSection from "../Components/HeroSection";
 import Homeproducts from "../Components/Homeproducts";
@@ -14,16 +14,27 @@ import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import MobileNavbar from "../Components/MobileNavbar";
 import Branding from "../Components/Branding";
+import { useDispatch, useSelector } from "react-redux";
+import { siteData } from "../redux/SettingsApiSlice";
 
 const Home = () => {
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
   let navigate = useNavigate();
+  // let dispatch = useDispatch()
 
   let baseUrl = import.meta.env.VITE_BASE_URL;
   console.log(baseUrl);
+
   return (
     <div className="w-[100%] scrollbar-hide">
-      {isDesktopOrLaptop ? <Navbar navigate={navigate} /> : <MobileNavbar />}
+      {isDesktopOrLaptop ? (
+        <Navbar navigate={navigate} />
+      ) : (
+        <>
+          <MobileNavbar />
+          <br />
+        </>
+      )}
       <HeroSection />
       <Homeproducts />
       <Branding />

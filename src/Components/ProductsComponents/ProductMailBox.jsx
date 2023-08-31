@@ -264,11 +264,12 @@ const ProductMailBox = ({ images }) => {
                     Stock <span className="text-red-500 ">*</span>
                   </p>
                   <select
-                    className="w-[100%] mt-1 sm:h-[43px] h-[33px] sm:rounded-xl rounded-lg  p-1 outline-none bg-[#EEFFF3] border border-[#C5BDBD]"
+                    className="w-[100%] mt-1 sm:h-[43px] h-[33px] sm:rounded-xl rounded-lg  p-1 sm:text-base  text-xs outline-none bg-[#EEFFF3] border border-[#C5BDBD]"
                     placeholder="LxWxH"
                     onChange={(e) =>
                       setData({ ...data, productId: e.target.value })
                     }
+                    style={{ fontFamily: "Poppins", lineHeight: "13px" }}
                     value={data?.productId}
                   >
                     <option
@@ -326,10 +327,11 @@ const ProductMailBox = ({ images }) => {
                     Units <span className="text-red-500 ">*</span>
                   </p>
                   <select
-                    className="w-[100%] mt-1 sm:h-[43px] h-[33px] sm:rounded-xl rounded-lg  p-1 outline-none bg-[#EEFFF3] border border-[#C5BDBD]"
+                    className="w-[100%] mt-1 sm:h-[43px] h-[33px] sm:rounded-xl rounded-lg sm:text-base  text-xs p-1 outline-none bg-[#EEFFF3] border border-[#C5BDBD]"
                     onChange={(e) =>
                       setData({ ...data, units: e.target.value })
                     }
+                    style={{ fontFamily: "Poppins", lineHeight: "13px" }}
                     value={data?.units}
                   >
                     <option
@@ -461,7 +463,7 @@ const ProductMailBox = ({ images }) => {
                   </p>
                 </div>
                 <button
-                  className="w-[129px] h-[51px] bg-[#449F5A] hover:bg-[#6AD37F] rounded-[8px] text-white  font-[500] mt-3"
+                  className="w-[129px] h-[51px] bg-[#449F5A] hover:bg-[#6AD37F] rounded-[8px] text-white  font-[500] sm:mt-3 mt-5"
                   onClick={() => saveToDb()}
                 >
                   Submit

@@ -20,8 +20,16 @@ import {
   BiLogoTwitter,
   BiLogoLinkedin,
 } from "react-icons/bi";
+import { useSelector } from "react-redux";
+
+let openLink = (link) => {
+  let compltLink = link.includes("https://") ? link : `https://${link}`;
+
+  window.open(compltLink);
+};
 
 const Footer = ({ bg, textClr }) => {
+  const data = useSelector((state) => state.siteDetails.data);
   return (
     <div
       className="sm:h-[400px] h-[200px] w-[100%] sm:mt-[65px] mt-[25px]"
@@ -130,7 +138,7 @@ const Footer = ({ bg, textClr }) => {
               className="  sm:text-[17px] text-[7px] font-[400]  text-white "
               style={{ fontFamily: "Roboto", color: textClr }}
             >
-              0000-000-0000
+              {data?.data?.phone}
             </p>
           </div>
 
@@ -143,7 +151,7 @@ const Footer = ({ bg, textClr }) => {
               className="  sm:text-[17px] text-[7px] font-[400]  text-white"
               style={{ fontFamily: "Roboto", color: textClr }}
             >
-              company@boxes.com
+              {data?.data?.email}
             </p>
           </div>
 
@@ -156,7 +164,7 @@ const Footer = ({ bg, textClr }) => {
               className="  sm:text-[17px] text-[7px] font-[400]  text-white"
               style={{ fontFamily: "Roboto", color: textClr }}
             >
-              Los Vegas, LV 22001
+              {data?.data?.Address}
             </p>
           </div>
           <div className="flex sm:mt-[20px] mt-[5px] items-center">
@@ -168,7 +176,8 @@ const Footer = ({ bg, textClr }) => {
               className="  sm:text-[17px] text-[7px] font-[400]  text-white"
               style={{ fontFamily: "Roboto", color: textClr }}
             >
-              Mon - Fri: 8:00 - 6:00 PM
+              {data?.data?.startDay} - {data?.data?.endDay}:{" "}
+              {data?.data?.startTime} - {data?.data?.endTime}
             </p>
           </div>
           <div className=" sm:mt-[15px] mt-[10px]">
@@ -182,6 +191,7 @@ const Footer = ({ bg, textClr }) => {
               <div
                 className="sm:h-[30px] sm:w-[30px] h-[10px] w-[10px] border rounded-full flex justify-center items-center   cursor-pointer"
                 style={{ borderColor: textClr }}
+                onClick={() => openLink(data?.data?.fbLink)}
               >
                 <BiLogoFacebook
                   className=" sm:text-xl text-[5px]"
@@ -191,6 +201,7 @@ const Footer = ({ bg, textClr }) => {
               <div
                 className="sm:h-[30px] sm:w-[30px] h-[10px] w-[10px] border rounded-full flex justify-center items-center  sm:ml-5 ml-1 cursor-pointer"
                 style={{ borderColor: textClr }}
+                onClick={() => openLink(data?.data?.instaLink)}
               >
                 <BiLogoInstagramAlt
                   className=" sm:text-xl text-[5px]"
@@ -200,6 +211,7 @@ const Footer = ({ bg, textClr }) => {
               <div
                 className="sm:h-[30px] sm:w-[30px] h-[10px] w-[10px] border rounded-full flex justify-center items-center  sm:ml-5 ml-1 cursor-pointer"
                 style={{ borderColor: textClr }}
+                onClick={() => openLink(data?.data?.youtubeLink)}
               >
                 <BiLogoYoutube
                   className=" sm:text-xl text-[5px]"
@@ -209,6 +221,7 @@ const Footer = ({ bg, textClr }) => {
               <div
                 className="sm:h-[30px] sm:w-[30px] h-[10px] w-[10px] border rounded-full flex justify-center items-center  sm:ml-5 ml-1 cursor-pointer"
                 style={{ borderColor: textClr }}
+                onClick={() => openLink(data?.data?.twitterLink)}
               >
                 <BiLogoTwitter
                   className=" sm:text-xl text-[5px]"
@@ -218,6 +231,7 @@ const Footer = ({ bg, textClr }) => {
               <div
                 className="sm:h-[30px] sm:w-[30px] h-[10px] w-[10px] border rounded-full flex justify-center items-center  sm:ml-5 ml-1 cursor-pointer"
                 style={{ borderColor: textClr }}
+                onClick={() => openLink(data?.data?.linkedinLink)}
               >
                 <BiLogoLinkedin
                   className=" sm:text-xl  text-[5px]"
@@ -227,6 +241,7 @@ const Footer = ({ bg, textClr }) => {
               <div
                 className="sm:h-[30px] sm:w-[30px] h-[10px] w-[10px] border rounded-full flex justify-center items-center  sm:ml-5 ml-1 cursor-pointer"
                 style={{ borderColor: textClr }}
+                onClick={() => openLink(data?.data?.whatsappLink)}
               >
                 <RiWhatsappFill
                   className=" sm:text-xl text-[5px]"

@@ -16,7 +16,14 @@ const LuxuryFinishes = () => {
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
   return (
     <div className="w-[100%]">
-      {isDesktopOrLaptop ? <Navbar /> : <MobileNavbar />}
+      {isDesktopOrLaptop ? (
+        <Navbar />
+      ) : (
+        <>
+          <MobileNavbar />
+          <br />
+        </>
+      )}
 
       <StaticPageUpper
         img={luxurybox}

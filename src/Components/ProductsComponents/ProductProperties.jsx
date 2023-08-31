@@ -54,8 +54,8 @@ const ProductSepecification = ({ details }) => {
   return (
     <div className="w-[100%] mt-[60px]">
       <div className="w-[100%] flex justify-center">
-        <div className="sm:w-[85%] w-[90%] h-[730px]  flex sm:justify-between  sm:flex-row flex-col">
-          <div className="sm:h-[100%] sm:w-[13%] w-[100%] h-[150px] flex sm:flex-col border">
+        <div className="sm:w-[85%] w-[98%] h-[730px]  flex sm:justify-between  sm:flex-row flex-col">
+          <div className="sm:h-[100%] sm:w-[13%] w-[100%] h-[150px] border flex sm:flex-col">
             <div
               className={`sm:w-[100%] sm:h-[130px] w-[20%] border cursor-pointer ${
                 isSepecification ? `bg-[#A6EAB8] shadow-2xl ` : `bg-[#449F5A]`
@@ -157,7 +157,7 @@ const ProductSepecification = ({ details }) => {
             </div>
           </div>
 
-          <div className="h-[100%] w-[85%]">
+          <div className="h-[100%] sm:w-[85%] w-[100%]">
             {isSepecification && <Sepecifications />}
             {isDetails && <Details details={details} />}
             {isCapabilities && <Capabilities />}
