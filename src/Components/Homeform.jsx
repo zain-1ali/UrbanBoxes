@@ -148,8 +148,8 @@ const Homeform = () => {
               </p>
             </div>
           </MediaQuery>
-          <div className="sm:w-[65%] w-[95%] sm:h-[833px] h-[850px]  rounded-2xl shadow-2xl flex sm:justify-end justify-center items-center">
-            <div className="sm:h-[80%]  sm:w-[80%] w-[90%] h-[90%]  sm:mr-[35px] ">
+          <div className="sm:w-[65%] w-[95%] sm:h-[833px] h-[910px]  rounded-2xl shadow-2xl flex sm:justify-end justify-center items-center">
+            <div className="sm:h-[80%]  sm:w-[80%] w-[90%] h-[95%]  sm:mr-[35px] ">
               <div className="w-[100%] ">
                 <h2
                   className=" sm:text-[36px] text-lg font-bold"
@@ -385,7 +385,7 @@ const Homeform = () => {
                             //     : formattedToday
                           }
                           sx={{
-                            width: "265px",
+                            width: isDesktopOrLaptop ? "265px" : "100%",
                             marginTop: "4px",
                             outline: "none",
                             borderRadius: "8px",

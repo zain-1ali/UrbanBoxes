@@ -32,7 +32,7 @@ const Footer = ({ bg, textClr }) => {
   const data = useSelector((state) => state.siteDetails.data);
   return (
     <div
-      className="sm:h-[400px] h-[200px] w-[100%] sm:mt-[65px] mt-[25px]"
+      className="sm:h-[400px] h-[200px] w-[100%] sm:mt-[65px] sm:mb-0 mb-[21px]"
       style={{ backgroundColor: bg }}
     >
       <div className="lg:h-[92%] h-[90%] w-[100%] flex justify-evenly">
