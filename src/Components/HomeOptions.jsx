@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { CgNotes } from "react-icons/cg";
 import { BiLogoZoom } from "react-icons/bi";
 import { LuFileClock } from "react-icons/lu";
+import { useDispatch, useSelector } from "react-redux";
+import { scheduleMeetings } from "../redux/ApiSlice";
 
 const HomeOptions = ({ bg, btnClr }) => {
   let btnStyle = {
@@ -12,6 +14,17 @@ const HomeOptions = ({ bg, btnClr }) => {
 
     // },
   };
+
+  let dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(scheduleMeetings());
+  }, []);
+
+  let scheduleMeetingsData = useSelector(
+    (state) => state.ApiSlice.scheduleMeetingsData
+  );
+
+  console.log(scheduleMeetingsData);
 
   return (
     <div
@@ -29,19 +42,20 @@ const HomeOptions = ({ bg, btnClr }) => {
           className="sm:text-xl text-[12px] font-medium sm:mt-[10px] mt-[5px]"
           style={{ fontFamily: "Roboto" }}
         >
-          Custom Quote
+          {scheduleMeetingsData?.meeting1name}
         </h2>
         <p
           className="  mt-1 w-[80%] text-center sm:text-[16px] text-[9px] sm:font-[400]"
           style={{ fontFamily: "Roboto" }}
         >
-          In less then an hour, receive the quickest bespoke quote.{" "}
+          {scheduleMeetingsData?.meeting1text}
         </p>
         <div
           className="sm:w-[153px] sm:h-[42px] w-[80px] h-[25px] bg-[#449F5A] hover:bg-[#6AD37F] sm:mt-[10px] mt-[7px]  sm:rounded-lg rounded-md flex justify-center items-center text-white font-medium sm:text-[16px] text-[10px] cursor-pointer"
           style={btnStyle}
+          onClick={() => window.open(scheduleMeetingsData?.meeting1btnTxt)}
         >
-          Call Now
+          {scheduleMeetingsData?.meeting1btnTxt}
         </div>
       </div>
 
@@ -56,19 +70,20 @@ const HomeOptions = ({ bg, btnClr }) => {
           className="sm:text-xl text-[12px] font-medium sm:mt-[10px] mt-[5px]"
           style={{ fontFamily: "Roboto" }}
         >
-          Schedule a call
+          {scheduleMeetingsData?.meeting2name}
         </h2>
         <p
           className="  mt-1 w-[80%] text-center sm:text-[16px] text-[9px] sm:font-[400]"
           style={{ fontFamily: "Roboto" }}
         >
-          Seamless way to reach Via Schedule call at desired time.
+          {scheduleMeetingsData?.meeting2text}
         </p>
         <div
           className="sm:w-[153px] sm:h-[42px] w-[80px] h-[25px]  sm:mt-[10px] mt-[7px]  sm:rounded-lg rounded-md flex justify-center items-center text-white font-medium sm:text-[16px] text-[10px] cursor-pointer"
           style={{ fontFamily: "Roboto", backgroundColor: btnClr }}
+          onClick={() => window.open(scheduleMeetingsData?.meeting2btnTxt)}
         >
-          Get a Qoute
+          {scheduleMeetingsData?.meeting2btnTxt}
         </div>
       </div>
 
@@ -83,20 +98,21 @@ const HomeOptions = ({ bg, btnClr }) => {
           className="sm:text-xl text-[10px] font-medium sm:mt-[10px] mt-[5px]"
           style={{ fontFamily: "Roboto" }}
         >
-          Schedule a zoom meeting
+          {scheduleMeetingsData?.meeting3name}
         </h2>
         <p
           className="  mt-1 w-[80%] text-center sm:text-[16px] text-[9px] sm:font-[400]"
           style={{ fontFamily: "Roboto" }}
         >
-          Enhance your trust in us by getting more clarity in your designs.
+          {scheduleMeetingsData?.meeting3text}
         </p>
         <div
           className="sm:w-[153px] sm:h-[42px] w-[80px] h-[25px]   sm:mt-[10px] mt-[7px]  sm:rounded-lg rounded-md flex justify-center items-center text-white font-medium sm:text-[16px] text-[10px] cursor-pointer"
           // hover:bg-[#6AD37F]
           style={{ fontFamily: "Roboto", backgroundColor: btnClr }}
+          onClick={() => window.open(scheduleMeetingsData?.meeting3btnTxt)}
         >
-          Call Now
+          {scheduleMeetingsData?.meeting3btnTxt}
         </div>
       </div>
 

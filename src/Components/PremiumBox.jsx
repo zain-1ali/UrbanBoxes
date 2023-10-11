@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-const PremiumBox = ({ img, w, h, yaxixVal, left, bg, yaxix }) => {
+const PremiumBox = ({ img, boxLayout }) => {
   const [isHovered, setIsHovered] = useState(false);
-
+  let { w, h, yaxixVal, left, bg, yaxix } = boxLayout;
   const handleMouseEnter = () => {
     setIsHovered(true);
   };

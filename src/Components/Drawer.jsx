@@ -21,14 +21,18 @@ import {
 import { BsFillBoxSeamFill, BsInfoSquareFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 
-const TheDrawer = ({ drawer, handleDrawer }) => {
+const TheDrawer = ({ drawer, handleDrawer, mobileLogoTag, mobileLogo }) => {
   let navigate = useNavigate();
   return (
     <div>
       <Drawer anchor="left" open={drawer} onClose={handleDrawer}>
         <div className="w-[250px] min-h-[100vh]">
           <div className="flex flex-col items-center w-[100%] mt-[25px]">
-            <img src={logo} alt="logo" className="h-[50px] w-[200px]" />
+            <img
+              src={mobileLogo}
+              alt={mobileLogoTag}
+              className="h-[50px] w-[200px]"
+            />
           </div>
           {/*<div className="mt-8 ml-3">
             <div

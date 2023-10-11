@@ -11,6 +11,8 @@ import box from "../imgs/herobox.png";
 import axios from "axios";
 import MobileNavbar from "../Components/MobileNavbar";
 import { useMediaQuery } from "react-responsive";
+import { useDispatch, useSelector } from "react-redux";
+import { categoryPage } from "../redux/ApiSlice";
 const Category = () => {
   let navigate = useNavigate();
 
@@ -26,6 +28,13 @@ const Category = () => {
 
   console.log(category);
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
+
+  let dispatch = useDispatch();
+  let categoryData = useSelector((state) => state.ApiSlice.categoryData);
+  console.log(categoryData);
+  useEffect(() => {
+    dispatch(categoryPage());
+  }, []);
 
   return (
     <div className="w-[100%]">
@@ -60,27 +69,25 @@ const Category = () => {
       </div>
 
       <CategoryUpper
-        heading="All Categories"
-        paragraph="Our custom boxes are inclusive of everything that you require to
-              package your products, ranging from small boxes to customized
-              luxury packaging."
-        imgUrl={box}
-        bgClr="#CDF6D8"
+        heading={categoryData?.data?.banner?.heading}
+        paragraph={categoryData?.data?.banner?.text}
+        imgUrl={categoryData?.data?.banner?.image}
+        bgClr={categoryData?.data?.banner?.color}
+        imageTag={categoryData?.data?.banner?.imageTag}
         smtext="18px"
-        bottomParagraph="Our custom boxes are inclusive of everything that you require to
-        package your products, ranging from small boxes to customized
-        luxury packaging."
+        bottomParagraph={categoryData?.data?.allCategoriesDesc}
         bottomHeading="All Categories"
       />
 
-      {category?.map((elm) => {
+      {categoryData?.data?.categories?.map((elm) => {
         return (
           <Custom
             heading={elm?.name}
-            bgClr="#FEF3FE"
+            bgClr={elm?.color}
             paragraph={elm?.description}
             path={`/singlecategory/${elm?.id}`}
             imgUrl={elm?.image}
+            imgTag={elm?.imageTag}
           />
         );
       })}

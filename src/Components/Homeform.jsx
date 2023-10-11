@@ -20,7 +20,13 @@ import { TextField } from "@mui/material";
 
 // import MediaQuery from "react-responsive/types/Component";
 
-const Homeform = () => {
+const Homeform = ({
+  getDiscPricDesc,
+  getDiscPricBoxHeding,
+  getDiscPricBoxText,
+  getDiscPricFormHeding,
+  getDiscPricFormText,
+}) => {
   const today = new Date();
   const yyyy = today.getFullYear();
   let mm = today.getMonth() + 1; // Months start at 0!
@@ -96,7 +102,9 @@ const Homeform = () => {
       deliveryDate: "",
     });
   };
-
+  const renderHTML = (string) => {
+    return { __html: string };
+  };
   return (
     <div className="w-[100%] sm:mt-[50px] mt-[20px]">
       <div className="w-[100%] flex flex-col items-center">
@@ -119,9 +127,7 @@ const Homeform = () => {
           // w-[70%] text-center mt-[25px] font-[400] text-xl text-[#2C2C2C]
           style={{ fontFamily: "Roboto" }}
         >
-          we strive to provide superior services and solutions that surpass your
-          expectations. Let us find the ideal packaging solution for your
-          project.
+          <div dangerouslySetInnerHTML={renderHTML(getDiscPricDesc)} />
         </p>
       </div>
 
@@ -136,15 +142,13 @@ const Homeform = () => {
                 className="text-[36px]  font-bold text-center w-[80%] text-white "
                 style={{ fontFamily: "Roboto", lineHeight: "42px" }}
               >
-                Your Packaging Success Starts with Urban Boxes!
+                {getDiscPricBoxHeding}
               </h2>
               <p
                 className="text-center w-[90%] text-white text-[20px] mt-3"
                 style={{ fontFamily: "Roboto" }}
               >
-                we strive to provide superior services and solutions that
-                surpass your expectations. Let us find the ideal packaging
-                solution for your project.
+                <div dangerouslySetInnerHTML={renderHTML(getDiscPricBoxText)} />
               </p>
             </div>
           </MediaQuery>
@@ -155,15 +159,15 @@ const Homeform = () => {
                   className=" sm:text-[36px] text-lg font-bold"
                   style={{ fontFamily: "Roboto" }}
                 >
-                  Request A Quote
+                  {getDiscPricFormHeding}
                 </h2>
                 <p
                   className="sm:mt-3 mt-1 sm:text-[16px] text-[14px]  font-[300]"
                   style={{ fontFamily: "Roboto" }}
                 >
-                  Complete our quote request form or email us at
-                  company@urban.com to receive a customized quote from our
-                  product specialists.
+                  <div
+                    dangerouslySetInnerHTML={renderHTML(getDiscPricFormText)}
+                  />
                 </p>
               </div>
 

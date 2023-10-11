@@ -4,7 +4,14 @@ import { TbDeviceImacCode, TbDeviceMobileStar } from "react-icons/tb";
 import { AiOutlineFileSearch } from "react-icons/ai";
 import { GrAnnounce } from "react-icons/gr";
 
-const SingleDescriptionBox = ({ number, icon, heading, description }) => {
+const SingleDescriptionBox = ({
+  number,
+  icon,
+  heading,
+  description,
+  tag,
+  brandCircle,
+}) => {
   const [hovered, setHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -19,6 +26,9 @@ const SingleDescriptionBox = ({ number, icon, heading, description }) => {
     transition: "transform 0.6s ease-in-out, border 0.6s ease-in-out",
     transform: hovered ? "translateY(-7px)" : "none",
     border: hovered ? "1px solid #ccc" : "1px solid transparent",
+  };
+  const renderHTML = () => {
+    return { __html: description };
   };
   return (
     <div
@@ -37,7 +47,8 @@ const SingleDescriptionBox = ({ number, icon, heading, description }) => {
           >
             {number}
           </h2>
-          {icon}
+          {/* {icon} */}
+          <img src={icon} alt={tag} style={{ height: "70px", width: "70px" }} />
           {/* <icon className="text-5xl text-[#666]" /> */}
         </div>
 
@@ -51,15 +62,18 @@ const SingleDescriptionBox = ({ number, icon, heading, description }) => {
           className="text-[15px] mt-[6px] text-[#666] font-normal"
           style={{ fontFamily: "Poppins" }}
         >
-          {description}
+          <div dangerouslySetInnerHTML={renderHTML()} />
         </p>
       </div>
     </div>
   );
 };
 
-const Branding = () => {
+const Branding = ({ boxes, brandDesc, brandHeading, brandCircle }) => {
   const [hoveredIndex, setHoveredIndex] = useState(-1);
+  const renderHTML = () => {
+    return { __html: brandDesc };
+  };
   return (
     <div className="w-[100%] mt-[50px] flex flex-col items-center">
       <div className="w-[100%] flex flex-col items-center">
@@ -78,9 +92,7 @@ const Branding = () => {
           className="sm:w-[70%] w-[90%] text-center sm:mt-[25px] mt-[13px] font-[400] sm:text-xl text-[14px] text-[#0f0707]"
           style={{ fontFamily: "Roboto" }}
         >
-          Our custom boxes are inclusive of everything that you require to
-          package your products, ranging from small boxes to customized luxury
-          packaging.
+          <div dangerouslySetInnerHTML={renderHTML()} />
         </p>
       </div>
 
@@ -96,58 +108,40 @@ const Branding = () => {
             className="sm:text-[48px] text-[38px] text-[#000] font-[600] mt-[20px] w-[95%]"
             style={{ fontFamily: "Poppins", lineHeight: "48px" }}
           >
-            How we do your Branding
+            {brandHeading}
           </h2>
         </div>
         <SingleDescriptionBox
           number="01"
-          heading="Tech Landscape Assessment and Specialization"
-          icon={<VscGraph className="text-5xl text-[#666]" />}
-          description="Tech Orchards initiates the branding process by delving into a
-          comprehensive assessment of the tech landscape. This involves a
-          thorough understanding of industry trends, competitor analysis, and
-          pinpointing specific niches within the tech realm. By identifying
-          target markets and their distinct needs, Tech Orchards strategically
-          positions itself as a go-to solution provider within these specialized
-          areas."
+          heading={boxes?.Box1heding}
+          icon={boxes?.Box1image}
+          description={boxes?.Box1desc}
+          tag={boxes?.Box1imageTag}
+          brandCircle={brandCircle}
         />
         <SingleDescriptionBox
           number="02"
-          heading="Digital Brand Strategy Crafting"
-          icon={<TbDeviceImacCode className="text-5xl text-[#666]" />}
-          description="Crafting the digital brand strategy for Tech Orchards entails
-              translating its core values, technological expertise, and
-              client-centric approach into a strategic blueprint. This
-              encompasses defining the brand's digital voice, tone, and content
-              strategy across various digital avenues. The strategy outlines how
-              Tech Orchards will interact with its audience through platforms
-              like social media, blog content, videos, and other digital
-              touchpoints to build brand recognition and authority."
+          heading={boxes?.Box2heding}
+          icon={boxes?.Box2image}
+          description={boxes?.Box2desc}
+          tag={boxes?.Box2imageTag}
+          brandCircle={brandCircle}
         />
         <SingleDescriptionBox
           number="03"
-          heading="Online Visual Identity Forging"
-          icon={<AiOutlineFileSearch className="text-5xl text-[#666]" />}
-          description="Tech Orchards forges a captivating visual identity in the digital
-              realm by meticulously designing an engaging online presence. This
-              encompasses designing an intuitively navigable website, fashioning
-              a contemporary and memorable logo, curating a harmonious color
-              palette, and ensuring a consistent design ethos across all digital
-              interfaces. The aim is to create an impactful and enduring visual
-              impression that resonates with the company's branding strategy."
+          heading={boxes?.Box3heding}
+          icon={boxes?.Box3image}
+          description={boxes?.Box3desc}
+          tag={boxes?.Box3imageTag}
+          brandCircle={brandCircle}
         />
         <SingleDescriptionBox
           number="04"
-          heading="Tech-Centric Content Creation and Dissemination"
-          icon={<TbDeviceMobileStar className="text-5xl text-[#666]" />}
-          description="Content lies at the core of Tech Orchards' digital branding
-              strategy. Regular creation of insightful and pertinent content
-              showcases its technological prowess, educates its audience, and
-              addresses their tech-related challenges. This content takes
-              diverse forms such as blog articles, infographics, webinars,
-              videos, and more. Tech Orchards strategically maps out the
-              distribution of this content through avenues like social media,
-              email campaigns."
+          heading={boxes?.Box4heding}
+          icon={boxes?.Box4image}
+          description={boxes?.Box4desc}
+          tag={boxes?.Box4imageTag}
+          brandCircle={brandCircle}
         />
 
         <div className="sm:w-[33%] w-[95%] h-[459px] mt-2  flex justify-center items-center">
@@ -158,7 +152,7 @@ const Branding = () => {
                 className="text-center w-[70%]"
                 style={{ fontFamily: "Poppins", lineHeight: "26px" }}
               >
-                Have a project in your mind ?
+                {brandCircle}
               </h2>
             </span>
             <span className="w-0 h-0  bg-[#00a15f] absolute top-0 left-0 ease-out duration-500 transition-all group-hover:w-full group-hover:h-full -z-1 rounded-full"></span>

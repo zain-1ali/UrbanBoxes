@@ -11,6 +11,7 @@ const CategoryUpper = ({
   smtext,
   bottomParagraph,
   bottomHeading,
+  imageTag,
 }) => {
   return (
     <div className="lg:mt-[15px] mt-[10px] w-[100%] flex flex-col items-center justify-center">
@@ -54,7 +55,7 @@ const CategoryUpper = ({
           <div className="md:w-[45%] lg:w-[50%] w-[50%] h-[100%] flex justify-center items-center">
             <img
               src={imgUrl}
-              alt=""
+              alt={imageTag}
               className="sm:h-[270px] sm:w-[270px] h-[90%] w-[90%]"
             />
           </div>

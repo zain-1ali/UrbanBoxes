@@ -2,7 +2,7 @@ import React from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 
-const HomeBrandTrust = () => {
+const HomeBrandTrust = ({ trstBrndDesc }) => {
   let therow = [1, 2, 3, 4, 5];
   const splideOptions = {
     perPage: 4,
@@ -20,6 +20,9 @@ const HomeBrandTrust = () => {
       500: { perPage: 1.3 },
       425: { perPage: 1 },
     },
+  };
+  const renderHTML = (string) => {
+    return { __html: string };
   };
   return (
     <div className="w-[100%] mt-[40px]">
@@ -39,9 +42,7 @@ const HomeBrandTrust = () => {
           className="sm:w-[70%] w-[90%] text-center sm:mt-[25px] mt-[13px] font-[400] sm:text-xl text-[14px] text-[#0f0707]"
           style={{ fontFamily: "Roboto" }}
         >
-          Extravagant custom packaging helps thousands of ambitious customers to
-          redefine and refine their businesses and transform their packaging to
-          better serve their customers.
+          <div dangerouslySetInnerHTML={renderHTML(trstBrndDesc)} />
         </p>
       </div>
 

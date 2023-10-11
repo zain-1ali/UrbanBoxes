@@ -16,6 +16,7 @@ import MobileNavbar from "../Components/MobileNavbar";
 import Branding from "../Components/Branding";
 import { useDispatch, useSelector } from "react-redux";
 import { siteData } from "../redux/SettingsApiSlice";
+import { homePage } from "../redux/ApiSlice";
 
 const Home = () => {
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
@@ -24,6 +25,13 @@ const Home = () => {
 
   let baseUrl = import.meta.env.VITE_BASE_URL;
   console.log(baseUrl);
+
+  let dispatch = useDispatch();
+  let homePageData = useSelector((state) => state.ApiSlice.homePageData);
+  // console.log(homePageData);
+  useEffect(() => {
+    dispatch(homePage());
+  }, []);
 
   return (
     <div className="w-[100%] scrollbar-hide">
@@ -35,16 +43,46 @@ const Home = () => {
           <br />
         </>
       )}
-      <HeroSection />
-      <Homeproducts />
-      <Branding />
-      <Homeform />
-      <WhyUs />
-      <HomePremium />
-      <HomeGreen />
-      <HomeBrandTrust />
+      <HeroSection heroData={homePageData?.data?.banner} />
+      <Homeproducts insDesignDesc={homePageData?.data?.insDesignDesc} />
+      <Branding
+        boxes={homePageData?.data?.boxes}
+        brandDesc={homePageData?.data?.prdctBrndDesc}
+        brandHeading={homePageData?.data?.prdctBrndHeading}
+        brandCircle={homePageData?.data?.prdctBrndCircleTxt}
+      />
+      <Homeform
+        getDiscPricDesc={homePageData?.data?.GetDiscPricDesc}
+        getDiscPricBoxHeding={homePageData?.data?.GetDiscPricBoxHeding}
+        getDiscPricBoxText={homePageData?.data?.GetDiscPricBoxText}
+        getDiscPricFormHeding={homePageData?.data?.GetDiscPricFormHeding}
+        getDiscPricFormText={homePageData?.data?.GetDiscPricFormText}
+      />
+      <WhyUs
+        whyUrbnDesc={homePageData?.data?.whyUrbnDesc}
+        whyUrbnImg={homePageData?.data?.whyUrbnImg}
+        whyUrbnImgTag={homePageData?.data?.whyUrbnImgTag}
+        whyUrbnBoxTxt={homePageData?.data?.whyUrbnBoxTxt}
+      />
+      <HomePremium
+        premImgDesc={homePageData?.data?.premImgDesc}
+        premiumImages={homePageData?.data?.premiumImages}
+      />
+      <HomeGreen
+        goGrenDesc={homePageData?.data?.goGrenDesc}
+        goGrenBoxHeding={homePageData?.data?.goGrenBoxHeding}
+        goGrenBoxImg={homePageData?.data?.goGrenBoxImg}
+        goGrenBoxTxt={homePageData?.data?.goGrenBoxTxt}
+        goGrenBoxImgTag={homePageData?.data?.goGrenBoxImgTag}
+        goGrenBtnTxt={homePageData?.data?.goGrenBtnTxt}
+        goGrenBoxBtnLink={homePageData?.data?.goGrenBoxBtnLink}
+      />
+      <HomeBrandTrust trstBrndDesc={homePageData?.data?.trstBrndDesc} />
       <HomeOptions bg="#EAFFEF" btnClr="#449F5A" />
-      <HomeFAQ />
+      <HomeFAQ
+        faqDesc={homePageData?.data?.faqDesc}
+        faqs={homePageData?.data?.faqs}
+      />
       <Footer bg="#2C703C" textClr="white" />
     </div>
   );

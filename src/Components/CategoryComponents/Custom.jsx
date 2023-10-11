@@ -4,7 +4,7 @@ import { useMediaQuery } from "react-responsive";
 import { CiBoxes } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
 
-const Custom = ({ heading, bgClr, paragraph, path, imgUrl }) => {
+const Custom = ({ heading, bgClr, paragraph, path, imgUrl, imgTag }) => {
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
   let navigate = useNavigate();
   return (
@@ -35,7 +35,7 @@ const Custom = ({ heading, bgClr, paragraph, path, imgUrl }) => {
           <div className="md:w-[45%] lg:w-[50%] w-[50%] h-[100%] flex justify-center items-center">
             <img
               src={imgUrl}
-              alt=""
+              alt={imgTag}
               className="lg:h-[380px] lg:w-[380px] h-[90%] w-[90%]"
             />
           </div>

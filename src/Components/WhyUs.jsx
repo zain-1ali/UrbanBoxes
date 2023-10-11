@@ -2,9 +2,12 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useMediaQuery } from "react-responsive";
 
-const WhyUs = () => {
+const WhyUs = ({ whyUrbnBoxTxt, whyUrbnImgTag, whyUrbnImg, whyUrbnDesc }) => {
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
   const data = useSelector((state) => state.siteDetails.data);
+  const renderHTML = (string) => {
+    return { __html: string };
+  };
   return (
     <div className="w-[100%] mt-[40px]">
       <div className="w-[100%] flex flex-col items-center">
@@ -24,7 +27,7 @@ const WhyUs = () => {
           className="sm:w-[70%] w-[90%] text-center sm:mt-[25px] mt-[13px] font-[400] sm:text-xl text-[14px] text-[#2C2C2C]"
           style={{ fontFamily: "Roboto" }}
         >
-          {data?.data?.whyUrbanHeading}
+          <div dangerouslySetInnerHTML={renderHTML(whyUrbnDesc)} />
         </p>
       </div>
 
@@ -35,12 +38,12 @@ const WhyUs = () => {
               className="font-[400] sm:text-xl text-[14px] "
               style={{ fontFamily: "Roboto" }}
             >
-              {data?.data?.whyUrbanDesc}
+              <div dangerouslySetInnerHTML={renderHTML(whyUrbnBoxTxt)} />
             </p>
           </div>
 
           <div className="w-[48%] sm:h-[432px] h-[200px] rounded-lg bg-[#EBFCF0]">
-            <img src={data?.data?.whyUrbanImage} alt="" />
+            <img src={whyUrbnImg} alt={whyUrbnImgTag} />
           </div>
         </div>
       </div>

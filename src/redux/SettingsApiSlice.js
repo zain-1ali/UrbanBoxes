@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 // read action
+
 export const siteData = createAsyncThunk(
   "siteData",
   async (args, { rejectWithValue }) => {

@@ -4,7 +4,7 @@ import axios from "axios";
 import box from "../imgs/herobox.png";
 import { useNavigate } from "react-router-dom";
 
-const Homeproducts = () => {
+const Homeproducts = ({ insDesignDesc }) => {
   // let
 
   let [latestProducts, setlatestProducts] = useState([]);
@@ -20,17 +20,28 @@ const Homeproducts = () => {
   console.log(latestProducts);
 
   let navigate = useNavigate();
+
+  const parser = new DOMParser();
+  const inspirationalDescription = parser.parseFromString(
+    insDesignDesc,
+    "text/html"
+  );
+
+  const renderHTML = () => {
+    return { __html: insDesignDesc };
+  };
+
   return (
     <div className="w-[100%] sm:mt-[50px] mt-[25px]">
       <div className="w-[100%] flex flex-col items-center">
         <div className="w-[95%] flex justify-center items-center mt-[30px] ">
           <div className="sm:w-[38%] w-[23%] h-[1px]  bg-[#696262] mr-2"></div>
-          <h2
-            className="sm:text-2xl text-[16px] sm:font-[600] font-[500] "
+          <h1
+            className="sm:text-2xl text-[16px] sm:font-[600] font-[500] text-center "
             style={{ fontFamily: "Poppins" }}
           >
             Inspirational Designs
-          </h2>
+          </h1>
           <div className="sm:w-[38%] w-[23%]  h-[1px]  bg-[#696262] ml-2"></div>
         </div>
 
@@ -38,9 +49,10 @@ const Homeproducts = () => {
           className="sm:w-[70%] w-[90%] text-center sm:mt-[25px] mt-[13px] font-[400] sm:text-xl text-[14px] text-[#0f0707]"
           style={{ fontFamily: "Roboto" }}
         >
-          Our custom boxes are inclusive of everything that you require to
-          package your products, ranging from small boxes to customized luxury
-          packaging.
+          {/* <div dangerouslySetInnerHTML={{ __html: inspirationalDescription }} /> */}
+          <div dangerouslySetInnerHTML={renderHTML()} />
+
+          {/* {inspirationalDescription} */}
         </p>
       </div>
       <div className="w-[100%] flex flex-col items-center">

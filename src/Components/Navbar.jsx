@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   BiLogoFacebook,
   BiLogoInstagramAlt,
@@ -20,7 +20,8 @@ import MediaQuery from "react-responsive";
 // import Drawer from "./Drawer";
 import TheDrawer from "./Drawer";
 import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { headerFoterLayout } from "../redux/ApiSlice";
 
 const Navbar = () => {
   let [drawer, setDrawer] = useState(false);
@@ -38,6 +39,11 @@ const Navbar = () => {
   let navigate = useNavigate();
 
   let path = window.location.pathname;
+  let dispatch = useDispatch();
+  let headerFoterData = useSelector((state) => state.ApiSlice.headerFoterData);
+  useEffect(() => {
+    dispatch(headerFoterLayout());
+  }, []);
 
   return (
     <>
@@ -74,7 +80,12 @@ const Navbar = () => {
             >
               <AiOutlineMenu className="text-xl text-[#585656]" />
             </div>
-            <TheDrawer drawer={drawer} handleDrawer={closeDrawer} />
+            <TheDrawer
+              drawer={drawer}
+              handleDrawer={closeDrawer}
+              mobileLogo={headerFoterData?.data?.logo?.mobileLogo}
+              mobileLogoTag={headerFoterData?.data?.logo?.mobileLogoTag}
+            />
           </MediaQuery>
           <div className="h-[100%] sm:w-[450px] w-[290px] flex justify-end ">
             <div
@@ -112,8 +123,8 @@ const Navbar = () => {
             <MediaQuery minWidth={640}>
               <div className="flex items-center ">
                 <img
-                  src={data?.data?.companyLogo}
-                  alt="logo"
+                  src={headerFoterData?.data?.logo?.headerLogo}
+                  alt={headerFoterData?.data?.logo?.headerLogoTag}
                   className="lg:h-[50px] lg:w-[200px] md:h-[40px] md:w-[180px]"
                 />
                 {/* className="h-[50px] w-[84px]"  */}

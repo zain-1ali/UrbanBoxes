@@ -30,6 +30,7 @@ let openLink = (link) => {
 
 const Footer = ({ bg, textClr }) => {
   const data = useSelector((state) => state.siteDetails.data);
+  let headerFoterData = useSelector((state) => state.ApiSlice.headerFoterData);
   return (
     <div
       className="sm:h-[400px] h-[200px] w-[100%] sm:mt-[65px] sm:mb-0 mb-[21px]"
@@ -39,8 +40,9 @@ const Footer = ({ bg, textClr }) => {
         <div className=" sm:mt-[40px] mt-[30px]">
           <div className="flex items-center">
             <img
-              src={textClr === "white" ? logo : blacklogo}
-              alt="Logo"
+              // src={textClr === "white" ? logo : blacklogo}
+              src={headerFoterData?.data?.logo?.footerLogo}
+              alt={headerFoterData?.data?.logo?.footerLogoTag}
               className="sm:h-[55px] sm:w-[235px] h-[30px] w-[120px]"
             />
             {/* <h2
@@ -54,14 +56,13 @@ const Footer = ({ bg, textClr }) => {
             className="sm:mt-[25px] mt-[20px] font-[700] sm:text-[30px] text-[12px] text-white sm:w-[370px] w-[170px]  "
             style={{ fontFamily: "Inter", color: textClr }}
           >
-            Custom Printed Boxes & Packaging
+            {headerFoterData?.data?.footer?.heading}
           </h2>
           <p
             className="sm:text-lg text-[7px] sm:w-[369px] w-[170px] font-[400] text-[#FFFFFF] sm:mt-[7px] mt-[7px] "
             style={{ fontFamily: "Roboto", color: textClr }}
           >
-            Lorem ipsum dolor sit amet consectetur. Scelerisque quam tempor eget
-            cras quis. Cursus pulvinar fusce scelerisque tempus mus ullamcorper{" "}
+            {headerFoterData?.data?.footer?.text}
           </p>
         </div>
 
@@ -138,7 +139,7 @@ const Footer = ({ bg, textClr }) => {
               className="  sm:text-[17px] text-[7px] font-[400]  text-white "
               style={{ fontFamily: "Roboto", color: textClr }}
             >
-              {data?.data?.phone}
+              {headerFoterData?.data?.footer?.phone}
             </p>
           </div>
 
@@ -151,7 +152,7 @@ const Footer = ({ bg, textClr }) => {
               className="  sm:text-[17px] text-[7px] font-[400]  text-white"
               style={{ fontFamily: "Roboto", color: textClr }}
             >
-              {data?.data?.email}
+              {headerFoterData?.data?.footer?.contactEmail}
             </p>
           </div>
 
@@ -164,7 +165,7 @@ const Footer = ({ bg, textClr }) => {
               className="  sm:text-[17px] text-[7px] font-[400]  text-white"
               style={{ fontFamily: "Roboto", color: textClr }}
             >
-              {data?.data?.Address}
+              {headerFoterData?.data?.footer?.address}
             </p>
           </div>
           <div className="flex sm:mt-[20px] mt-[5px] items-center">
@@ -176,8 +177,10 @@ const Footer = ({ bg, textClr }) => {
               className="  sm:text-[17px] text-[7px] font-[400]  text-white"
               style={{ fontFamily: "Roboto", color: textClr }}
             >
-              {data?.data?.startDay} - {data?.data?.endDay}:{" "}
-              {data?.data?.startTime} - {data?.data?.endTime}
+              {headerFoterData?.data?.footer?.startDay} -{" "}
+              {headerFoterData?.data?.footer?.endDay}:{" "}
+              {headerFoterData?.data?.footer?.startTime} -{" "}
+              {headerFoterData?.data?.footer?.endTime}
             </p>
           </div>
           <div className=" sm:mt-[15px] mt-[10px]">
@@ -191,7 +194,9 @@ const Footer = ({ bg, textClr }) => {
               <div
                 className="sm:h-[30px] sm:w-[30px] h-[10px] w-[10px] border rounded-full flex justify-center items-center   cursor-pointer"
                 style={{ borderColor: textClr }}
-                onClick={() => openLink(data?.data?.fbLink)}
+                onClick={() =>
+                  openLink(headerFoterData?.data?.footer?.facebook)
+                }
               >
                 <BiLogoFacebook
                   className=" sm:text-xl text-[5px]"
@@ -201,7 +206,9 @@ const Footer = ({ bg, textClr }) => {
               <div
                 className="sm:h-[30px] sm:w-[30px] h-[10px] w-[10px] border rounded-full flex justify-center items-center  sm:ml-5 ml-1 cursor-pointer"
                 style={{ borderColor: textClr }}
-                onClick={() => openLink(data?.data?.instaLink)}
+                onClick={() =>
+                  openLink(headerFoterData?.data?.footer?.instagram)
+                }
               >
                 <BiLogoInstagramAlt
                   className=" sm:text-xl text-[5px]"
@@ -211,7 +218,7 @@ const Footer = ({ bg, textClr }) => {
               <div
                 className="sm:h-[30px] sm:w-[30px] h-[10px] w-[10px] border rounded-full flex justify-center items-center  sm:ml-5 ml-1 cursor-pointer"
                 style={{ borderColor: textClr }}
-                onClick={() => openLink(data?.data?.youtubeLink)}
+                onClick={() => openLink(headerFoterData?.data?.footer?.youtube)}
               >
                 <BiLogoYoutube
                   className=" sm:text-xl text-[5px]"
@@ -221,7 +228,7 @@ const Footer = ({ bg, textClr }) => {
               <div
                 className="sm:h-[30px] sm:w-[30px] h-[10px] w-[10px] border rounded-full flex justify-center items-center  sm:ml-5 ml-1 cursor-pointer"
                 style={{ borderColor: textClr }}
-                onClick={() => openLink(data?.data?.twitterLink)}
+                onClick={() => openLink(headerFoterData?.data?.footer?.twitter)}
               >
                 <BiLogoTwitter
                   className=" sm:text-xl text-[5px]"
@@ -231,7 +238,9 @@ const Footer = ({ bg, textClr }) => {
               <div
                 className="sm:h-[30px] sm:w-[30px] h-[10px] w-[10px] border rounded-full flex justify-center items-center  sm:ml-5 ml-1 cursor-pointer"
                 style={{ borderColor: textClr }}
-                onClick={() => openLink(data?.data?.linkedinLink)}
+                onClick={() =>
+                  openLink(headerFoterData?.data?.footer?.linkedin)
+                }
               >
                 <BiLogoLinkedin
                   className=" sm:text-xl  text-[5px]"
@@ -241,7 +250,9 @@ const Footer = ({ bg, textClr }) => {
               <div
                 className="sm:h-[30px] sm:w-[30px] h-[10px] w-[10px] border rounded-full flex justify-center items-center  sm:ml-5 ml-1 cursor-pointer"
                 style={{ borderColor: textClr }}
-                onClick={() => openLink(data?.data?.whatsappLink)}
+                onClick={() =>
+                  openLink(headerFoterData?.data?.footer?.whatsapp)
+                }
               >
                 <RiWhatsappFill
                   className=" sm:text-xl text-[5px]"
