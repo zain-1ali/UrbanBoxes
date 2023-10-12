@@ -4,11 +4,13 @@ import { useMediaQuery } from "react-responsive";
 
 const StaticPageUpper = ({
   img,
+  imgTag,
   heading,
   paragraph,
   btnClr,
   hover,
   btnText,
+  Btn1lnk,
 }) => {
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
   return (
@@ -35,6 +37,7 @@ const StaticPageUpper = ({
             <button
               className={`lg:w-[201px] w-[90px] h-[31px] lg:h-[51px] hover:bg-[${hover}] rounded-[6px] text-white lg:text-[16px] text-[9px] font-[600]`}
               style={{ backgroundColor: btnClr }}
+              onClick={() => window.open(Btn1lnk)}
             >
               {btnText}
             </button>
@@ -43,7 +46,7 @@ const StaticPageUpper = ({
         <div className="h-[100%] w-[49%] flex justify-end items-center">
           <img
             src={img}
-            alt=""
+            alt={imgTag}
             className="lg:w-[539px] lg:h-[338px] lg:rounded-[33px] rounded-[13px]"
           />
         </div>

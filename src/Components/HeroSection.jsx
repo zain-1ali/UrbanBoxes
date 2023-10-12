@@ -112,11 +112,11 @@ const HeroSection = ({ heroData }) => {
         </div>
       </div>
 
-      <div className=" w-[45%] flex justify-center items-center ">
+      <div className=" w-[45%] flex justify-center items-center  ">
         <img
           src={heroData?.image}
           alt={heroData?.imageTag}
-          className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
+          className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 max-h-[90%] max-w-[90%]"
         />
       </div>
     </div>

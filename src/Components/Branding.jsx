@@ -83,7 +83,7 @@ const Branding = ({ boxes, brandDesc, brandHeading, brandCircle }) => {
             className="sm:text-2xl text-[16px] sm:font-[600] font-[500] "
             style={{ fontFamily: "Poppins" }}
           >
-            Product Branding
+            Featured Custom Boxes
           </h2>
           <div className="sm:w-[38%] w-[23%]  h-[1px]  bg-[#696262] ml-2"></div>
         </div>

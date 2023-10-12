@@ -30,10 +30,10 @@ const HomeBrandTrust = ({ trstBrndDesc }) => {
         <div className="w-[95%] flex justify-center items-center mt-[30px]">
           <div className="sm:w-[29%] w-[12%] h-[1px]  bg-[#696262] mr-2 "></div>
           <h2
-            className="sm:text-2xl text-[16px] font-[600] "
+            className="sm:text-2xl text-[16px] font-[600] text-center"
             style={{ fontFamily: "Poppins" }}
           >
-            Brands That Trust Urban Boxes
+            A Few of the Many Brands That Trust Us
           </h2>
           <div className="sm:w-[29%] w-[12%]  h-[1px]  bg-[#696262] ml-2 "></div>
         </div>

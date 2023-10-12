@@ -52,9 +52,73 @@ export const scheduleMeetings = createAsyncThunk(
 // ----------------------------------------category Page api----------------------------------------------
 
 export const categoryPage = createAsyncThunk(
-  "scheduleMeetings",
+  "categoryPage",
   async (args, { rejectWithValue }) => {
     const response = await fetch(`${baseUrl}/api/categoryPage`);
+    try {
+      const result = await response.json();
+      console.log(result);
+      return result;
+    } catch (error) {
+      rejectWithValue(error);
+    }
+  }
+);
+
+// ----------------------------------------go Green Page----------------------------------------------
+
+export const goGreenPage = createAsyncThunk(
+  "goGreenPage",
+  async (args, { rejectWithValue }) => {
+    const response = await fetch(`${baseUrl}/api/goGreenPage`);
+    try {
+      const result = await response.json();
+      console.log(result);
+      return result;
+    } catch (error) {
+      rejectWithValue(error);
+    }
+  }
+);
+
+// ----------------------------------------go Green Page----------------------------------------------
+
+export const luxuryFinishPage = createAsyncThunk(
+  "luxuryFinishPage",
+  async (args, { rejectWithValue }) => {
+    const response = await fetch(`${baseUrl}/api/luxuryFinishPage`);
+    try {
+      const result = await response.json();
+      console.log(result);
+      return result;
+    } catch (error) {
+      rejectWithValue(error);
+    }
+  }
+);
+
+// ----------------------------------------about Page----------------------------------------------
+
+export const aboutPage = createAsyncThunk(
+  "aboutPage",
+  async (args, { rejectWithValue }) => {
+    const response = await fetch(`${baseUrl}/api/aboutPage`);
+    try {
+      const result = await response.json();
+      console.log(result);
+      return result;
+    } catch (error) {
+      rejectWithValue(error);
+    }
+  }
+);
+
+// ----------------------------------------by Style Page----------------------------------------------
+
+export const byStylePage = createAsyncThunk(
+  "byStylePage",
+  async (args, { rejectWithValue }) => {
+    const response = await fetch(`${baseUrl}/api/byStylePage`);
     try {
       const result = await response.json();
       console.log(result);
@@ -73,6 +137,10 @@ const initialState = {
   loading: true,
   scheduleMeetingsData: {},
   categoryData: {},
+  goGreenData: {},
+  luxuryFinishData: {},
+  byStyleData: {},
+  aboutData: {},
 };
 
 export const ApiSlice = createSlice({
@@ -138,6 +206,51 @@ export const ApiSlice = createSlice({
     [categoryPage.rejected]: (state, action) => {
       state.loading = false;
       state.categoryData = action.payload;
+    },
+
+    // ----------------------------------------go Green Page----------------------------------------------
+
+    [goGreenPage.pending]: (state) => {
+      state.loading = true;
+    },
+
+    [goGreenPage.fulfilled]: (state, action) => {
+      state.goGreenData = action.payload;
+      state.loading = false;
+    },
+    [goGreenPage.rejected]: (state, action) => {
+      state.loading = false;
+      state.goGreenData = action.payload;
+    },
+
+    // ----------------------------------------luxury Finish Page----------------------------------------------
+
+    [luxuryFinishPage.pending]: (state) => {
+      state.loading = true;
+    },
+
+    [luxuryFinishPage.fulfilled]: (state, action) => {
+      state.luxuryFinishData = action.payload;
+      state.loading = false;
+    },
+    [luxuryFinishPage.rejected]: (state, action) => {
+      state.loading = false;
+      state.luxuryFinishData = action.payload;
+    },
+
+    // ----------------------------------------by Style Page----------------------------------------------
+
+    [byStylePage.pending]: (state) => {
+      state.loading = true;
+    },
+
+    [byStylePage.fulfilled]: (state, action) => {
+      state.byStyleData = action.payload;
+      state.loading = false;
+    },
+    [byStylePage.rejected]: (state, action) => {
+      state.loading = false;
+      state.byStyleData = action.payload;
     },
   },
 });

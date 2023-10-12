@@ -15,10 +15,11 @@ const HomeFAQ = ({ faqDesc, faqs }) => {
         <div className="w-[95%] flex justify-center items-center mt-[30px] ">
           <div className="w-[38%] h-[1px]  bg-[#696262] mr-3"></div>
           <h2
-            className="sm:text-2xl text-[16px] font-[600] "
+            className="sm:text-2xl text-[16px] font-[600] text-center"
             style={{ fontFamily: "Poppins" }}
           >
-            FAQ'S
+            {/* FAQ'S */}
+            People Also Ask (FAQs)
           </h2>
           <div className="w-[38%]  h-[1px]  bg-[#696262] ml-3"></div>
         </div>
@@ -43,16 +44,17 @@ const HomeFAQ = ({ faqDesc, faqs }) => {
                 {isDesktopOrLaptop && <img src={idea} alt="" />}
                 <div className="ml-2">
                   <h2
-                    className="sm:text-[25px] text-[15px]  font-medium"
-                    style={{ fontFamily: "Roboto" }}
+                    className="sm:text-[25px] text-[15px]  font-medium max-h-[100px] h-[100%] overflow-y-scroll scrollbar-hide"
+                    style={{ fontFamily: "Roboto", lineHeight: "34px" }}
                   >
                     {faq?.question}
                   </h2>
                   <p
-                    className="sm:text-[20px] text-[12px] w-[95%] font-[400] text-[#605B5B]"
+                    className="sm:text-[20px] text-[12px] w-[95%] font-[400] text-[#605B5B] max-h-[100px] h-[100%] overflow-y-scroll scrollbar-hide mt-[10px]"
                     style={{ fontFamily: "Roboto", lineHeight: "24px" }}
                   >
-                    {faq?.answer}
+                    <div dangerouslySetInnerHTML={renderHTML(faq?.answer)} />
+                    {/* {faq?.answer} */}
                   </p>
                 </div>
               </div>

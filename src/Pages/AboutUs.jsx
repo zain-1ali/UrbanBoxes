@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../Components/Navbar";
 import StaticPageUpper from "../Components/StaticPageUpper";
 import about from "../imgs/aboutimg.png";
@@ -11,9 +11,17 @@ import HomeBrandTrust from "../Components/HomeBrandTrust";
 import WhatWeDo from "../Components/Aboutus/WhatWeDo";
 import { useMediaQuery } from "react-responsive";
 import MobileNavbar from "../Components/MobileNavbar";
+import { useDispatch, useSelector } from "react-redux";
+import { aboutPage } from "../redux/ApiSlice";
 
 const AboutUs = () => {
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
+  let dispatch = useDispatch();
+  let aboutData = useSelector((state) => state.ApiSlice.aboutData);
+  console.log(aboutData);
+  useEffect(() => {
+    dispatch(aboutPage());
+  }, []);
   return (
     <div className="w-[100%]">
       {isDesktopOrLaptop ? (

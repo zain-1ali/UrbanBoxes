@@ -1,6 +1,9 @@
 import React from "react";
 import greenworld from "../../imgs/cleanGreen.png";
-const DifferenceGreen = () => {
+const DifferenceGreen = ({ Box3heding, Box3desc, Box3image, Box3imageTag }) => {
+  const renderHTML = (string) => {
+    return { __html: string };
+  };
   return (
     <div className="w-[100%] lg:mt-[50px] mt-[10px]">
       <div className="w-[100%] lg:mt-[50px] mt-[10px]">
@@ -11,16 +14,15 @@ const DifferenceGreen = () => {
                 className="sm:text-[36px] text-[12px] font-[600]  "
                 style={{ fontFamily: "Inter" }}
               >
-                Let's make a difference, together!
+                {Box3heding}
               </h2>
               <p
                 className="w-[100%] sm:text-[20px] text-[6px] font-[400] sm:mt-[10px] mt-[5px]"
                 style={{ fontFamily: "Inter" }}
               >
-                The packaging alternatives we provide consumers also suit their
-                demands and go above and beyond their expectations.
+                <div dangerouslySetInnerHTML={renderHTML(Box3desc)} />
               </p>
-              <ul
+              {/* <ul
                 className="w-[100%] sm:text-[20px] text-[6px] font-[400]"
                 style={{ fontFamily: "Inter" }}
               >
@@ -31,7 +33,7 @@ const DifferenceGreen = () => {
                 <li>Manufactured with recycled materials</li>
                 <li>Made with the lowest energy consumption possible</li>
                 <li>Contain no toxic elements or materials</li>
-              </ul>
+              </ul> */}
               <div
                 className="sm:w-[155px] sm:h-[53px]  w-[75px] h-[25px] bg-[#449F5A] hover:bg-[#6AD37F] flex justify-center items-center text-white font-[600] sm:text-[20px] text-[10px] rounded-[6px] sm:mt-[30px] mt-[10px] cursor-pointer"
                 style={{ fontFamily: "Inter" }}
@@ -44,7 +46,7 @@ const DifferenceGreen = () => {
           <div className="w-[48%] h-[100%] rounded-[19px] bg-[#FDF3DB]"></div>
           <div className="w-[48%] h-[100%] rounded-[19px] bg-[#FDF3DB]"></div>
         </div> */}
-              <img src={greenworld} alt="" />
+              <img src={Box3image} alt={Box3imageTag} />
               {/* <div className="flex justify-between w-[458px] h-[184px] rounded-[19px] bg-[#FDF3DB] mt-[20px]"></div> */}
             </div>
           </div>

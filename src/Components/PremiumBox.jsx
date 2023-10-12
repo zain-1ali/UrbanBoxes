@@ -27,7 +27,7 @@ const PremiumBox = ({ img, boxLayout }) => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <img src={img} alt="" />
+          <img src={img} alt="" className="max-h-[90%] max-w-[90%]" />
           {isHovered && (
             <h2 className="absolute bottom-[20px] font-medium text-[24px] text-[#A4A2A2] ">
               Box

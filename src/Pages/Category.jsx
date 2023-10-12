@@ -16,17 +16,17 @@ import { categoryPage } from "../redux/ApiSlice";
 const Category = () => {
   let navigate = useNavigate();
 
-  let [category, setCategory] = useState([]);
-  let baseUrl = import.meta.env.VITE_BASE_URL;
-  useEffect(() => {
-    let getcategory = async () => {
-      let res = await axios.get(`${baseUrl}/api/getAllCategories`);
-      setCategory(res.data.data);
-    };
-    getcategory();
-  }, []);
+  // let [category, setCategory] = useState([]);
+  // let baseUrl = import.meta.env.VITE_BASE_URL;
+  // useEffect(() => {
+  //   let getcategory = async () => {
+  //     let res = await axios.get(`${baseUrl}/api/getAllCategories`);
+  //     setCategory(res.data.data);
+  //   };
+  //   getcategory();
+  // }, []);
 
-  console.log(category);
+  // console.log(category);
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
 
   let dispatch = useDispatch();

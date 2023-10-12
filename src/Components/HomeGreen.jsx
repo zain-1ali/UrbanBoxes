@@ -19,10 +19,10 @@ const HomeGreen = ({
         <div className="w-[95%] flex justify-center items-center mt-[30px]">
           <div className="sm:w-[38%] w-[30%]  h-[1px]  bg-[#696262] mr-2 "></div>
           <h2
-            className="sm:text-2xl text-[16px] font-[600] "
+            className="sm:text-2xl text-[16px] font-[600] text-center"
             style={{ fontFamily: "Poppins" }}
           >
-            {goGrenBoxHeding}
+            Sustainable & Eco-Friendly Packaging Box Manufacturer
           </h2>
           <div className="sm:w-[38%] w-[30%]   h-[1px]  bg-[#696262] ml-2"></div>
         </div>
@@ -45,7 +45,7 @@ const HomeGreen = ({
               OUR MISSION - WELLNESS FOR LIFE!
             </h2>
             <p
-              className="w-[100%] sm:text-[20px] text-[8px] font-[400] sm:mt-[10px] mt-[5px]"
+              className="w-[100%] sm:text-[20px] sm:h-[40%] text-[8px] font-[400] sm:mt-[10px] mt-[5px] overflow-y-scroll scrollbar-hide"
               style={{ fontFamily: "Inter" }}
             >
               <div dangerouslySetInnerHTML={renderHTML(goGrenBoxTxt)} />

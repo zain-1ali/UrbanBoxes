@@ -111,13 +111,14 @@ const Homeform = ({
         <div className="w-[95%] flex justify-center items-center mt-[30px]">
           <div className="sm:w-[35%] w-[22%] h-[1px]  bg-[#696262] mr-2"></div>
           <h2
-            className="sm:text-2xl text-[16px] sm:font-[600] font-[500]"
+            className="sm:text-2xl text-[16px] sm:font-[600] font-[500] text-center"
             style={{ fontFamily: "Poppins" }}
           >
             {/* {isDesktopOrLaptop
               ? "Get Discounted Price Quickly"
               : "Get Discounted Price"} */}
-            Get Discounted Price
+            {/* Get Discounted Price */}
+            Get Wholesale Prices for Custom Printed Boxes
           </h2>
           <div className="sm:w-[35%] w-[22%] h-[1px]  bg-[#696262] ml-2 "></div>
         </div>

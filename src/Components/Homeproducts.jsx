@@ -40,7 +40,8 @@ const Homeproducts = ({ insDesignDesc }) => {
             className="sm:text-2xl text-[16px] sm:font-[600] font-[500] text-center "
             style={{ fontFamily: "Poppins" }}
           >
-            Inspirational Designs
+            {/* Inspirational Designs */}
+            Ryt Box: Right Packaging Suppliers of Custom Boxes
           </h1>
           <div className="sm:w-[38%] w-[23%]  h-[1px]  bg-[#696262] ml-2"></div>
         </div>

@@ -56,7 +56,8 @@ const CategoryUpper = ({
             <img
               src={imgUrl}
               alt={imageTag}
-              className="sm:h-[270px] sm:w-[270px] h-[90%] w-[90%]"
+              className=" max-h-[90%] max-w-[90%]"
+              // sm:h-[270px] sm:w-[270px]
             />
           </div>
         </div>

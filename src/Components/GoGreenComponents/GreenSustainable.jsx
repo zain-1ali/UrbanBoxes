@@ -1,7 +1,15 @@
 import React from "react";
 import greenworld from "../../imgs/greenworld.png";
 
-const GreenSustainable = () => {
+const GreenSustainable = ({
+  Box1heding,
+  Box1desc,
+  Box1image,
+  Box1imageTag,
+}) => {
+  const renderHTML = (string) => {
+    return { __html: string };
+  };
   return (
     <div className="w-[100%] lg:mt-[50px] mt-[10px]">
       <div className="w-[100%] flex justify-center items-center">
@@ -11,18 +19,13 @@ const GreenSustainable = () => {
               className="sm:text-[36px] text-[12px] font-[600]  "
               style={{ fontFamily: "Inter" }}
             >
-              Our Packaging Materials Are Sustainable
+              {Box1heding}
             </h2>
             <p
               className="w-[100%] sm:text-[20px] text-[6px] font-[400] sm:mt-[10px] mt-[5px]"
               style={{ fontFamily: "Inter" }}
             >
-              Eco-friendly packaging has no parameters to measure; however, we
-              plays a vital role to mitigate the issue by using materials during
-              the production procedure which reduce the environmental effect, do
-              not harm the environment, and promote the health of humans and
-              wildlife. Our innovative eco-friendly materials are biodegradable
-              and renewable.
+              <div dangerouslySetInnerHTML={renderHTML(Box1desc)} />
             </p>
 
             <div
@@ -37,7 +40,7 @@ const GreenSustainable = () => {
           <div className="w-[48%] h-[100%] rounded-[19px] bg-[#FDF3DB]"></div>
           <div className="w-[48%] h-[100%] rounded-[19px] bg-[#FDF3DB]"></div>
         </div> */}
-            <img src={greenworld} alt="" />
+            <img src={Box1image} alt={Box1imageTag} />
             {/* <div className="flex justify-between w-[458px] h-[184px] rounded-[19px] bg-[#FDF3DB] mt-[20px]"></div> */}
           </div>
         </div>

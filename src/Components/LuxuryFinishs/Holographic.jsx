@@ -1,26 +1,35 @@
 import React from "react";
 import greenShop from "../../imgs/holographic.png";
 
-const Holographic = () => {
+const Holographic = ({ Box2heding, Box2desc, Box2image, Box2imageTag }) => {
+  const renderHTML = (string) => {
+    return { __html: string };
+  };
   return (
     <div className="w-[100%] lg:mt-[50px] mt-[10px]">
       <div className="w-[100%] flex justify-center items-center">
         <div className="w-[95%]  sm:h-[500px] h-[170px] sm:rounded-[45px] rounded-[25px] flex justify-evenly mt-[40px] ">
           <div className="w-[35%] h-[100%] flex justify-center items-center flex-col">
-            <img src={greenShop} alt="" className="w-[457px] h-[410px]" />
+            <img
+              src={Box2image}
+              alt={Box2imageTag}
+              className="w-[457px] h-[410px]"
+            />
           </div>
           <div className="w-[50%] h-[100%] flex  justify-center items-end flex-col">
             <h2
               className="sm:text-[36px] text-[12px] font-[600]   w-[90%] text-end"
               style={{ fontFamily: "Inter" }}
             >
-              Holographic Foiling
+              {/* Holographic Foiling */}
+              {Box2heding}
             </h2>
             <p
               className=" sm:text-[20px] text-[6px] font-[400] sm:mt-[10px] mt-[5px]  w-[90%] text-end"
               style={{ fontFamily: "Inter" }}
             >
-              We offer Holographic Foils, which are thin, transparent films that
+              <div dangerouslySetInnerHTML={renderHTML(Box2desc)} />
+              {/* We offer Holographic Foils, which are thin, transparent films that
               may be put directly over your printed image. The foil is available
               in a variety of hues and designs, such as gold, silver, and
               rainbow, in matte or gloss finishes. Notably, the cosmetic
@@ -28,7 +37,7 @@ const Holographic = () => {
               create beautiful packaging. This kind of packaging boosts your
               product's perceived worth also adding glitz and style. They are
               ideal to provide more conceptual clarity and initiate effective
-              communication between customer and brand.
+              communication between customer and brand. */}
             </p>
 
             <div

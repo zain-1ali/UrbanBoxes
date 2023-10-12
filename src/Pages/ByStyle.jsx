@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../Components/Navbar";
 import MobileNavbar from "../Components/MobileNavbar";
 import { useMediaQuery } from "react-responsive";
@@ -8,9 +8,17 @@ import box from "../imgs/herobox.png";
 import StyleCategories from "../Components/ByStyle/StyleCategories";
 import HomeOptions from "../Components/HomeOptions";
 import Footer from "../Components/Footer";
+import { useDispatch, useSelector } from "react-redux";
+import { byStylePage } from "../redux/ApiSlice";
 
 const ByStyle = () => {
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
+  let dispatch = useDispatch();
+  let byStyleData = useSelector((state) => state.ApiSlice.byStyleData);
+  console.log(byStyleData);
+  useEffect(() => {
+    dispatch(byStylePage());
+  }, []);
   return (
     <div className="w-[100%]">
       {isDesktopOrLaptop ? (
@@ -23,13 +31,14 @@ const ByStyle = () => {
       )}
 
       <CategoryUpper
-        heading="By Style"
-        paragraph="Elevate your brand image with customizable box style to match your vision."
-        imgUrl={box}
-        bgClr="#CDF6D8"
+        heading={byStyleData?.data?.banner?.heading}
+        paragraph={byStyleData?.data?.banner?.text}
+        imgUrl={byStyleData?.data?.banner?.image}
+        bgClr={byStyleData?.data?.banner?.color}
+        imageTag={byStyleData?.data?.banner?.imageTag}
         smtext="18px"
+        bottomParagraph={byStyleData?.data?.chooseBoxStyleDesc}
         bottomHeading="Choose Your Boxes Styles"
-        bottomParagraph="We offer a wide range of custom box styles so you may find the exact product as per your custom requirements."
       />
 
       <StyleCategories />

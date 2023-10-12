@@ -150,10 +150,11 @@ const HomePremium = ({ premImgDesc, premiumImages }) => {
         <div className="w-[95%] flex justify-center items-center mt-[30px]">
           <div className="sm:w-[38%] w-[25%] h-[1px]  bg-[#696262] mr-3"></div>
           <h2
-            className="sm:text-2xl text-[16px]  font-[600] "
+            className="sm:text-2xl text-[16px]  font-[600] text-center "
             style={{ fontFamily: "Poppins" }}
           >
-            Premium Finishes
+            {/* Premium Finishes */}
+            Premium Finishes at Ryt Box Printing Company
           </h2>
           <div className="sm:w-[38%] w-[25%]  h-[1px]  bg-[#696262] ml-3"></div>
         </div>
