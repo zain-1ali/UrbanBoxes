@@ -54,16 +54,18 @@ const SingleDescriptionBox = ({
 
         <h2
           className="text-[18px] mt-[7px] text-black font-[700]"
-          style={{ fontFamily: "Poppins", lineHeight: "48px" }}
+          style={{ fontFamily: "Poppins", lineHeight: "30px" }}
         >
           {heading}
         </h2>
-        <p
-          className="text-[15px] mt-[6px] text-[#666] font-normal"
-          style={{ fontFamily: "Poppins" }}
-        >
-          <div dangerouslySetInnerHTML={renderHTML()} />
-        </p>
+        <div className="mt-[6px]  h-[67%] overflow-y-scroll scrollbar-hide">
+          <p
+            className="text-[15px]  text-[#666] font-normal"
+            style={{ fontFamily: "Poppins" }}
+          >
+            <div dangerouslySetInnerHTML={renderHTML()} />
+          </p>
+        </div>
       </div>
     </div>
   );
@@ -80,7 +82,7 @@ const Branding = ({ boxes, brandDesc, brandHeading, brandCircle }) => {
         <div className="w-[95%] flex justify-center items-center mt-[30px] ">
           <div className="sm:w-[38%] w-[23%] h-[1px]  bg-[#696262] mr-2"></div>
           <h2
-            className="sm:text-2xl text-[16px] sm:font-[600] font-[500] "
+            className="sm:text-2xl text-[16px] sm:font-[600] font-[500] text-center"
             style={{ fontFamily: "Poppins" }}
           >
             Featured Custom Boxes
@@ -105,7 +107,7 @@ const Branding = ({ boxes, brandDesc, brandHeading, brandCircle }) => {
             Steps
           </h4>
           <h2
-            className="sm:text-[48px] text-[38px] text-[#000] font-[600] mt-[20px] w-[95%]"
+            className="sm:text-[48px] text-[38px] text-[#000] font-[600] mt-[20px] w-[95%] overflow-hidden"
             style={{ fontFamily: "Poppins", lineHeight: "48px" }}
           >
             {brandHeading}

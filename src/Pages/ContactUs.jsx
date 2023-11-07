@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import { RiPhoneFill } from "react-icons/ri";
@@ -10,6 +10,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useMediaQuery } from "react-responsive";
 import MobileNavbar from "../Components/MobileNavbar";
+import { useDispatch, useSelector } from "react-redux";
+import { contactPage } from "../redux/ApiSlice";
 
 const ContactUs = () => {
   let [msgInfo, setMsgInfo] = useState({
@@ -18,6 +20,16 @@ const ContactUs = () => {
     phone: "",
     message: "",
   });
+
+  let dispatch = useDispatch();
+  let contactData = useSelector((state) => state.ApiSlice.contactData);
+  console.log(contactData);
+  useEffect(() => {
+    dispatch(contactPage());
+  }, []);
+  const renderHTML = (string) => {
+    return { __html: string };
+  };
 
   // -----------------------------------------------save data to db----------------------------------------
 
@@ -152,20 +164,26 @@ const ContactUs = () => {
               className="font-[600] text-[48px] text-[#449F5A] mt-4"
               style={{ fontFamily: "Roboto" }}
             >
-              Looking for instant support?{" "}
+              {contactData?.data?.contact?.heading1}
             </h3>
             <p
               className="font-[500] text-[40px]  mt-2"
               style={{ fontFamily: "Roboto" }}
             >
-              Speak with our experts within a minute.
+              {/* Speak with our experts within a minute. */}
+              {contactData?.data?.contact?.heading2}
             </p>
             <p
               className="font-[400] text-[24px]  mt-1"
               style={{ fontFamily: "Roboto" }}
             >
-              Get in contact with our packaging experts in a matter of minutes
-              for direct support to your packaging needs.
+              <div
+                dangerouslySetInnerHTML={renderHTML(
+                  contactData?.data?.contact?.description
+                )}
+              />
+
+              {/* {contactData?.data?.contact?.description} */}
             </p>
 
             <h3
@@ -174,8 +192,8 @@ const ContactUs = () => {
             >
               Contact
             </h3>
-            <div className="w-[80%] flex justify-between sm:mt-[5px] mt-[5px]">
-              <div className="flex items-center ">
+            <div className="w-[87%] flex justify-between sm:mt-[5px] mt-[5px]">
+              <div className="flex items-center w-[45%]">
                 <RiPhoneFill className="sm:text-2xl text-[7px]  mr-1 sm:mr-2" />
                 <p
                   className="  sm:text-[20px] text-[7px] font-[400]   "
@@ -185,31 +203,32 @@ const ContactUs = () => {
                 </p>
               </div>
 
-              <div className="flex items-center mr-4">
-                <MdEmail className="sm:text-2xl text-[7px]  mr-1 sm:mr-2" />
+              <div className="flex items-center  justify-start w-[45%] ">
+                <MdEmail className="sm:text-2xl text-[7px]  mr-1 " />
                 <p
-                  className="  sm:text-[20px] text-[7px] font-[400]   "
+                  className="  sm:text-[20px] text-[7px] font-[400] ml-1  "
                   style={{ fontFamily: "Roboto" }}
                 >
-                  company@boxes.com
+                  {contactData?.data?.contact?.contactEmail}
                 </p>
               </div>
             </div>
-            <div className="w-[80%] flex justify-between mt-1">
+            <div className="w-[87%] flex justify-between mt-1">
               <div className="flex items-center sm:mt-[20px] mt-[5px]">
                 <HiLocationMarker className="sm:text-2xl text-[7px]  mr-1 sm:mr-2" />
                 <p
                   className="  sm:text-[20px] text-[7px] font-[400]   "
                   style={{ fontFamily: "Roboto" }}
                 >
-                  Los Vegas, LV 22001
+                  {/* Los Vegas, LV 22001 */}
+                  {contactData?.data?.contact?.address}
                 </p>
               </div>
 
-              <div className="flex items-center sm:mt-[20px] mt-[5px]">
-                <BsFillStopwatchFill className="sm:text-2xl text-[7px]  mr-1 sm:mr-2" />
+              <div className="flex items-center  justify-start w-[45%] sm:mt-[20px] mt-[5px] ">
+                <BsFillStopwatchFill className="sm:text-2xl text-[7px]" />
                 <p
-                  className="  sm:text-[20px] text-[7px] font-[400]   "
+                  className="  sm:text-[20px] text-[7px] font-[400] ml-2"
                   style={{ fontFamily: "Roboto" }}
                 >
                   Mon - Fri: 8:00 - 6:00 PM
@@ -223,23 +242,26 @@ const ContactUs = () => {
             >
               Sales Inquiries
             </h3>
-            <div className="w-[80%] flex justify-between sm:mt-[5px] mt-[5px]">
-              <div className="flex items-center ">
+            <div className="w-[87%] flex justify-between sm:mt-[5px] mt-[5px]">
+              <div className="flex items-center justify-start ">
                 <MdEmail className="sm:text-2xl text-[7px]  mr-1 sm:mr-2" />
                 <p
-                  className="  sm:text-[20px] text-[7px] font-[400]   "
+                  className="  sm:text-[20px] text-[7px] font-[400]"
                   style={{ fontFamily: "Roboto" }}
                 >
-                  Boxes@uerban.com
+                  {contactData?.data?.contact?.saleEmail}
                 </p>
               </div>
               <div className="flex items-center">
                 <BsFillStopwatchFill className="sm:text-2xl text-[7px]  mr-1 sm:mr-2" />
                 <p
-                  className="  sm:text-[20px] text-[7px] font-[400]   "
+                  className="  sm:text-[20px] text-[7px] font-[400]"
                   style={{ fontFamily: "Roboto" }}
                 >
-                  Mon - Fri: 8:00 - 6:00 PM
+                  {contactData?.data?.contact?.startDay} -{" "}
+                  {contactData?.data?.contact?.endDay}:{" "}
+                  {contactData?.data?.contact?.startTime} -{" "}
+                  {contactData?.data?.contact?.endTime}
                 </p>
               </div>
             </div>

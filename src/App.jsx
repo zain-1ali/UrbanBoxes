@@ -52,6 +52,7 @@ function App() {
             />
 
             <Route path="/gogreen" element={<GoGreen />} />
+
             <Route path="/luxurayFinishes" element={<LuxuryFinishes />} />
             <Route path="/aboutUs" element={<AboutUs />} />
             <Route path="/contactus" element={<ContactUs />} />

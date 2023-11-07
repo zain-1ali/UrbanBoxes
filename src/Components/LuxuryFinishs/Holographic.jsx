@@ -25,19 +25,10 @@ const Holographic = ({ Box2heding, Box2desc, Box2image, Box2imageTag }) => {
               {Box2heding}
             </h2>
             <p
-              className=" sm:text-[20px] text-[6px] font-[400] sm:mt-[10px] mt-[5px]  w-[90%] text-end"
+              className=" sm:text-[20px] sm:h-[340px] overflow-y-scroll scrollbar-hide text-[6px] font-[400] sm:mt-[10px] mt-[5px]  w-[90%] text-end"
               style={{ fontFamily: "Inter" }}
             >
               <div dangerouslySetInnerHTML={renderHTML(Box2desc)} />
-              {/* We offer Holographic Foils, which are thin, transparent films that
-              may be put directly over your printed image. The foil is available
-              in a variety of hues and designs, such as gold, silver, and
-              rainbow, in matte or gloss finishes. Notably, the cosmetic
-              industry widely makes considerable use of holographic foiling to
-              create beautiful packaging. This kind of packaging boosts your
-              product's perceived worth also adding glitz and style. They are
-              ideal to provide more conceptual clarity and initiate effective
-              communication between customer and brand. */}
             </p>
 
             <div

@@ -20,7 +20,7 @@ const GreenImpact = ({ Box2heding, Box2desc, Box2image, Box2imageTag }) => {
               {Box2heding}
             </h2>
             <p
-              className=" sm:text-[20px] text-[6px] font-[400] sm:mt-[10px] mt-[5px]  w-[90%] text-end"
+              className=" sm:text-[20px] text-[6px] sm:h-[340px] overflow-y-scroll scrollbar-hide  font-[400] sm:mt-[10px] mt-[5px]  w-[90%] text-end"
               style={{ fontFamily: "Inter" }}
             >
               <div dangerouslySetInnerHTML={renderHTML(Box2desc)} />

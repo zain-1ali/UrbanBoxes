@@ -129,6 +129,56 @@ export const byStylePage = createAsyncThunk(
   }
 );
 
+// ----------------------------------------contact Page----------------------------------------------
+
+export const contactPage = createAsyncThunk(
+  "contactPage",
+  async (args, { rejectWithValue }) => {
+    const response = await fetch(`${baseUrl}/api/contactPage`);
+    try {
+      const result = await response.json();
+      console.log(result);
+      return result;
+    } catch (error) {
+      rejectWithValue(error);
+    }
+  }
+);
+
+// ----------------------------------------Products By Category Id----------------------------------------------
+
+export const ProductsByCategoryId = createAsyncThunk(
+  "ProductsByCategoryId",
+  async (id, { rejectWithValue }) => {
+    const response = await fetch(
+      `${baseUrl}/api/getProductsByCategoryId/${id}`
+    );
+    try {
+      const result = await response.json();
+      console.log(result);
+      return result;
+    } catch (error) {
+      rejectWithValue(error);
+    }
+  }
+);
+
+// ----------------------------------------get Product By Id----------------------------------------------
+
+export const getProductById = createAsyncThunk(
+  "getProductById",
+  async (id, { rejectWithValue }) => {
+    const response = await fetch(`${baseUrl}/api/getProductById/${id}`);
+    try {
+      const result = await response.json();
+      console.log(result);
+      return result;
+    } catch (error) {
+      rejectWithValue(error);
+    }
+  }
+);
+
 const initialState = {
   data: {},
   headerFoterData: {},
@@ -141,6 +191,9 @@ const initialState = {
   luxuryFinishData: {},
   byStyleData: {},
   aboutData: {},
+  contactData: {},
+  Products: {},
+  singleProduct: {},
 };
 
 export const ApiSlice = createSlice({
@@ -251,6 +304,66 @@ export const ApiSlice = createSlice({
     [byStylePage.rejected]: (state, action) => {
       state.loading = false;
       state.byStyleData = action.payload;
+    },
+
+    // ----------------------------------------about Page----------------------------------------------
+
+    [aboutPage.pending]: (state) => {
+      state.loading = true;
+    },
+
+    [aboutPage.fulfilled]: (state, action) => {
+      state.aboutData = action.payload;
+      state.loading = false;
+    },
+    [aboutPage.rejected]: (state, action) => {
+      state.loading = false;
+      state.aboutData = action.payload;
+    },
+
+    // ----------------------------------------contactPage----------------------------------------------
+
+    [contactPage.pending]: (state) => {
+      state.loading = true;
+    },
+
+    [contactPage.fulfilled]: (state, action) => {
+      state.contactData = action.payload;
+      state.loading = false;
+    },
+    [contactPage.rejected]: (state, action) => {
+      state.loading = false;
+      state.contactData = action.payload;
+    },
+
+    // ----------------------------------------Products By Category Id----------------------------------------------
+
+    [ProductsByCategoryId.pending]: (state) => {
+      state.loading = true;
+    },
+
+    [ProductsByCategoryId.fulfilled]: (state, action) => {
+      state.Products = action.payload;
+      state.loading = false;
+    },
+    [ProductsByCategoryId.rejected]: (state, action) => {
+      state.loading = false;
+      state.Products = action.payload;
+    },
+
+    // ----------------------------------------getProductById----------------------------------------------
+
+    [getProductById.pending]: (state) => {
+      state.loading = true;
+    },
+
+    [getProductById.fulfilled]: (state, action) => {
+      state.singleProduct = action.payload;
+      state.loading = false;
+    },
+    [getProductById.rejected]: (state, action) => {
+      state.loading = false;
+      state.singleProduct = action.payload;
     },
   },
 });

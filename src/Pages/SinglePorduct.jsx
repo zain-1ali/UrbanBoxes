@@ -13,6 +13,8 @@ import MailboxSkel from "../Components/Skeletons/MailboxSkel";
 import { useMediaQuery } from "react-responsive";
 import MobileNavbar from "../Components/MobileNavbar";
 import Branding from "../Components/Branding";
+import { getProductById } from "../redux/ApiSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const SinglePorduct = () => {
   const params = useParams();
@@ -20,6 +22,7 @@ const SinglePorduct = () => {
   const product = params.productid;
   let navigate = useNavigate();
   let location = useLocation();
+  let dispatch = useDispatch();
   let { pathname } = location;
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -29,22 +32,28 @@ const SinglePorduct = () => {
   let [Products, setProducts] = useState([]);
 
   console.log(Product?.details);
+  let singleProduct = useSelector(
+    (state) => state.ApiSlice.singleProduct?.data
+  );
+
+  console.log(singleProduct);
 
   let baseUrl = import.meta.env.VITE_BASE_URL;
   useEffect(() => {
-    let getSingleProduct = async () => {
-      let res = await axios
-        .get(`${baseUrl}/api/getProductById/${product}`)
-        .then(async (resp) => {
-          setProduct(resp.data.data);
-          let thedata = await axios.get(
-            `${baseUrl}/api/getProductsByCategoryId/${resp?.data.data.category_id}`
-          );
-          setProducts(thedata.data.data);
-        });
-    };
+    // let getSingleProduct = async () => {
+    //   let res = await axios
+    //     .get(`${baseUrl}/api/getProductById/${product}`)
+    //     .then(async (resp) => {
+    //       setProduct(resp.data.data);
+    //       let thedata = await axios.get(
+    //         `${baseUrl}/api/getProductsByCategoryId/${resp?.data.data.category_id}`
+    //       );
+    //       setProducts(thedata.data.data);
+    //     });
+    // };
 
-    getSingleProduct();
+    // getSingleProduct();
+    dispatch(getProductById(product));
   }, []);
 
   // useEffect(() => {
@@ -112,16 +121,17 @@ const SinglePorduct = () => {
         </div>
       </div> */}
 
-      {Product?.images ? (
-        <ProductMailBox images={Product?.images} />
-      ) : (
-        <MailboxSkel />
-      )}
+      {singleProduct?.product ? <ProductMailBox /> : <MailboxSkel />}
       {/* <MailboxSkel /> */}
       <ProductServices />
-      <Branding />
+      <Branding
+        boxes={singleProduct?.boxes}
+        brandDesc={singleProduct?.productPage?.featureBoxDesc}
+        brandHeading={singleProduct?.boxes?.sectionName}
+        brandCircle={singleProduct?.productPage?.featureBoxCircleText}
+      />
       <ProductSepecification details={Product?.details} />
-      <RelatedProducts relatedProducts={Products} />
+      {/* <RelatedProducts relatedProducts={Products} /> */}
       <HomeOptions bg="#EAFFEF" btnClr="#449F5A" />
       <Footer bg="#2C703C" textClr="white" />
     </div>

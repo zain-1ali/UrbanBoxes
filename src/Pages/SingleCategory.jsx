@@ -9,6 +9,8 @@ import HomeOptions from "../Components/HomeOptions";
 import Footer from "../Components/Footer";
 import { useMediaQuery } from "react-responsive";
 import MobileNavbar from "../Components/MobileNavbar";
+import { useDispatch } from "react-redux";
+import { ProductsByCategoryId } from "../redux/ApiSlice";
 
 const SingleCategory = () => {
   const params = useParams();
@@ -25,6 +27,10 @@ const SingleCategory = () => {
     window.scrollTo(0, 0);
   }, [pathname]);
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
+  let dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(ProductsByCategoryId(uid));
+  }, []);
   return (
     <div className="w-[100%]">
       {isDesktopOrLaptop ? (

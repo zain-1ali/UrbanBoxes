@@ -7,6 +7,9 @@ import { useNavigate } from "react-router-dom";
 const Custom = ({ heading, bgClr, paragraph, path, imgUrl, imgTag }) => {
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
   let navigate = useNavigate();
+  const renderHTML = (string) => {
+    return { __html: string };
+  };
   return (
     <div className="lg:mt-[50px] md:mt-[30px] mt-[20px] flex w-[100%] justify-center">
       <div className="w-[87%] lg:h-[518px] md:h-[348px] h-[220px] rounded-[19px] shadow-md">
@@ -21,12 +24,12 @@ const Custom = ({ heading, bgClr, paragraph, path, imgUrl, imgTag }) => {
                   ? { fontFamily: "Poppins", lineHeight: "44px" }
                   : { fontFamily: "Poppins" }
               }
-              className="lg:font-[600] md:font-[600] font-[600]  lg:text-[40px] md:text-[40px] text-[12px] w-[80%] lg:w-[80%] md:w-[80%] "
+              className="lg:font-[600] md:font-[600] font-[600]   lg:text-[40px] md:text-[40px] text-[12px] w-[80%] lg:w-[80%] md:w-[80%] "
             >
               {heading}
             </h2>
             <p
-              className="lg:font-[400] md:font-[400] font-[300] lg:text-[20px] md:text-[16px] text-[9px] lg:w-[80%] md:w-[80%] w-[80%] lg:mt-[20px] md:mt-[10px] mt-[5px]"
+              className="lg:font-[400] md:font-[400] font-[300] sm:h-[140px] overflow-y-scroll scrollbar-hide lg:text-[20px] md:text-[16px] text-[9px] lg:w-[80%] md:w-[80%] w-[80%] lg:mt-[20px] md:mt-[10px] mt-[5px]"
               style={{ fontFamily: "Roboto" }}
             >
               {paragraph}

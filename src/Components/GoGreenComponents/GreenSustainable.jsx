@@ -22,7 +22,7 @@ const GreenSustainable = ({
               {Box1heding}
             </h2>
             <p
-              className="w-[100%] sm:text-[20px] text-[6px] font-[400] sm:mt-[10px] mt-[5px]"
+              className="w-[100%] sm:text-[20px] sm:h-[300px] overflow-y-scroll scrollbar-hide text-[6px] font-[400] sm:mt-[10px] mt-[5px]"
               style={{ fontFamily: "Inter" }}
             >
               <div dangerouslySetInnerHTML={renderHTML(Box1desc)} />

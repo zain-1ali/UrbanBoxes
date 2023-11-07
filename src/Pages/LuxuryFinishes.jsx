@@ -24,6 +24,10 @@ const LuxuryFinishes = () => {
   useEffect(() => {
     dispatch(luxuryFinishPage());
   }, []);
+
+  const renderHTML = (string) => {
+    return { __html: string };
+  };
   return (
     <div className="w-[100%]">
       {isDesktopOrLaptop ? (
@@ -65,7 +69,11 @@ const LuxuryFinishes = () => {
           // w-[70%] text-center mt-[25px] font-[400] text-xl text-[#2C2C2C]
           style={{ fontFamily: "Roboto" }}
         >
-          {luxuryFinishData?.data?.circle?.sectionDescription}
+          <div
+            dangerouslySetInnerHTML={renderHTML(
+              luxuryFinishData?.data?.circle?.sectionDescription
+            )}
+          />
         </p>
       </div>
       <LuxuryStats

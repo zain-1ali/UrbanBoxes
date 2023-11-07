@@ -1,7 +1,10 @@
 import React from "react";
 import whowe from "../../imgs/whower.png";
 
-const WhoWeAre = () => {
+const WhoWeAre = ({ Box1heding, Box1desc, Box1image, Box1imageTag }) => {
+  const renderHTML = (string) => {
+    return { __html: string };
+  };
   return (
     <div className="w-[100%] lg:mt-[50px] mt-[10px]">
       <div className="w-[100%] flex justify-center items-center">
@@ -11,21 +14,13 @@ const WhoWeAre = () => {
               className="sm:text-[64px] text-[12px] font-[700] text-[#449F5A] "
               style={{ fontFamily: "Roboto" }}
             >
-              Who We Are
+              {Box1heding}
             </h2>
             <p
-              className="w-[100%] sm:text-[20px] text-[6px] font-[400] sm:mt-[10px] mt-[5px]"
+              className="w-[100%] sm:text-[20px] sm:h-[340px] overflow-y-scroll scrollbar-hide text-[6px] font-[400] sm:mt-[10px] mt-[5px]"
               style={{ fontFamily: "Roboto" }}
             >
-              Custom Boxes Hub is a first-rate packaging solution platform
-              dedicated to assisting small and large business owners with the
-              highest quality, well-designed, and highly affordable packaging
-              needs. Select from the largest packaging range of premium material
-              boxes to satisfy your products' requirements or order printed
-              custom packaging boxes in any shape, size, color, design, and
-              luxury finishing, we will manufacture them for you. Our in-house
-              designing, manufacturing, and printing facilities allow us to make
-              packaging easier for you!
+              <div dangerouslySetInnerHTML={renderHTML(Box1desc)} />
             </p>
           </div>
           <div className="w-[35%] h-[100%] flex justify-center items-center flex-col">
@@ -33,7 +28,11 @@ const WhoWeAre = () => {
       <div className="w-[48%] h-[100%] rounded-[19px] bg-[#FDF3DB]"></div>
       <div className="w-[48%] h-[100%] rounded-[19px] bg-[#FDF3DB]"></div>
     </div> */}
-            <img src={whowe} alt="" className="h-[487px] w-[452px]" />
+            <img
+              src={Box1image}
+              alt={Box1imageTag}
+              className="h-[487px] w-[452px]"
+            />
             {/* <div className="flex justify-between w-[458px] h-[184px] rounded-[19px] bg-[#FDF3DB] mt-[20px]"></div> */}
           </div>
         </div>

@@ -22,6 +22,9 @@ const AboutUs = () => {
   useEffect(() => {
     dispatch(aboutPage());
   }, []);
+  const renderHTML = (string) => {
+    return { __html: string };
+  };
   return (
     <div className="w-[100%]">
       {isDesktopOrLaptop ? (
@@ -33,12 +36,14 @@ const AboutUs = () => {
         </>
       )}
       <StaticPageUpper
-        img={about}
-        heading="About Us"
-        paragraph="Exquisite and Rich Packaging that reflects your brand's excellence and complements your products"
+        img={aboutData?.data?.banner?.image}
+        imgTag={aboutData?.data?.banner?.imageTag}
+        heading={aboutData?.data?.banner?.heading}
+        paragraph={aboutData?.data?.banner?.text}
         btnClr="#449F5A"
         hover="#6AD37F"
-        btnText="Shop Now"
+        btnText={aboutData?.data?.banner?.Btn1txt}
+        Btn1lnk={aboutData?.data?.banner?.Btn1link}
       />
 
       <div className="w-[100%] flex flex-col items-center lg:mt-[30px] mt-[10px]">
@@ -61,16 +66,41 @@ const AboutUs = () => {
           // w-[70%] text-center mt-[25px] font-[400] text-xl text-[#2C2C2C]
           style={{ fontFamily: "Roboto" }}
         >
-          Our custom boxes are inclusive of everything that you require to
+          <div
+            dangerouslySetInnerHTML={renderHTML(
+              aboutData?.data?.aboutUrbanBoxDesc
+            )}
+          />
+          {/* Our custom boxes are inclusive of everything that you require to
           package your products, ranging from small boxes to customized luxury
-          packaging.
+          packaging. */}
         </p>
       </div>
 
-      <WhoWeAre />
-      <OurHistory />
-      <WhatWeDo />
-      <WeValue />
+      <WhoWeAre
+        Box1heding={aboutData?.data?.boxes?.Box1heding}
+        Box1desc={aboutData?.data?.boxes?.Box1desc}
+        Box1image={aboutData?.data?.boxes?.Box1image}
+        Box1imageTag={aboutData?.data?.boxes?.Box1imageTag}
+      />
+      <OurHistory
+        Box2heding={aboutData?.data?.boxes?.Box2heding}
+        Box2desc={aboutData?.data?.boxes?.Box2desc}
+        Box2image={aboutData?.data?.boxes?.Box2image}
+        Box2imageTag={aboutData?.data?.boxes?.Box2imageTag}
+      />
+      <WhatWeDo
+        Box3heding={aboutData?.data?.boxes?.Box3heding}
+        Box3desc={aboutData?.data?.boxes?.Box3desc}
+        Box3image={aboutData?.data?.boxes?.Box3image}
+        Box3imageTag={aboutData?.data?.boxes?.Box3imageTag}
+      />
+      <WeValue
+        Box4heding={aboutData?.data?.boxes?.Box4heding}
+        Box4desc={aboutData?.data?.boxes?.Box4desc}
+        Box4image={aboutData?.data?.boxes?.Box4image}
+        Box4imageTag={aboutData?.data?.boxes?.Box4imageTag}
+      />
       <HomeBrandTrust />
       <HomeOptions bg="#EAFFEF" btnClr="#449F5A" />
       <Footer bg="#2C703C" textClr="white" />

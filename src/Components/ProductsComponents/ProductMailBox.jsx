@@ -10,8 +10,11 @@ import { Checkbox, FormControlLabel, Typography } from "@mui/material";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useSelector } from "react-redux";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 
-const ProductMailBox = ({ images }) => {
+const ProductMailBox = () => {
   let [bigDisplay, setBigDisplay] = useState(box1);
   const [checked, setChecked] = useState(false);
 
@@ -19,6 +22,9 @@ const ProductMailBox = ({ images }) => {
 
   let [ProductsNames, setProductsNames] = useState([]);
   let baseUrl = import.meta.env.VITE_BASE_URL;
+  let singleProduct = useSelector(
+    (state) => state.ApiSlice.singleProduct?.data
+  );
   useEffect(() => {
     let getSingleProduct = async () => {
       let res = await axios.get(`${baseUrl}/api/allProductNames`);
@@ -33,9 +39,13 @@ const ProductMailBox = ({ images }) => {
     units: "",
     quantity: "",
     productId: "",
+    boxType: "",
     name: "",
     email: "",
     phone: "",
+    deliveryDate: "",
+    artImg: null,
+    comment: "",
     orderType: "product",
     // boxType: "abc",
   });
@@ -46,14 +56,15 @@ const ProductMailBox = ({ images }) => {
     const formData = new FormData();
 
     formData.append("dimentions", data.dimentions);
+    formData.append("boxType", singleProduct?.product?.name);
     formData.append("units", data.units);
     formData.append("quantity", data.quantity);
-    formData.append("productId", data.productId);
+    formData.append("productId", singleProduct?.product?.id);
     formData.append("name", data.name);
     formData.append("email", data.email);
     formData.append("phone", data.phone);
     formData.append("orderType", "product");
-    // formData.append("boxType", "abc");
+    formData.append("image", data?.artImg);
 
     try {
       await axios.post(`${baseUrl}/api/submitOrder`, formData).then((resp) => {
@@ -94,7 +105,29 @@ const ProductMailBox = ({ images }) => {
     }
   };
 
-  // console.log(images[0]?.image);
+  const renderHTML = (string) => {
+    return { __html: string };
+  };
+
+  let stockOptions = [
+    "White Card Stock",
+    "Brown Kraft Card Stock",
+    "Corrugated Cardboard Stock",
+    "Linen Stock",
+    "Rigid Stock",
+    "White Kraft paper",
+    "Brown Kraft paper",
+    "PVC",
+  ];
+
+  let leminationOptions = [
+    "Glossy Lamination",
+    "Matte Lamination",
+    "Silk Touch Lamination",
+    "Satin Finish Lamination",
+    "Not Sure",
+  ];
+
   return (
     <div className="lg:mt-[50px] md:mt-[50px]  w-[100%]">
       <div className="w-[100%] flex justify-center">
@@ -104,8 +137,8 @@ const ProductMailBox = ({ images }) => {
               <div className=" w-[97%] ">
                 <img
                   src={
-                    images[0]?.image
-                      ? images[0]?.image
+                    singleProduct?.product?.images[0]?.image
+                      ? singleProduct?.product?.images[0]?.image
                       : "https://placehold.co/600x800"
                   }
                   alt=""
@@ -122,10 +155,9 @@ const ProductMailBox = ({ images }) => {
                 >
                   <img
                     src={
-                      // images[1]?.image
-                      //   ? images[0]?.image
-                      //   :
-                      "https://placehold.co/130x140"
+                      singleProduct?.product?.images[1]?.image
+                        ? singleProduct?.product?.images[1]?.image
+                        : "https://placehold.co/130x140"
                     }
                     alt=""
                     className="w-[100%] h-[100%] rounded-3xl"
@@ -137,10 +169,9 @@ const ProductMailBox = ({ images }) => {
                 >
                   <img
                     src={
-                      // images[2]?.image
-                      //   ? images[0]?.image
-                      //   :
-                      "https://placehold.co/130x140"
+                      singleProduct?.product?.images[2]?.image
+                        ? singleProduct?.product?.images[2]?.image
+                        : "https://placehold.co/130x140"
                     }
                     alt=""
                     className="w-[100%] h-[100%] rounded-3xl"
@@ -152,10 +183,9 @@ const ProductMailBox = ({ images }) => {
                 >
                   <img
                     src={
-                      // images[3]?.image
-                      //   ? images[0]?.image
-                      //   :
-                      "https://placehold.co/130x140"
+                      singleProduct?.product?.images[3]?.image
+                        ? singleProduct?.product?.images[3]?.image
+                        : "https://placehold.co/130x140"
                     }
                     alt=""
                     className="w-[100%] h-[100%] rounded-3xl"
@@ -172,7 +202,7 @@ const ProductMailBox = ({ images }) => {
                   className="sm:text-5xl text-lg font-bold"
                   style={{ fontFamily: "Roboto" }}
                 >
-                  CUSTOM MAILER BOX
+                  {singleProduct?.productPage?.formHeading}
                 </h2>
                 <button className="sm:w-[138px] w-[100px] sm:h-[40px] h-[30px] bg-[#449F5A] hover:bg-[#6AD37F] rounded-[4px] text-white text-sm font-[500]">
                   Eco-Friendly
@@ -215,16 +245,18 @@ const ProductMailBox = ({ images }) => {
                 </div>
               </div>
 
-              <p
+              <div
                 style={{ fontFamily: "Poppins", lineHeight: "13px" }}
                 className="font-[400] sm:text-[12px] text-[8px] mt-1"
               >
-                Lorem ipsum dolor sit amet consectetur. Quam a dolor tortor
-                tincidunt nunc nullam sed. Odio pretium egestas etiam senectus
-                at sed. Pharetra eu sed sed massa interdum ut amet nunc cras.
-                Elit integer vulputate vitae hac luctus egestas. Mattis
-                vestibulum eu mattis tincidunt habitasse eget. More
-              </p>
+                {/* {singleProduct?.productPage?.formDescription} */}
+                <div
+                  // className="border w-[100%] text-center"
+                  dangerouslySetInnerHTML={renderHTML(
+                    singleProduct?.productPage?.formDescription
+                  )}
+                />
+              </div>
             </div>
             <div className="w-[100%] h-[570px]  sm:mt-1  bg-[#EEFFF3] rounded-[13px] p-4 ">
               <div className="flex w-[100%] items-center">
@@ -236,144 +268,299 @@ const ProductMailBox = ({ images }) => {
                 </h2>
                 <div className="w-[78%] h-[1px] bg-[#C5BDBD]"></div>
               </div>
-              <div className="w-[100%] mt-[15px] flex items-center justify-between">
-                <div className="w-[31%] h-[63px] ">
-                  <p
-                    className="font-[400] sm:text-[12px]  text-[10px]"
-                    style={{ fontFamily: "Poppins", lineHeight: "13px" }}
-                  >
-                    Dimensions <span className="text-red-500 ">*</span>
-                  </p>
-
-                  <input
-                    type="text"
-                    className="w-[100%] mt-1 sm:h-[43px] h-[33px] sm:rounded-xl rounded-lg sm:p-5 p-2 outline-none bg-[#EEFFF3] border border-[#C5BDBD] placeholder:sm:text-base placeholder:text-xs"
-                    placeholder="LxWxH"
-                    onChange={(e) =>
-                      setData({ ...data, dimentions: e.target.value })
-                    }
-                    value={data?.dimentions}
-                  />
-                </div>
-
-                <div className="w-[31%] h-[63px] ">
-                  <p
-                    className="font-[400] sm:text-[12px]  text-[10px]"
-                    style={{ fontFamily: "Poppins", lineHeight: "13px" }}
-                  >
-                    Stock <span className="text-red-500 ">*</span>
-                  </p>
-                  <select
-                    className="w-[100%] mt-1 sm:h-[43px] h-[33px] sm:rounded-xl rounded-lg  p-1 sm:text-base  text-xs outline-none bg-[#EEFFF3] border border-[#C5BDBD]"
-                    placeholder="LxWxH"
-                    onChange={(e) =>
-                      setData({ ...data, productId: e.target.value })
-                    }
-                    style={{ fontFamily: "Poppins", lineHeight: "13px" }}
-                    value={data?.productId}
-                  >
-                    <option
-                      value=""
-                      disabled
-                      selected
-                      style={{ fontFamily: "Poppins" }}
+              <div className="w-[100%] h-[150px] overflow-y-scroll pr-2">
+                <div className="w-[100%] mt-[15px] flex items-center justify-between">
+                  <div className="w-[31%] h-[63px] ">
+                    <p
+                      className="font-[400] sm:text-[12px]  text-[10px]"
+                      style={{ fontFamily: "Poppins", lineHeight: "13px" }}
                     >
-                      Select product
-                    </option>
-                    {ProductsNames?.map((elm, i) => {
-                      return (
-                        <option
-                          value={elm?.id}
-                          key={i}
-                          style={{ fontFamily: "Poppins" }}
-                        >
-                          {elm?.name}
-                        </option>
-                      );
-                    })}
-                  </select>
+                      Product Name <span className="text-red-500 ">*</span>
+                    </p>
+
+                    <input
+                      type="text"
+                      className="w-[100%] mt-1 sm:h-[43px] h-[33px] sm:rounded-xl rounded-lg sm:p-5 p-2 outline-none bg-[#EEFFF3] border border-[#C5BDBD] placeholder:sm:text-base placeholder:text-xs"
+                      placeholder="LxWxH"
+                      disabled
+                      // onChange={(e) =>
+                      //   setData({ ...data, dimentions: e.target.value })
+                      // }
+                      value={singleProduct?.product?.name}
+                    />
+                  </div>
+
+                  <div className="w-[31%] h-[63px] ">
+                    <p
+                      className="font-[400] sm:text-[12px]  text-[10px]"
+                      style={{ fontFamily: "Poppins", lineHeight: "13px" }}
+                    >
+                      Dimensions <span className="text-red-500 ">*</span>
+                    </p>
+
+                    <input
+                      type="text"
+                      className="w-[100%] mt-1 sm:h-[43px] h-[33px] sm:rounded-xl rounded-lg sm:p-5 p-2 outline-none bg-[#EEFFF3] border border-[#C5BDBD] placeholder:sm:text-base placeholder:text-xs"
+                      placeholder="LxWxH"
+                      onChange={(e) =>
+                        setData({ ...data, dimentions: e.target.value })
+                      }
+                      value={data?.dimentions}
+                    />
+                  </div>
+
+                  <div className="w-[31%] h-[63px] ">
+                    <p
+                      className="font-[400] sm:text-[12px] text-[10px]"
+                      style={{ fontFamily: "Poppins", lineHeight: "13px" }}
+                    >
+                      Quantity <span className="text-red-500 ">*</span>
+                    </p>
+                    <input
+                      type="number"
+                      min="1"
+                      className="w-[100%] mt-1 sm:h-[43px] h-[33px] sm:rounded-xl rounded-lg sm:p-5 p-1 outline-none bg-[#EEFFF3] border border-[#C5BDBD]"
+                      onChange={(e) =>
+                        setData({ ...data, quantity: e.target.value })
+                      }
+                      value={data?.quantity}
+                    />
+                  </div>
                 </div>
 
-                <div className="w-[31%] h-[63px] ">
-                  <p
-                    className="font-[400] sm:text-[12px] text-[10px]"
-                    style={{ fontFamily: "Poppins", lineHeight: "13px" }}
-                  >
-                    Quantity <span className="text-red-500 ">*</span>
-                  </p>
-                  <input
-                    type="number"
-                    min="1"
-                    className="w-[100%] mt-1 sm:h-[43px] h-[33px] sm:rounded-xl rounded-lg sm:p-5 p-1 outline-none bg-[#EEFFF3] border border-[#C5BDBD]"
-                    onChange={(e) =>
-                      setData({ ...data, quantity: e.target.value })
-                    }
-                    value={data?.quantity}
-                  />
-                  {/* <select
-                    className="w-[100%] mt-1 h-[43px] rounded-xl p-5 outline-none bg-[#EEFFF3] border border-[#C5BDBD]"
-                    placeholder="LxWxH"
-                  >
-                    <option value=""></option>
-                  </select> */}
-                </div>
-              </div>
-              <div className="w-[100%] flex items-center sm:mt-[10px] mt-[5px] h-max">
-                <div className="w-[31%] h-[63px] ">
-                  <p
-                    className="font-[400] sm:text-[12px]  text-[10px]"
-                    style={{ fontFamily: "Poppins", lineHeight: "13px" }}
-                  >
-                    Units <span className="text-red-500 ">*</span>
-                  </p>
-                  <select
-                    className="w-[100%] mt-1 sm:h-[43px] h-[33px] sm:rounded-xl rounded-lg sm:text-base  text-xs p-1 outline-none bg-[#EEFFF3] border border-[#C5BDBD]"
-                    onChange={(e) =>
-                      setData({ ...data, units: e.target.value })
-                    }
-                    style={{ fontFamily: "Poppins", lineHeight: "13px" }}
-                    value={data?.units}
-                  >
-                    <option
-                      value=""
-                      disabled
-                      selected
-                      style={{ fontFamily: "Poppins" }}
+                {/* <div className="w-[100%] mt-[15px] flex items-center justify-between">
+                  <div className="w-[31%] h-[63px] ">
+                    <p
+                      className="font-[400] sm:text-[12px]  text-[10px]"
+                      style={{ fontFamily: "Poppins", lineHeight: "13px" }}
                     >
-                      Select unit
-                    </option>
-                    <option value="inch" style={{ fontFamily: "Poppins" }}>
-                      Inch
-                    </option>
-                    <option value="feet" style={{ fontFamily: "Poppins" }}>
-                      Feet
-                    </option>
-                    {/* <option value="abc">abc</option>
+                      Stock <span className="text-red-500 ">*</span>
+                    </p>
+                    <select
+                      className="w-[100%] mt-1 sm:h-[43px] h-[33px] sm:rounded-xl rounded-lg  p-1 sm:text-base  text-xs outline-none bg-[#EEFFF3] border border-[#C5BDBD]"
+                      placeholder="LxWxH"
+                      onChange={(e) =>
+                        setData({ ...data, productId: e.target.value })
+                      }
+                      style={{ fontFamily: "Poppins", lineHeight: "13px" }}
+                      value={data?.productId}
+                    >
+                      <option
+                        value=""
+                        disabled
+                        selected
+                        style={{ fontFamily: "Poppins" }}
+                      >
+                        Select product
+                      </option>
+                      {ProductsNames?.map((elm, i) => {
+                        return (
+                          <option
+                            value={elm?.id}
+                            key={i}
+                            style={{ fontFamily: "Poppins" }}
+                          >
+                            {elm?.name}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </div>
+
+                  <div className="w-[31%] h-[63px] ">
+                    <p
+                      className="font-[400] sm:text-[12px]  text-[10px]"
+                      style={{ fontFamily: "Poppins", lineHeight: "13px" }}
+                    >
+                      Stock <span className="text-red-500 ">*</span>
+                    </p>
+                    <select
+                      className="w-[100%] mt-1 sm:h-[43px] h-[33px] sm:rounded-xl rounded-lg  p-1 sm:text-base  text-xs outline-none bg-[#EEFFF3] border border-[#C5BDBD]"
+                      placeholder="LxWxH"
+                      onChange={(e) =>
+                        setData({ ...data, productId: e.target.value })
+                      }
+                      style={{ fontFamily: "Poppins", lineHeight: "13px" }}
+                      value={data?.productId}
+                    >
+                      <option
+                        value=""
+                        disabled
+                        selected
+                        style={{ fontFamily: "Poppins" }}
+                      >
+                        Select Stock
+                      </option>
+                      {stockOptions?.map((elm, i) => {
+                        return (
+                          <option
+                            value={elm}
+                            key={i}
+                            style={{ fontFamily: "Poppins" }}
+                          >
+                            {elm}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </div>
+
+                  <div className="w-[31%] h-[63px] ">
+                    <p
+                      className="font-[400] sm:text-[12px]  text-[10px]"
+                      style={{ fontFamily: "Poppins", lineHeight: "13px" }}
+                    >
+                      Lemination <span className="text-red-500 ">*</span>
+                    </p>
+                    <select
+                      className="w-[100%] mt-1 sm:h-[43px] h-[33px] sm:rounded-xl rounded-lg  p-1 sm:text-base  text-xs outline-none bg-[#EEFFF3] border border-[#C5BDBD]"
+                      placeholder="LxWxH"
+                      onChange={(e) =>
+                        setData({ ...data, productId: e.target.value })
+                      }
+                      style={{ fontFamily: "Poppins", lineHeight: "13px" }}
+                      value={data?.productId}
+                    >
+                      <option
+                        value=""
+                        disabled
+                        selected
+                        style={{ fontFamily: "Poppins" }}
+                      >
+                        Select Lemination
+                      </option>
+                      {leminationOptions?.map((elm, i) => {
+                        return (
+                          <option
+                            value={elm}
+                            key={i}
+                            style={{ fontFamily: "Poppins" }}
+                          >
+                            {elm}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </div>
+                </div> */}
+
+                <div className="w-[100%] mt-[15px] flex items-center justify-between">
+                  <div className="w-[31%] h-[63px] ">
+                    <p
+                      className="font-[400] sm:text-[12px]  text-[10px]"
+                      style={{ fontFamily: "Poppins", lineHeight: "13px" }}
+                    >
+                      Units <span className="text-red-500 ">*</span>
+                    </p>
+                    <select
+                      className="w-[100%] mt-1 sm:h-[43px] h-[33px] sm:rounded-xl rounded-lg sm:text-base  text-xs p-1 outline-none bg-[#EEFFF3] border border-[#C5BDBD]"
+                      onChange={(e) =>
+                        setData({ ...data, units: e.target.value })
+                      }
+                      style={{ fontFamily: "Poppins", lineHeight: "13px" }}
+                      value={data?.units}
+                    >
+                      <option
+                        value=""
+                        disabled
+                        selected
+                        style={{ fontFamily: "Poppins" }}
+                      >
+                        Select unit
+                      </option>
+                      <option value="inch" style={{ fontFamily: "Poppins" }}>
+                        inches
+                      </option>
+                      <option value="mm" style={{ fontFamily: "Poppins" }}>
+                        mm
+                      </option>
+                      <option value="cm" style={{ fontFamily: "Poppins" }}>
+                        cm
+                      </option>
+                      {/* <option value="abc">abc</option>
 
                     <option value="abc">abc</option> */}
-                  </select>
-                </div>
-                <div className=" flex sm:mt-4  items-center sm:ml-8 ml-3 h-[30px] ">
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        size="large"
-                        color="success"
-                        sx={{ outline: "none" }}
-                        checked={checked}
-                        onChange={handleChange}
-                      />
-                    }
-                    style={{ fontFamily: "Roboto" }}
-                    label={
-                      <Typography
-                        sx={{ fontFamily: "Poppins", fontSize: "14px" }}
+                    </select>
+                  </div>
+                  <div className="w-[31%] h-[63px] rounded-lg">
+                    <p
+                      className="font-[400] sm:text-[12px]  text-[10px]"
+                      style={{ fontFamily: "Poppins", lineHeight: "13px" }}
+                    >
+                      Delivery Date
+                    </p>
+                    {/* <select
+                      className="w-[100%] mt-1 sm:h-[43px] h-[33px] sm:rounded-xl rounded-lg  p-1 sm:text-base  text-xs outline-none bg-[#EEFFF3] border border-[#C5BDBD]"
+                      placeholder="LxWxH"
+                      onChange={(e) =>
+                        setData({ ...data, productId: e.target.value })
+                      }
+                      style={{ fontFamily: "Poppins", lineHeight: "13px" }}
+                      value={data?.productId}
+                    >
+                      <option
+                        value=""
+                        disabled
+                        selected
+                        style={{ fontFamily: "Poppins" }}
                       >
-                        Rush Order
-                      </Typography>
-                    }
-                  />
-                  {/* <input type="checkbox" id="myCheckbox" className="hidden" />
+                        Select Lemination
+                      </option>
+                      {leminationOptions?.map((elm, i) => {
+                        return (
+                          <option
+                            value={elm}
+                            key={i}
+                            style={{ fontFamily: "Poppins" }}
+                          >
+                            {elm}
+                          </option>
+                        );
+                      })}
+                    </select> */}
+                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                      <DatePicker
+                        slotProps={{
+                          textField: {
+                            size: "small",
+                            error: false,
+                            borderRadius: "inherit",
+                          },
+                        }}
+                        onChange={(e) =>
+                          setData({ ...data, deliveryDate: e.target.value })
+                        }
+                        value={data?.deliveryDate}
+                        sx={{
+                          width: "100%",
+                          marginTop: "4px",
+                          outline: "none",
+                        }}
+                      />
+                    </LocalizationProvider>
+                  </div>
+                  <div className="w-[31%] h-[63px] flex ">
+                    <div className=" flex sm:mt-4  mt-2 sm:ml-8 ml-3 h-[30px] ">
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            size="large"
+                            color="success"
+                            sx={{ outline: "none" }}
+                            checked={checked}
+                            onChange={handleChange}
+                          />
+                        }
+                        style={{ fontFamily: "Roboto" }}
+                        label={
+                          <Typography
+                            sx={{ fontFamily: "Poppins", fontSize: "14px" }}
+                          >
+                            Rush Order
+                          </Typography>
+                        }
+                      />
+                      {/* <input type="checkbox" id="myCheckbox" className="hidden" />
                   <label
                     for="myCheckbox"
                     class="inline-block relative h-6 w-6 border-2 border-gray-300 rounded-md cursor-pointer"
@@ -384,9 +571,61 @@ const ProductMailBox = ({ images }) => {
                   >
                     Rush Order
                   </h2> */}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="w-[100%] mt-[15px] flex items-center justify-between">
+                  <div className="w-[31%] h-[63px] ">
+                    <p
+                      className="font-[400] sm:text-[12px]  text-[10px]"
+                      style={{ fontFamily: "Poppins", lineHeight: "13px" }}
+                    >
+                      Upload Artwork
+                    </p>
+                    <div className="w-[100%] mt-1 sm:h-[43px] h-[33px] sm:rounded-xl rounded-lg  flex justify-center items-center  outline-none bg-[#EEFFF3] border border-[#C5BDBD] placeholder:sm:text-base placeholder:text-xs">
+                      <input
+                        type="file"
+                        className="h-[75%] w-[90%]"
+                        onChange={(e) =>
+                          setData({ ...data, artImg: e.target.files[0] })
+                        }
+                      />
+                    </div>
+                  </div>
+
+                  <div className="w-[31%] h-[100px]  flex justify-center items-center">
+                    <img
+                      src={
+                        data?.artImg
+                          ? URL.createObjectURL(data?.artImg)
+                          : `https://placehold.co/130x90`
+                      }
+                      alt=""
+                      className="h-[90px] w-[130px] rounded-md"
+                    />
+                  </div>
+
+                  <div className="w-[31%] h-[63px] "></div>
+                </div>
+                <div className="w-[100%] mt-[15px] flex flex-col  justify-between">
+                  <p
+                    className="font-[400] sm:text-[12px]  text-[10px]"
+                    style={{ fontFamily: "Poppins", lineHeight: "13px" }}
+                  >
+                    Additional Comment
+                  </p>
+                  <textarea
+                    onChange={(e) =>
+                      setData({ ...data, comment: e.target.value })
+                    }
+                    value={data?.comment}
+                    name=""
+                    id=""
+                    className="h-[100px] w-[100%] sm:rounded-xl rounded-lg sm:text-base  text-xs p-1 outline-none bg-[#EEFFF3] border border-[#C5BDBD] mt-2 "
+                  ></textarea>
                 </div>
               </div>
-
               <div className="w-[100%] mt-[20px]">
                 <div className="flex w-[100%] items-center">
                   <h2

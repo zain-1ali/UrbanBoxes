@@ -13,6 +13,7 @@ const CategoryUpper = ({
   bottomHeading,
   imageTag,
 }) => {
+ 
   return (
     <div className="lg:mt-[15px] mt-[10px] w-[100%] flex flex-col items-center justify-center">
       <div className="lg:w-[87%] w-[90%] md:w-[93%]">
@@ -61,26 +62,6 @@ const CategoryUpper = ({
             />
           </div>
         </div>
-      </div>
-
-      <div className="w-[100%] flex flex-col items-center">
-        <div className="w-[95%] flex justify-center items-center mt-[30px]">
-          <div className="lg:w-[32%] md:w-[30%] w-[25%]  h-[1px]  bg-[#696262] mr-2 "></div>
-          <h2
-            className={`lg:text-2xl md:text-lg text-[${smtext}] text-center font-[600] `}
-            style={{ fontFamily: "Poppins" }}
-          >
-            {bottomHeading}
-          </h2>
-          <div className="lg:w-[32%] md:w-[30%] w-[25%]   h-[1px]  bg-[#696262] ml-2"></div>
-        </div>
-
-        <p
-          className="sm:w-[70%] w-[90%] text-center sm:mt-[25px] mt-[13px] font-[400] sm:text-xl text-[14px] text-[#2C2C2C]"
-          style={{ fontFamily: "Roboto" }}
-        >
-          {bottomParagraph}
-        </p>
       </div>
     </div>
   );

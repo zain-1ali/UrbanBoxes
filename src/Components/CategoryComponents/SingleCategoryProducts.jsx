@@ -1,19 +1,21 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ProductsByCategoryId } from "../../redux/ApiSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const SingleCategoryProducts = ({ id }) => {
   let navigate = useNavigate();
+  let dispatch = useDispatch();
+  let Products = useSelector((state) => state.ApiSlice.Products?.data);
 
-  let [Products, setProducts] = useState([]);
+  console.log(Products);
+
+  // let [Products, setProducts] = useState([]);
   let baseUrl = import.meta.env.VITE_BASE_URL;
-  useEffect(() => {
-    let getLatestProducts = async () => {
-      let res = await axios.get(`${baseUrl}/api/getProductsByCategoryId/${id}`);
-      setProducts(res.data.data);
-    };
-    getLatestProducts();
-  }, []);
+  // useEffect(() => {
+  //   dispatch(ProductsByCategoryId);
+  // }, []);
 
   console.log(Products);
 
@@ -21,12 +23,35 @@ const SingleCategoryProducts = ({ id }) => {
     let theText = text?.slice(0, 126);
     return theText;
   };
-
+  const renderHTML = (string) => {
+    return { __html: string };
+  };
   return (
-    <div className="lg:mt-[50px] md:mt-[40px] mt-[25px] w-[100%] flex justify-center">
+    <div className="lg:mt-[50px] md:mt-[40px] mt-[25px] w-[100%] flex flex-col items-center">
+      <div className="w-[100%] flex flex-col items-center">
+        <div className="w-[95%] flex justify-center items-center mt-[30px]">
+          <div className="lg:w-[32%] md:w-[30%] w-[25%]  h-[1px]  bg-[#696262] mr-2 "></div>
+          <h2
+            className={`lg:text-2xl md:text-lg text-sm text-center font-[600] `}
+            style={{ fontFamily: "Poppins" }}
+          >
+            Single Category
+          </h2>
+          <div className="lg:w-[32%] md:w-[30%] w-[25%]   h-[1px]  bg-[#696262] ml-2"></div>
+        </div>
+
+        <p
+          className="sm:w-[70%] w-[90%] text-center sm:mt-[25px] mt-[13px] font-[400] sm:text-xl text-[14px] text-[#2C2C2C]"
+          style={{ fontFamily: "Roboto" }}
+        >
+          <div
+            dangerouslySetInnerHTML={renderHTML(Products?.singleCategoryDesc)}
+          />
+        </p>
+      </div>
       <div className="lg:w-[85%] w-[85%] md:w-[87%] grid sm:grid-cols-3 grid-cols-1 gap-4 ">
         {/* flex justify-around md:justify-between flex-wrap */}
-        {Products?.map((elm, i) => {
+        {Products?.products?.map((elm, i) => {
           return (
             <div
               className="lg:w-[337px] lg:h-[415px] md:w-[337px] md:h-[415px] w-[300px] h-[400px] rounded-[19px] shadow-md mt-[35px] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer"

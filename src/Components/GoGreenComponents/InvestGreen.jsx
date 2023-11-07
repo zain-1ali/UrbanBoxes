@@ -20,7 +20,7 @@ const InvestGreen = ({ Box4heding, Box4desc, Box4image, Box4imageTag }) => {
               {Box4heding}
             </h2>
             <p
-              className=" sm:text-[20px] text-[6px] font-[400] sm:mt-[10px] mt-[5px]  w-[90%] text-end"
+              className=" sm:text-[20px] text-[6px] font-[400] sm:h-[250px]  overflow-y-scroll scrollbar-hide sm:mt-[10px] mt-[5px]  w-[90%] text-end"
               style={{ fontFamily: "Inter" }}
             >
               <div dangerouslySetInnerHTML={renderHTML(Box4desc)} />

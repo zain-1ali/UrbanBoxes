@@ -42,20 +42,22 @@ const HomeOptions = ({ bg, btnClr }) => {
           className="sm:text-xl text-[12px] font-medium sm:mt-[10px] mt-[5px]"
           style={{ fontFamily: "Roboto" }}
         >
-          {scheduleMeetingsData?.meeting1name}
+          {scheduleMeetingsData?.data?.meeting1name}
         </h2>
         <p
           className="  mt-1 w-[80%] text-center sm:text-[16px] text-[9px] sm:font-[400]"
           style={{ fontFamily: "Roboto" }}
         >
-          {scheduleMeetingsData?.meeting1text}
+          {scheduleMeetingsData?.data?.meeting1text}
         </p>
         <div
           className="sm:w-[153px] sm:h-[42px] w-[80px] h-[25px] bg-[#449F5A] hover:bg-[#6AD37F] sm:mt-[10px] mt-[7px]  sm:rounded-lg rounded-md flex justify-center items-center text-white font-medium sm:text-[16px] text-[10px] cursor-pointer"
           style={btnStyle}
-          onClick={() => window.open(scheduleMeetingsData?.meeting1btnTxt)}
+          onClick={() =>
+            window.open(scheduleMeetingsData?.data?.meeting1btnTxt)
+          }
         >
-          {scheduleMeetingsData?.meeting1btnTxt}
+          {scheduleMeetingsData?.data?.meeting1btnTxt}
         </div>
       </div>
 
@@ -70,20 +72,22 @@ const HomeOptions = ({ bg, btnClr }) => {
           className="sm:text-xl text-[12px] font-medium sm:mt-[10px] mt-[5px]"
           style={{ fontFamily: "Roboto" }}
         >
-          {scheduleMeetingsData?.meeting2name}
+          {scheduleMeetingsData?.data?.meeting2name}
         </h2>
         <p
           className="  mt-1 w-[80%] text-center sm:text-[16px] text-[9px] sm:font-[400]"
           style={{ fontFamily: "Roboto" }}
         >
-          {scheduleMeetingsData?.meeting2text}
+          {scheduleMeetingsData?.data?.meeting2text}
         </p>
         <div
           className="sm:w-[153px] sm:h-[42px] w-[80px] h-[25px]  sm:mt-[10px] mt-[7px]  sm:rounded-lg rounded-md flex justify-center items-center text-white font-medium sm:text-[16px] text-[10px] cursor-pointer"
           style={{ fontFamily: "Roboto", backgroundColor: btnClr }}
-          onClick={() => window.open(scheduleMeetingsData?.meeting2btnTxt)}
+          onClick={() =>
+            window.open(scheduleMeetingsData?.data?.meeting2btnTxt)
+          }
         >
-          {scheduleMeetingsData?.meeting2btnTxt}
+          {scheduleMeetingsData?.data?.meeting2btnTxt}
         </div>
       </div>
 
@@ -104,15 +108,17 @@ const HomeOptions = ({ bg, btnClr }) => {
           className="  mt-1 w-[80%] text-center sm:text-[16px] text-[9px] sm:font-[400]"
           style={{ fontFamily: "Roboto" }}
         >
-          {scheduleMeetingsData?.meeting3text}
+          {scheduleMeetingsData?.data?.meeting3text}
         </p>
         <div
           className="sm:w-[153px] sm:h-[42px] w-[80px] h-[25px]   sm:mt-[10px] mt-[7px]  sm:rounded-lg rounded-md flex justify-center items-center text-white font-medium sm:text-[16px] text-[10px] cursor-pointer"
           // hover:bg-[#6AD37F]
           style={{ fontFamily: "Roboto", backgroundColor: btnClr }}
-          onClick={() => window.open(scheduleMeetingsData?.meeting3btnTxt)}
+          onClick={() =>
+            window.open(scheduleMeetingsData?.data?.meeting3btnTxt)
+          }
         >
-          {scheduleMeetingsData?.meeting3btnTxt}
+          {scheduleMeetingsData?.data?.meeting3btnTxt}
         </div>
       </div>
 

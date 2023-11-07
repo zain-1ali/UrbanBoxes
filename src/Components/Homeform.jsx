@@ -48,6 +48,10 @@ const Homeform = ({
     quantity: "",
     deliveryDate: "",
     company: "",
+    artImg: null,
+    printing: " ",
+    units: "inches",
+    comment: "",
   });
 
   // -----------------------------------------------save data to db----------------------------------------
@@ -60,9 +64,12 @@ const Homeform = ({
     formData.append("phone", data.phone);
     formData.append("boxType", data.boxType);
     formData.append("orderType", "quote");
-    formData.append("units", "inch");
     formData.append("dimentions", data.dimentions);
+    formData.append("deliveryDate", data.deliveryDate);
     formData.append("quantity", data.quantity);
+    formData.append("printing", data.printing);
+    formData.append("units", data.units);
+    formData.append("image", data.artImg);
 
     try {
       await axios.post(`${baseUrl}/api/submitOrder`, formData).then((resp) => {
@@ -276,8 +283,11 @@ const Homeform = ({
               </div>
 
               <div className="w-[100%] flex justify-center">
-                <div className="w-[87%]  sm:mt-[35px] mt-[20px]">
-                  <div className="w-[100%] flex sm:justify-between items-center sm:flex-row flex-col">
+                <div
+                  className="sm:w-[95%] w-[87%]  sm:mt-[35px] mt-[20px] sm:h-[200px] pr-2"
+                  style={{ overflowY: "scroll", overflowX: "hidden" }}
+                >
+                  <div className="w-[100%]  flex sm:justify-between items-center sm:flex-row flex-col">
                     <div className="sm:w-[47%] w-[90%]  ">
                       {/* <BsFillPersonFill className="text-[#449F5A] text-2xl " /> */}
                       <div>
@@ -292,7 +302,7 @@ const Homeform = ({
                       <input
                         type="text"
                         // placeholder="Name or Box Type *"
-                        className="outline-none p-2 w-[100%] border rounded-md border-[#c4c4c4] placeholder:text-sm  mt-1"
+                        className="outline-none p-2  w-[100%] border rounded-md border-[#c4c4c4] placeholder:text-sm  mt-1"
                         onChange={(e) =>
                           setData({ ...data, boxType: e.target.value })
                         }
@@ -357,25 +367,7 @@ const Homeform = ({
                           Delivery Date <span className="text-red-500 ">*</span>
                         </p>
                       </div>
-                      {/* <div className="outline-none p-2 w-[100%] border rounded-lg placeholder:text-sm mt-1 h-[42px] flex items-center justify-around">
-                        <div className="w-[90%]"></div>
 
-                        <label for="date" className=" flex items-center">
-                          <AiOutlineCalendar className="text-[#BFBDBD] text-xl " />
-
-                          <input
-                            type="date"
-                            name="date"
-                            id="date"
-                            className="opacity-0 w-[0px] h-[0px]"
-                            
-                          />
-                        </label>
-                      </div> */}
-                      {/* <input
-                        type="date"
-                        
-                      /> */}
                       <LocalizationProvider dateAdapter={AdapterDayjs}>
                         <DatePicker
                           slotProps={{
@@ -390,7 +382,7 @@ const Homeform = ({
                             //     : formattedToday
                           }
                           sx={{
-                            width: isDesktopOrLaptop ? "265px" : "100%",
+                            width: isDesktopOrLaptop ? "100%" : "100%",
                             marginTop: "4px",
                             outline: "none",
                             borderRadius: "8px",
@@ -399,6 +391,256 @@ const Homeform = ({
                       </LocalizationProvider>
                       <div></div>
                     </div>
+                  </div>
+
+                  <div className="sm:mt-[25px] mt-[14px] w-[100%] flex sm:justify-between items-center sm:flex-row flex-col">
+                    <div className="sm:w-[47%] w-[90%] ">
+                      <div>
+                        <p
+                          className="font-[400] sm:text-[12px]  text-[10px]"
+                          style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                        >
+                          Select Units <span className="text-red-500 ">*</span>
+                        </p>
+                      </div>
+                      <div className="  w-[100%] h-[42px] border rounded-md border-[#c4c4c4] placeholder:text-sm mt-1 flex justify-center items-center">
+                        <select
+                          name=""
+                          id=""
+                          className="w-[94%] h-[95%] outline-none"
+                          style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                          onChange={(e) =>
+                            setData({ ...data, units: e.target.value })
+                          }
+                          value={data?.units}
+                        >
+                          <option
+                            value=""
+                            disabled
+                            style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                          >
+                            Select unit
+                          </option>
+                          <option
+                            value="inches"
+                            style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                          >
+                            inches
+                          </option>
+                          <option
+                            value="mm"
+                            style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                          >
+                            mm
+                          </option>
+                          <option
+                            value="cm"
+                            style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                          >
+                            cm
+                          </option>
+                        </select>
+                      </div>
+
+                      {/* <input
+                        type="text"
+                      
+                        className="outline-none p-2 w-[100%] border rounded-md border-[#c4c4c4] placeholder:text-sm mt-1 "
+                        onChange={(e) =>
+                          setData({ ...data, quantity: e.target.value })
+                        }
+                        value={data?.quantity}
+                      /> */}
+                    </div>
+                    <div
+                      className="sm:w-[47%] w-[90%] "
+                      style={isDesktopOrLaptop ? null : { marginTop: "14px" }}
+                    >
+                      <div>
+                        <p
+                          className="font-[400] sm:text-[12px]  text-[10px]"
+                          style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                        >
+                          Printing <span className="text-red-500 ">*</span>
+                        </p>
+                      </div>
+
+                      <div className="  w-[100%] h-[42px] border rounded-md border-[#c4c4c4] placeholder:text-sm mt-1 flex justify-center items-center">
+                        <select
+                          name=""
+                          id=""
+                          className="w-[94%] h-[95%] outline-none"
+                          onChange={(e) =>
+                            setData({ ...data, printing: e.target.value })
+                          }
+                          value={data.printing}
+                          style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                        >
+                          <option
+                            value=""
+                            disabled
+                            style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                          >
+                            Select printing color
+                          </option>
+                          <option
+                            value="1 Color"
+                            style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                          >
+                            1 Color
+                          </option>
+                          <option
+                            value="2 Color"
+                            style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                          >
+                            2 Color
+                          </option>
+                          <option
+                            value="3 Color"
+                            style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                          >
+                            3 Color
+                          </option>
+                          <option
+                            value="Full Color"
+                            style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                          >
+                            Full Color
+                          </option>
+                          <option
+                            value="Not Sure"
+                            style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                          >
+                            Not Sure
+                          </option>
+                        </select>
+                      </div>
+
+                      <div></div>
+                    </div>
+                  </div>
+
+                  <div className="sm:mt-[25px] mt-[14px] w-[100%] flex sm:justify-between items-center sm:flex-row flex-col">
+                    <div className="sm:w-[47%] w-[90%] ">
+                      <div>
+                        <p
+                          className="font-[400] sm:text-[12px]  text-[10px]"
+                          style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                        >
+                          Upload Artwork
+                        </p>
+                      </div>
+                      <div className="  w-[100%] h-[42px] border rounded-md border-[#c4c4c4] placeholder:text-sm mt-1 flex justify-center items-center">
+                        <input
+                          type="file"
+                          className="w-[94%]  outline-none"
+                          onChange={(e) =>
+                            setData({ ...data, artImg: e.target.files[0] })
+                          }
+                        />
+                      </div>
+
+                      {/* <input
+                        type="text"
+                      
+                        className="outline-none p-2 w-[100%] border rounded-md border-[#c4c4c4] placeholder:text-sm mt-1 "
+                        onChange={(e) =>
+                          setData({ ...data, quantity: e.target.value })
+                        }
+                        value={data?.quantity}
+                      /> */}
+                    </div>
+                    <div
+                      className="sm:w-[47%] w-[90%]"
+                      style={isDesktopOrLaptop ? null : { marginTop: "14px" }}
+                    >
+                      {/* <div>
+                        <p
+                          className="font-[400] sm:text-[12px]  text-[10px]"
+                          style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                        >
+                          Printing <span className="text-red-500 ">*</span>
+                        </p>
+                      </div> */}
+
+                      <div className="  w-[100%] h-[92px] rounded-md border-[#c4c4c4] placeholder:text-sm mt-1 flex justify-center items-center">
+                        {/* <select
+                          name=""
+                          id=""
+                          className="w-[94%] h-[95%] outline-none"
+                          style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                        >
+                          <option
+                            value=""
+                            disabled
+                            style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                          >
+                            Select printing color
+                          </option>
+                          <option
+                            value=""
+                            style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                          >
+                            1 Color
+                          </option>
+                          <option
+                            value=""
+                            style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                          >
+                            2 Color
+                          </option>
+                          <option
+                            value=""
+                            style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                          >
+                            3 Color
+                          </option>
+                          <option
+                            value=""
+                            style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                          >
+                            Full Color
+                          </option>
+                          <option
+                            value=""
+                            style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                          >
+                            Not Sure
+                          </option>
+                        </select> */}
+                        <img
+                          src={
+                            data?.artImg
+                              ? data?.artImg
+                              : `https://placehold.co/130x90`
+                          }
+                          alt=""
+                          className="h-[90px] w-[130px] rounded-md"
+                        />
+                      </div>
+
+                      <div></div>
+                    </div>
+                  </div>
+
+                  <div className="sm:mt-[25px] mt-[14px] w-[100%] ">
+                    <div>
+                      <p
+                        className="font-[400] sm:text-[12px]  text-[10px]"
+                        style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                      >
+                        Additional Comment
+                      </p>
+                    </div>
+                    <textarea
+                      name=""
+                      id=""
+                      onChange={(e) =>
+                        setData({ ...data, comment: e.target.value })
+                      }
+                      value={data.comment}
+                      className="outline-none p-2 sm:h-[150px] w-[100%] border rounded-md border-[#c4c4c4] placeholder:text-sm  mt-1"
+                    ></textarea>
                   </div>
                 </div>
               </div>

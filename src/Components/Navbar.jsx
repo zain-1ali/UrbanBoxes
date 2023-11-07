@@ -22,6 +22,7 @@ import TheDrawer from "./Drawer";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { headerFoterLayout } from "../redux/ApiSlice";
+import HeaderFormModal from "./Modals/HeaderFormModal";
 
 const Navbar = () => {
   let [drawer, setDrawer] = useState(false);
@@ -45,9 +46,17 @@ const Navbar = () => {
     dispatch(headerFoterLayout());
   }, []);
 
+  let [headerForm, setHeaderForm] = useState(false);
+  let handleHeaderForm = () => {
+    setHeaderForm(!headerForm);
+  };
   return (
     <>
       <div className="w-[100%] h-[230px] border shadow-sm">
+        <HeaderFormModal
+          handleHeaderForm={handleHeaderForm}
+          headerForm={headerForm}
+        />
         <div className="w-[100%] sm:h-[55px] h-[40px] border-b shadow-sm flex justify-between">
           <MediaQuery minWidth={640}>
             <div className="h-[100%] w-[380px] flex justify-end items-center ">
@@ -168,7 +177,10 @@ const Navbar = () => {
               </div>
             </MediaQuery>
             <MediaQuery minWidth={640}>
-              <div className="h-[52px] flex items-center">
+              <div
+                className="h-[52px] flex items-center cursor-pointer"
+                onClick={() => handleHeaderForm()}
+              >
                 <div className="w-[35px] h-[35px] lg:w-[47px] lg:h-[47px] md:w-[40px] md:h-[40px] rounded-full flex justify-center items-center border border-[#449F5A]">
                   <FaBoxOpen className="text-[#449F5A] text-3xl md:text-xl" />
                 </div>

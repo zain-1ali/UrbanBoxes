@@ -13,6 +13,9 @@ const StaticPageUpper = ({
   Btn1lnk,
 }) => {
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
+  const renderHTML = (string) => {
+    return { __html: string };
+  };
   return (
     <div className="mt-[50px] w-[100%] flex flex-col items-center">
       <div className="w-[92%]  lg:h-[350px] md:h-[300px] h-[170px] flex">
@@ -31,7 +34,7 @@ const StaticPageUpper = ({
             className="lg:font-[400]  font-[300] lg:text-[24px] text-[10px] w-[100%] lg:w-[609px] lg:mt-[30px] mt-[10px]"
             style={{ fontFamily: "Roboto" }}
           >
-            {paragraph}
+            <div dangerouslySetInnerHTML={renderHTML(paragraph)} />
           </p>
           <div className="lg:w-[609px] lg:mt-[30px] mt-[12px] w-[100%]">
             <button
@@ -43,11 +46,11 @@ const StaticPageUpper = ({
             </button>
           </div>
         </div>
-        <div className="h-[100%] w-[49%] flex justify-end items-center">
+        <div className="h-[100%] w-[49%] flex justify-end items-center ">
           <img
             src={img}
             alt={imgTag}
-            className="lg:w-[539px] lg:h-[338px] lg:rounded-[33px] rounded-[13px]"
+            className="lg:w-[539px]   lg:h-[338px] lg:rounded-[33px] rounded-[13px]"
           />
         </div>
       </div>

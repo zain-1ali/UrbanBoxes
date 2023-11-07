@@ -25,20 +25,10 @@ const Aqueous = ({ Box4heding, Box4desc, Box4image, Box4imageTag }) => {
               {/* Aqueous Coating */}
             </h2>
             <p
-              className=" sm:text-[20px] text-[6px] font-[400] sm:mt-[10px] mt-[5px]  w-[90%] text-end"
+              className=" sm:text-[20px] sm:h-[340px] overflow-y-scroll scrollbar-hide text-[6px] font-[400] sm:mt-[10px] mt-[5px]  w-[90%] text-end"
               style={{ fontFamily: "Inter" }}
             >
               <div dangerouslySetInnerHTML={renderHTML(Box4desc)} />
-              At Custom Boxes Hub, we believe that your products deserve
-              packaging that is both functional and beautiful. That's why we
-              offer custom Aqueous Coatings that will not only protect your
-              products but also make them stand out from the crowd. So why
-              settle for ordinary packaging when you can have extraordinary? Let
-              us help you take your product packaging to the next level with our
-              custom Aqueous Coatings. We offer a wide variety of quality
-              Aqueous Coating including Pencil Receptive Coating, Gloss Coating,
-              Matte Coating, Soft Touch Coating, Satin Coating, Dry Erase
-              Coating, etc.
             </p>
 
             <div
