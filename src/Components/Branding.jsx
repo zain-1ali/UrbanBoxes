@@ -30,9 +30,10 @@ const SingleDescriptionBox = ({
   const renderHTML = () => {
     return { __html: description };
   };
+
   return (
     <div
-      className="sm:w-[33%] w-[95%] sm:h-[459px] h-[510px] sm:mt-2 mt-5  flex justify-center items-center relative border transition duration-700 ease-in-out border-transparent hover:border-gray-300 cursor-pointer"
+      className="sm:w-[24%] w-[95%] sm:h-[350px] h-[510px] sm:mt-2 mt-5  flex justify-center items-center relative border transition duration-700 ease-in-out border-transparent hover:border-[#449F5A] cursor-pointer"
       // className="border border-transparent"
       style={smoothHoverStyle}
       onMouseEnter={handleMouseEnter}
@@ -53,14 +54,14 @@ const SingleDescriptionBox = ({
         </div>
 
         <h2
-          className="text-[18px] mt-[7px] text-black font-[700]"
+          className="text-[16px] mt-[7px]  font-[700] text-[#449F5A]"
           style={{ fontFamily: "Poppins", lineHeight: "30px" }}
         >
           {heading}
         </h2>
         <div className="mt-[6px]  h-[67%] overflow-y-scroll scrollbar-hide">
           <p
-            className="text-[15px]  text-[#666] font-normal"
+            className="text-[14px]  text-[#666] font-normal"
             style={{ fontFamily: "Poppins" }}
           >
             <div dangerouslySetInnerHTML={renderHTML()} />
@@ -98,8 +99,14 @@ const Branding = ({ boxes, brandDesc, brandHeading, brandCircle }) => {
         </p>
       </div>
 
-      <div className="w-[87%] flex sm:justify-between justify-center flex-wrap mt-[40px]">
-        <div className="sm:w-[33%] w-[95%] sm:h-[459px] h-[150px] mt-2 ">
+      <div
+        className="w-[60%] flex justify-center items-center text-center font-[600] text-[40px] text-[#449F5A] mt-[0px]"
+        style={{ fontFamily: "Poppins" }}
+      >
+        How to Order Custom Box Packaging with the Ryt Box?
+      </div>
+      <div className="w-[87%] flex sm:justify-between justify-center flex-wrap sm:mt-[5px] mt-[40px]">
+        {/* <div className="sm:w-[33%] w-[95%] sm:h-[459px] h-[150px] mt-2 ">
           <h4
             className="text-[16px] text-[#1d1d1d] font-normal"
             style={{ fontFamily: "Poppins", lineHeight: "16px" }}
@@ -112,7 +119,8 @@ const Branding = ({ boxes, brandDesc, brandHeading, brandCircle }) => {
           >
             {brandHeading}
           </h2>
-        </div>
+        </div> */}
+
         <SingleDescriptionBox
           number="01"
           heading={boxes?.Box1heding}
@@ -145,10 +153,10 @@ const Branding = ({ boxes, brandDesc, brandHeading, brandCircle }) => {
           tag={boxes?.Box4imageTag}
           brandCircle={brandCircle}
         />
-
+        {/* 
         <div className="sm:w-[33%] w-[95%] h-[459px] mt-2  flex justify-center items-center">
           <div className="btn relative inline-flex items-center justify-start overflow-hidden transition-all bg-white rounded-full hover:bg-white group h-[230px] w-[230px] border border-black cursor-pointer ">
-            {/* purple box */}
+         
             <span className="w-full text-black transition-colors duration-300 ease-in-out group-hover:text-white z-10 flex justify-center">
               <h2
                 className="text-center w-[70%]"
@@ -159,7 +167,7 @@ const Branding = ({ boxes, brandDesc, brandHeading, brandCircle }) => {
             </span>
             <span className="w-0 h-0  bg-[#00a15f] absolute top-0 left-0 ease-out duration-500 transition-all group-hover:w-full group-hover:h-full -z-1 rounded-full"></span>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

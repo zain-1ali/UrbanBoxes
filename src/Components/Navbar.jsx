@@ -21,16 +21,19 @@ import MediaQuery from "react-responsive";
 import TheDrawer from "./Drawer";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { headerFoterLayout } from "../redux/ApiSlice";
+import { categoryPage, headerFoterLayout } from "../redux/ApiSlice";
 import HeaderFormModal from "./Modals/HeaderFormModal";
+import NavDropdown from "./NavDropdown";
+import { ListItem, Menu, MenuItem } from "@mui/material";
+// import { IoIosArrowDown } from "react-icons/io";
 
 const Navbar = () => {
   let [drawer, setDrawer] = useState(false);
+
   const data = useSelector((state) => state.siteDetails.data);
 
   let handleDrawer = () => {
     setDrawer(!drawer);
-    console.log("test");
   };
 
   let closeDrawer = () => {
@@ -42,14 +45,40 @@ const Navbar = () => {
   let path = window.location.pathname;
   let dispatch = useDispatch();
   let headerFoterData = useSelector((state) => state.ApiSlice.headerFoterData);
+  let categoryData = useSelector((state) => state.ApiSlice.categoryData);
+  console.log(categoryData);
   useEffect(() => {
     dispatch(headerFoterLayout());
+    dispatch(categoryPage());
   }, []);
 
   let [headerForm, setHeaderForm] = useState(false);
   let handleHeaderForm = () => {
     setHeaderForm(!headerForm);
   };
+
+  let [openMenu, setopenMenu] = useState(false);
+  let handleMenu = () => {
+    setopenMenu(!openMenu);
+  };
+  const options = [
+    "Show some love to MUI",
+    "Show all notification content",
+    "Hide sensitive notification content",
+    "Hide all notification content",
+  ];
+  const [selectedIndex, setSelectedIndex] = useState(1);
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const open = Boolean(anchorEl);
+
+  const handleClickListItem = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <>
       <div className="w-[100%] h-[230px] border shadow-sm">
@@ -57,6 +86,7 @@ const Navbar = () => {
           handleHeaderForm={handleHeaderForm}
           headerForm={headerForm}
         />
+
         <div className="w-[100%] sm:h-[55px] h-[40px] border-b shadow-sm flex justify-between">
           <MediaQuery minWidth={640}>
             <div className="h-[100%] w-[380px] flex justify-end items-center ">
@@ -173,6 +203,8 @@ const Navbar = () => {
                   >
                     (000)-000-000-000
                   </p>
+
+                  {/* <NavDropdown handleMenu={handleMenu} openMenu={openMenu} /> */}
                 </div>
               </div>
             </MediaQuery>
@@ -242,19 +274,60 @@ const Navbar = () => {
                   Home
                 </div>
               </Link>
-              <Link to="/category">
-                <div
-                  className="text-[16px] font-medium flex ml-5 items-center cursor-pointer"
-                  style={
-                    path === "/category"
-                      ? { color: "#449F5A", fontFamily: "Poppins" }
-                      : { fontFamily: "Poppins" }
-                  }
-                >
-                  Category
-                  {/* <IoIosArrowDown className="ml-1" /> */}
-                </div>
-              </Link>
+
+              <div
+                className="text-[16px] font-medium flex ml-5 items-center cursor-pointer"
+                component="nav"
+                // aria-label="Device settings"
+                id="lock-button"
+                aria-haspopup="listbox"
+                aria-controls="lock-menu"
+                aria-label="when device is locked"
+                aria-expanded={openMenu ? "true" : undefined}
+                onClick={handleClickListItem}
+                style={
+                  path === "/category"
+                    ? { color: "#449F5A", fontFamily: "Poppins" }
+                    : { fontFamily: "Poppins" }
+                }
+              >
+                By Industry
+                <IoIosArrowDown className="ml-1" />
+              </div>
+
+              <Menu
+                id="lock-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                MenuListProps={{
+                  "aria-labelledby": "lock-button",
+                  role: "listbox",
+                }}
+              >
+                {categoryData?.data?.categories?.map((option, index) => (
+                  <MenuItem
+                    key={index}
+                    // disabled={index === 0}
+                    // selected={index === selectedIndex}
+                    // onClick={(event) => handleMenuItemClick(event, index)}
+                    onClick={() => {
+                      navigate(`/singlecategory/${option?.id}`, {
+                        state: {
+                          heading: option?.name,
+                          paragraph: option?.description,
+                          imgUrl: option?.image,
+                          bgClr: option?.color,
+                        },
+                      }),
+                        handleClose();
+                    }}
+                  >
+                    {option?.name}
+                  </MenuItem>
+                ))}
+              </Menu>
+
               <Link to="/gogreen">
                 <div
                   className="text-[16px] font-medium flex ml-5 items-center"

@@ -42,7 +42,7 @@ const SingleCategory = () => {
         </>
       )}
       <div className="w-[100%] flex justify-center items-center">
-        <div className="lg:w-[87%] w-[90%] md:w-[93%] lg:mt-[40px] mt-[20px]">
+        {/* <div className="lg:w-[87%] w-[90%] md:w-[93%] lg:mt-[40px] mt-[20px]">
           <div className="flex items-center ml-2">
             <Link to="/">
               <h2
@@ -69,7 +69,7 @@ const SingleCategory = () => {
               Single Category
             </h2>
           </div>
-        </div>
+        </div> */}
       </div>
       <CategoryUpper
         heading={heading}

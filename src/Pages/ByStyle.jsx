@@ -10,17 +10,49 @@ import HomeOptions from "../Components/HomeOptions";
 import Footer from "../Components/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { byStylePage } from "../redux/ApiSlice";
+import { Helmet } from "react-helmet";
 
 const ByStyle = () => {
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
   let dispatch = useDispatch();
   let byStyleData = useSelector((state) => state.ApiSlice.byStyleData);
+  let seoInfo = byStyleData?.data?.seo;
   console.log(byStyleData);
   useEffect(() => {
     dispatch(byStylePage());
   }, []);
+
   return (
     <div className="w-[100%]">
+      <Helmet>
+        {/* Page Name Schema */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              "name": "${seoInfo?.pageName}"
+            }
+          `}
+        </script>
+
+        {/* Meta Title */}
+        <title>{seoInfo?.metaTitle}</title>
+
+        {/* Meta Tags */}
+
+        <meta name="keywords" content={seoInfo?.metaTag} />
+
+        {/* Meta Description */}
+        <meta name="description" content={seoInfo?.metaDescription} />
+
+        {/* Breadcrumb Schema */}
+        <script type="application/ld+json">
+          {`
+            ${seoInfo?.breadcrumbSchema}
+          `}
+        </script>
+      </Helmet>
       {isDesktopOrLaptop ? (
         <Navbar />
       ) : (

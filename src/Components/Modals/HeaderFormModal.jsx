@@ -27,13 +27,30 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 640,
-    height: 370,
+    width: 700,
+    height: 550,
     bgcolor: "white",
     borderRadius: "18px",
     boxShadow: 24,
   };
+  let stockOptions = [
+    "White Card Stock",
+    "Brown Kraft Card Stock",
+    "Corrugated Cardboard Stock",
+    "Linen Stock",
+    "Rigid Stock",
+    "White Kraft paper",
+    "Brown Kraft paper",
+    "PVC",
+  ];
 
+  let leminationOptions = [
+    "Glossy Lamination",
+    "Matte Lamination",
+    "Silk Touch Lamination",
+    "Satin Finish Lamination",
+    "Not Sure",
+  ];
   return (
     <>
       <Modal
@@ -46,7 +63,7 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
       >
         <Box sx={style2}>
           <>
-            <div className="w-[100%] h-[100%] overflow-y-scroll scrollbar-hide">
+            <div className="w-[100%] h-[100%] overflow-y-scroll">
               <div className="w-[100%] flex flex-col items-center">
                 <div className="w-[90%] flex justify-center items-center mt-[30px]">
                   <div className="sm:w-[38%] w-[27%]   mr-3 h-[1px]  bg-[#696262]"></div>
@@ -123,37 +140,47 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
                 </div>
               </div>
 
-              <div className="w-[100%] flex justify-center">
+              <div className="w-[100%] flex flex-col items-center">
+                <div className="w-[100%] flex flex-col items-center">
+                  <div className="w-[90%] flex justify-center items-center mt-[30px]">
+                    <div className="sm:w-[30%] w-[27%]   mr-3 h-[1px]  bg-[#696262]"></div>
+                    <h2
+                      className="sm:text-xl text-[16px]  font-bold text-[#449F5A] text-center"
+                      style={{ fontFamily: "Roboto" }}
+                    >
+                      Product Information
+                    </h2>
+                    <div className="sm:w-[30%] w-[27%]  ml-3  h-[1px]  bg-[#696262]"></div>
+                  </div>
+                </div>
                 <div
-                  className="sm:w-[95%] w-[87%]  sm:mt-[35px] mt-[20px]  pr-2"
+                  className="sm:w-[87%] w-[87%]  sm:mt-[35px] mt-[20px]  pr-2 "
                   //   style={{ overflowY: "scroll", overflowX: "hidden" }}
                 >
                   <div className="w-[100%]  flex sm:justify-between items-center sm:flex-row flex-col">
-                    <div className="sm:w-[47%] w-[90%]  ">
-                      {/* <BsFillPersonFill className="text-[#449F5A] text-2xl " /> */}
+                    <div className="sm:w-[47%] w-[90%] ">
                       <div>
                         <p
                           className="font-[400] sm:text-[12px]  text-[10px]"
                           style={{ fontFamily: "Roboto", lineHeight: "13px" }}
                         >
-                          Name or Box Type{" "}
+                          Box Name or Type{" "}
                           <span className="text-red-500 ">*</span>
                         </p>
                       </div>
+
                       <input
                         type="text"
-                        // placeholder="Name or Box Type *"
-                        className="outline-none p-2  w-[100%] border rounded-md border-[#c4c4c4] placeholder:text-sm  mt-1"
+                        // placeholder="Required Quantity *"
+                        className="outline-none p-2 w-[100%] border rounded-md border-[#c4c4c4] placeholder:text-sm mt-1 "
+                        // className="outline-none p-2 w-[100%] border rounded-md border-[#c4c4c4] placeholder:text-sm mt-1"
                         // onChange={(e) =>
-                        //   setData({ ...data, boxType: e.target.value })
+                        //   setData({ ...data, quantity: e.target.value })
                         // }
-                        // value={data?.boxType}
+                        // value={data?.quantity}
                       />
                     </div>
-                    <div
-                      className="sm:w-[47%] w-[90%] "
-                      //   style={isDesktopOrLaptop ? null : { marginTop: "14px" }}
-                    >
+                    <div className="sm:w-[47%] w-[90%] ">
                       <div>
                         <p
                           className="font-[400] sm:text-[12px]  text-[10px]"
@@ -162,14 +189,16 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
                           Required Size <span className="text-red-500 ">*</span>
                         </p>
                       </div>
+
                       <input
                         type="text"
-                        placeholder="(LxWxH)"
-                        className="outline-none p-2 w-[100%] border rounded-md border-[#c4c4c4] placeholder:text-sm mt-1"
+                        // placeholder="Required Quantity *"
+                        className="outline-none p-2 w-[100%] border rounded-md border-[#c4c4c4] placeholder:text-sm mt-1 "
+                        // className="outline-none p-2 w-[100%] border rounded-md border-[#c4c4c4] placeholder:text-sm mt-1"
                         // onChange={(e) =>
-                        //   setData({ ...data, dimentions: e.target.value })
+                        //   setData({ ...data, quantity: e.target.value })
                         // }
-                        // value={data?.dimentions}
+                        // value={data?.quantity}
                       />
                     </div>
                   </div>
@@ -190,6 +219,7 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
                         type="text"
                         // placeholder="Required Quantity *"
                         className="outline-none p-2 w-[100%] border rounded-md border-[#c4c4c4] placeholder:text-sm mt-1 "
+                        // className="outline-none p-2 w-[100%] border rounded-md border-[#c4c4c4] placeholder:text-sm mt-1"
                         // onChange={(e) =>
                         //   setData({ ...data, quantity: e.target.value })
                         // }
@@ -242,7 +272,7 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
                           Select Units <span className="text-red-500 ">*</span>
                         </p>
                       </div>
-                      <div className="  w-[100%] h-[42px] border rounded-md border-[#c4c4c4] placeholder:text-sm mt-1 flex justify-center items-center">
+                      <div className="w-[100%] h-[42px] border rounded-md border-[#c4c4c4] placeholder:text-sm mt-1 flex justify-center items-center">
                         <select
                           name=""
                           id=""
@@ -292,7 +322,7 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
                       /> */}
                     </div>
                     <div
-                      className="sm:w-[47%] w-[90%] "
+                      className="sm:w-[47%] w-[90%]"
                       //   style={isDesktopOrLaptop ? null : { marginTop: "14px" }}
                     >
                       <div>
@@ -352,6 +382,101 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
                           >
                             Not Sure
                           </option>
+                        </select>
+                      </div>
+
+                      <div></div>
+                    </div>
+                  </div>
+
+                  <div className="sm:mt-[25px] mt-[14px] w-[100%] flex sm:justify-between items-center sm:flex-row flex-col">
+                    <div className="sm:w-[47%] w-[90%] ">
+                      <div>
+                        <p
+                          className="font-[400] sm:text-[12px]  text-[10px]"
+                          style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                        >
+                          Select Stock <span className="text-red-500 ">*</span>
+                        </p>
+                      </div>
+                      <div className="w-[100%] h-[42px] border rounded-md border-[#c4c4c4] placeholder:text-sm mt-1 flex justify-center items-center">
+                        <select
+                          name=""
+                          id=""
+                          className="w-[94%] h-[95%] outline-none"
+                          style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                          //   onChange={(e) =>
+                          //     setData({ ...data, units: e.target.value })
+                          //   }
+                          //   value={data?.units}
+                        >
+                          <option
+                            value=""
+                            disabled
+                            style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                          >
+                            Select Stock
+                          </option>
+                          {stockOptions?.map((elm) => {
+                            return (
+                              <option
+                                value={elm}
+                                style={{
+                                  fontFamily: "Roboto",
+                                  lineHeight: "13px",
+                                }}
+                              >
+                                {elm}
+                              </option>
+                            );
+                          })}
+                        </select>
+                      </div>
+                    </div>
+                    <div
+                      className="sm:w-[47%] w-[90%]"
+                      //   style={isDesktopOrLaptop ? null : { marginTop: "14px" }}
+                    >
+                      <div>
+                        <p
+                          className="font-[400] sm:text-[12px]  text-[10px]"
+                          style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                        >
+                          Lamination <span className="text-red-500 ">*</span>
+                        </p>
+                      </div>
+
+                      <div className="  w-[100%] h-[42px] border rounded-md border-[#c4c4c4] placeholder:text-sm mt-1 flex justify-center items-center">
+                        <select
+                          name=""
+                          id=""
+                          className="w-[94%] h-[95%] outline-none"
+                          //   onChange={(e) =>
+                          //     setData({ ...data, printing: e.target.value })
+                          //   }
+                          //   value={data.printing}
+                          style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                        >
+                          <option
+                            value=""
+                            disabled
+                            style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                          >
+                            Select Lamination
+                          </option>
+                          {leminationOptions?.map((elm) => {
+                            return (
+                              <option
+                                value={elm}
+                                style={{
+                                  fontFamily: "Roboto",
+                                  lineHeight: "13px",
+                                }}
+                              >
+                                {elm}
+                              </option>
+                            );
+                          })}
                         </select>
                       </div>
 
@@ -463,6 +588,82 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
                     </div>
                   </div>
 
+                  <div className="w-[100%]  flex sm:justify-between items-center sm:flex-row flex-col mt-5">
+                    <div className="sm:w-[47%] w-[90%] ">
+                      <div>
+                        <p
+                          className="font-[400] sm:text-[12px]  text-[10px]"
+                          style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                        >
+                          Required Quantity One{" "}
+                          <span className="text-red-500 ">*</span>
+                        </p>
+                      </div>
+
+                      <input
+                        type="number"
+                        min={1}
+                        // placeholder="Required Quantity *"
+                        className="outline-none p-2 w-[100%] border rounded-md border-[#c4c4c4] placeholder:text-sm mt-1 "
+                        // className="outline-none p-2 w-[100%] border rounded-md border-[#c4c4c4] placeholder:text-sm mt-1"
+                        // onChange={(e) =>
+                        //   setData({ ...data, quantity: e.target.value })
+                        // }
+                        // value={data?.quantity}
+                      />
+                    </div>
+                    <div className="sm:w-[47%] w-[90%] ">
+                      <div>
+                        <p
+                          className="font-[400] sm:text-[12px]  text-[10px]"
+                          style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                        >
+                          Required Quantity Two{" "}
+                          {/* <span className="text-red-500 ">*</span> */}
+                        </p>
+                      </div>
+
+                      <input
+                        type="number"
+                        min={1}
+                        // placeholder="Required Quantity *"
+                        className="outline-none p-2 w-[100%] border rounded-md border-[#c4c4c4] placeholder:text-sm mt-1 "
+                        // className="outline-none p-2 w-[100%] border rounded-md border-[#c4c4c4] placeholder:text-sm mt-1"
+                        // onChange={(e) =>
+                        //   setData({ ...data, quantity: e.target.value })
+                        // }
+                        // value={data?.quantity}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="w-[100%]  flex sm:justify-between items-center sm:flex-row flex-col mt-4">
+                    <div className="sm:w-[100%] w-[90%] ">
+                      <div>
+                        <p
+                          className="font-[400] sm:text-[12px]  text-[10px]"
+                          style={{ fontFamily: "Roboto", lineHeight: "13px" }}
+                        >
+                          Required Quantity Three{" "}
+                          {/* <span className="text-red-500 ">*</span> */}
+                        </p>
+                      </div>
+
+                      <input
+                        type="number"
+                        min={1}
+                        // placeholder="Required Quantity *"
+
+                        className="outline-none p-2 w-[100%] border rounded-md border-[#c4c4c4] placeholder:text-sm mt-1 "
+                        // className="outline-none p-2 w-[100%] border rounded-md border-[#c4c4c4] placeholder:text-sm mt-1"
+                        // onChange={(e) =>
+                        //   setData({ ...data, quantity: e.target.value })
+                        // }
+                        // value={data?.quantity}
+                      />
+                    </div>
+                  </div>
+
                   <div className="sm:mt-[25px] mt-[14px] w-[100%] ">
                     <div>
                       <p
@@ -482,6 +683,24 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
                       className="outline-none p-2 sm:h-[150px] w-[100%] border rounded-md border-[#c4c4c4] placeholder:text-sm  mt-1"
                     ></textarea>
                   </div>
+
+                  <div className="w-[100%] flex sm:mt-[20px] mt-[15px] sm:justify-end justify-center">
+                    <div
+                      className="hover:bg-[#F2F2F2] hover:text-[#585656] cursor-pointer hover:border-[#F2F2F2] sm:w-[120px] sm:h-[44px] w-[100px] h-[40px]  sm:text-[16px] text-[14px] rounded-md flex justify-center items-center mr-3 border border-[#449F5A]  font-[600] text-[#449F5A]"
+                      style={{ fontFamily: "Inter" }}
+                      // onClick={() => reset()}
+                    >
+                      Reset
+                    </div>
+                    <div
+                      className="sm:w-[120px] sm:h-[44px] w-[100px] h-[40px] sm:text-[16px] text-[14px] rounded-md flex justify-center items-center bg-[#449F5A] hover:bg-[#6AD37F] font-[600] text-white cursor-pointer"
+                      style={{ fontFamily: "Inter" }}
+                      // onClick={() => saveToDb()}
+                    >
+                      Submit
+                    </div>
+                  </div>
+                  <br />
                 </div>
               </div>
             </div>

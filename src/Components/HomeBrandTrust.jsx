@@ -3,7 +3,16 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 
 const HomeBrandTrust = ({ trstBrndDesc }) => {
-  let therow = [1, 2, 3, 4, 5];
+  let therow = [
+    { img: "https://customboxeshub.com/public/uploads/1681721373.VALKEN.svg" },
+    { img: "https://customboxeshub.com/public/uploads/1681721484.WALLCUR.svg" },
+    { img: "https://customboxeshub.com/public/uploads/1681720407.IBM.svg" },
+    { img: "https://customboxeshub.com/public/uploads/1681720430.KROM.svg" },
+    {
+      img: "https://customboxeshub.com/public/uploads/1681720753.OREGON_STATE.svg",
+    },
+    { img: "https://customboxeshub.com/public/uploads/1681721141.UNITED.svg" },
+  ];
   const splideOptions = {
     perPage: 4,
     perMove: 1,
@@ -52,7 +61,9 @@ const HomeBrandTrust = ({ trstBrndDesc }) => {
             {therow.map((elm, i) => {
               return (
                 <SplideSlide key={i} className="mb-0.5">
-                  <div className="w-[257px] h-[158px] rounded-[19px] bg-[#EBFCF0]"></div>
+                  <div className="w-[257px] h-[158px] rounded-[19px] object-cover flex justify-center items-center">
+                    <img src={elm?.img} alt="" />
+                  </div>
                 </SplideSlide>
               );
             })}

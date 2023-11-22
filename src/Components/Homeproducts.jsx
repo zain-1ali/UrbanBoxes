@@ -57,12 +57,12 @@ const Homeproducts = ({ insDesignDesc }) => {
         </p>
       </div>
       <div className="w-[100%] flex flex-col items-center">
-        <div className="sm:w-[90%] w-[95%]  mt-[30px] flex sm:justify-start justify-evenly flex-wrap">
+        <div className="sm:w-[90%] w-[95%]  mt-[30px] flex sm:justify-around justify-evenly flex-wrap">
           {/* grid sm:grid-cols-4 grid-cols-2  gap-x-4 gap-y-2 */}
           {latestProducts?.map((elm) => {
             return (
               <div
-                className="sm:h-[240px] sm:w-[250px] w-[160px] h-[140px] rounded-[4px] sm:mt-[20px] mt-[15px] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer  relative ml-[3%] border"
+                className="sm:h-[240px] sm:w-[250px] w-[160px] h-[140px] rounded-[4px] sm:mt-[20px] mt-[15px] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 cursor-pointer  relative "
                 onClick={() => navigate(`/singleproduct/${elm?.id}`)}
               >
                 <img

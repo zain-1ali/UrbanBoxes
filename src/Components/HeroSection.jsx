@@ -2,6 +2,7 @@ import React from "react";
 import herobox from "../imgs/herobox.png";
 import { Typewriter } from "react-simple-typewriter";
 import { useMediaQuery } from "react-responsive";
+import LazyLoad from "react-lazy-load";
 
 const HeroSection = ({ heroData }) => {
   // , lineHeight: "70px"
@@ -113,11 +114,13 @@ const HeroSection = ({ heroData }) => {
       </div>
 
       <div className=" w-[45%] flex justify-center items-center  ">
-        <img
-          src={heroData?.image}
-          alt={heroData?.imageTag}
-          className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 max-h-[90%] max-w-[90%]"
-        />
+        <LazyLoad offset={0}>
+          <img
+            src={heroData?.image}
+            alt={heroData?.imageTag}
+            className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 max-h-[90%] max-w-[90%]"
+          />
+        </LazyLoad>
       </div>
     </div>
   );

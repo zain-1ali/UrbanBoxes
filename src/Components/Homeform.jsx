@@ -147,13 +147,13 @@ const Homeform = ({
           <MediaQuery minWidth={640}>
             <div className="w-[35%] sm:h-[658px] h-[400px] border rounded-2xl bg-[#449F5A] shadow-lg relative left-[80px] flex flex-col justify-center items-center">
               <h2
-                className="text-[36px]  font-bold text-center w-[80%] text-white "
+                className="text-[30px]  font-bold text-center w-[80%] text-white "
                 style={{ fontFamily: "Roboto", lineHeight: "42px" }}
               >
                 {getDiscPricBoxHeding}
               </h2>
               <p
-                className="text-center w-[90%] text-white text-[20px] mt-3"
+                className="text-center w-[90%] text-white text-[18px] mt-3"
                 style={{ fontFamily: "Roboto" }}
               >
                 <div dangerouslySetInnerHTML={renderHTML(getDiscPricBoxText)} />

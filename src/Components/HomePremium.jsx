@@ -10,6 +10,8 @@ const HomePremium = ({ premImgDesc, premiumImages }) => {
     return { __html: string };
   };
 
+  console.log(premiumImages);
+
   let boxLayoutMobile = [
     {
       w: "22%",
@@ -174,6 +176,7 @@ const HomePremium = ({ premImgDesc, premiumImages }) => {
                 <PremiumBox
                   img={elm?.imageUrl}
                   boxLayout={boxLayoutDesktop[i]}
+                  name={elm?.name}
                 />
               );
             })}

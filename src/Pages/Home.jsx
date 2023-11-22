@@ -17,6 +17,7 @@ import Branding from "../Components/Branding";
 import { useDispatch, useSelector } from "react-redux";
 import { siteData } from "../redux/SettingsApiSlice";
 import { homePage } from "../redux/ApiSlice";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
@@ -28,13 +29,44 @@ const Home = () => {
 
   let dispatch = useDispatch();
   let homePageData = useSelector((state) => state.ApiSlice.homePageData);
-  // console.log(homePageData);
+  // console.log();
+  let seoInfo = homePageData?.data?.seo;
   useEffect(() => {
     dispatch(homePage());
   }, []);
 
   return (
     <div className="w-[100%] scrollbar-hide">
+      <Helmet>
+        {/* Page Name Schema */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              "name": "${seoInfo?.pageName}"
+            }
+          `}
+        </script>
+
+        {/* Meta Title */}
+        <title>{seoInfo?.metaTitle}</title>
+
+        {/* Meta Tags */}
+
+        <meta name="keywords" content={seoInfo?.metaTag} />
+
+        {/* Meta Description */}
+        <meta name="description" content={seoInfo?.metaDescription} />
+
+        {/* Breadcrumb Schema */}
+        <script type="application/ld+json">
+          {`
+            ${seoInfo?.breadcrumbSchema}
+          `}
+        </script>
+      </Helmet>
+
       {isDesktopOrLaptop ? (
         <Navbar navigate={navigate} />
       ) : (

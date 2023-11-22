@@ -12,6 +12,7 @@ import { useMediaQuery } from "react-responsive";
 import MobileNavbar from "../Components/MobileNavbar";
 import { useDispatch, useSelector } from "react-redux";
 import { contactPage } from "../redux/ApiSlice";
+import { Helmet } from "react-helmet";
 
 const ContactUs = () => {
   let [msgInfo, setMsgInfo] = useState({
@@ -63,9 +64,40 @@ const ContactUs = () => {
     }
   };
 
+  let seoInfo = contactData?.data?.seo;
+
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
   return (
     <div className="w-[100%]">
+      <Helmet>
+        {/* Page Name Schema */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              "name": "${seoInfo?.pageName}"
+            }
+          `}
+        </script>
+
+        {/* Meta Title */}
+        <title>{seoInfo?.metaTitle}</title>
+
+        {/* Meta Tags */}
+
+        <meta name="keywords" content={seoInfo?.metaTag} />
+
+        {/* Meta Description */}
+        <meta name="description" content={seoInfo?.metaDescription} />
+
+        {/* Breadcrumb Schema */}
+        <script type="application/ld+json">
+          {`
+            ${seoInfo?.breadcrumbSchema}
+          `}
+        </script>
+      </Helmet>
       {isDesktopOrLaptop ? (
         <Navbar />
       ) : (
@@ -167,7 +199,7 @@ const ContactUs = () => {
               {contactData?.data?.contact?.heading1}
             </h3>
             <p
-              className="font-[500] text-[40px]  mt-2"
+              className="font-[500] text-[40px]  mt-2 "
               style={{ fontFamily: "Roboto" }}
             >
               {/* Speak with our experts within a minute. */}

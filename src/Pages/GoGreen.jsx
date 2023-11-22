@@ -13,19 +13,50 @@ import { useMediaQuery } from "react-responsive";
 import MobileNavbar from "../Components/MobileNavbar";
 import { useDispatch, useSelector } from "react-redux";
 import { goGreenPage } from "../redux/ApiSlice";
+import { Helmet } from "react-helmet";
 const GoGreen = () => {
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
   let dispatch = useDispatch();
   let goGreenData = useSelector((state) => state.ApiSlice.goGreenData);
-  console.log(goGreenData);
+  console.log(goGreenData?.data?.seo);
   useEffect(() => {
     dispatch(goGreenPage());
   }, []);
   const renderHTML = (string) => {
     return { __html: string };
   };
+  let seoInfo = goGreenData?.data?.seo;
   return (
     <div className="w-[100%]">
+      <Helmet>
+        {/* Page Name Schema */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              "name": "${seoInfo?.pageName}"
+            }
+          `}
+        </script>
+
+        {/* Meta Title */}
+        <title>{seoInfo?.metaTitle}</title>
+
+        {/* Meta Tags */}
+
+        <meta name="keywords" content={seoInfo?.metaTag} />
+
+        {/* Meta Description */}
+        <meta name="description" content={seoInfo?.metaDescription} />
+
+        {/* Breadcrumb Schema */}
+        <script type="application/ld+json">
+          {`
+            ${seoInfo?.breadcrumbSchema}
+          `}
+        </script>
+      </Helmet>
       {isDesktopOrLaptop ? (
         <Navbar />
       ) : (
