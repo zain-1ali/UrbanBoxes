@@ -7,6 +7,7 @@ const initialState = {
   isCoating: false,
   isSpecialCapabilities: false,
   isAvailbaleStyle: false,
+  isReview: false,
 };
 
 export const productpropertySlice = createSlice({
@@ -20,6 +21,7 @@ export const productpropertySlice = createSlice({
       state.isSpecialCapabilities = false;
       state.isCoating = false;
       state.isAvailbaleStyle = false;
+      state.isReview = false;
     },
 
     openDetails: (state) => {
@@ -29,6 +31,7 @@ export const productpropertySlice = createSlice({
       state.isSpecialCapabilities = false;
       state.isCoating = false;
       state.isAvailbaleStyle = false;
+      state.isReview = false;
     },
 
     openCapabilities: (state) => {
@@ -38,6 +41,7 @@ export const productpropertySlice = createSlice({
       state.isSpecialCapabilities = false;
       state.isCoating = false;
       state.isAvailbaleStyle = false;
+      state.isReview = false;
     },
 
     openSpecialCapabilities: (state) => {
@@ -47,6 +51,7 @@ export const productpropertySlice = createSlice({
       state.isSpecialCapabilities = true;
       state.isCoating = false;
       state.isAvailbaleStyle = false;
+      state.isReview = false;
     },
 
     openCoating: (state) => {
@@ -56,6 +61,7 @@ export const productpropertySlice = createSlice({
       state.isSpecialCapabilities = false;
       state.isCoating = true;
       state.isAvailbaleStyle = false;
+      state.isReview = false;
     },
     openAvailbaleStyle: (state) => {
       state.isSepecification = false;
@@ -64,6 +70,16 @@ export const productpropertySlice = createSlice({
       state.isSpecialCapabilities = false;
       state.isCoating = false;
       state.isAvailbaleStyle = true;
+      state.isReview = false;
+    },
+    openReview: (state) => {
+      state.isSepecification = false;
+      state.isDetails = false;
+      state.isCapabilities = false;
+      state.isSpecialCapabilities = false;
+      state.isCoating = false;
+      state.isAvailbaleStyle = false;
+      state.isReview = true;
     },
   },
 });
@@ -76,6 +92,7 @@ export const {
   openSpecialCapabilities,
   openCoating,
   openAvailbaleStyle,
+  openReview,
 } = productpropertySlice.actions;
 
 export default productpropertySlice.reducer;

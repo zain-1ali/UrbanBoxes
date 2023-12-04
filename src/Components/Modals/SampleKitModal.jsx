@@ -11,6 +11,8 @@ import { MdEmail } from "react-icons/md";
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { MdOutlineCancel } from "react-icons/md";
+import { toast } from "react-toastify";
+import axios from "axios";
 // import { RxCross2 } from "react-icons/rx";
 // import { BsPlusLg } from "react-icons/bs";
 // import { MdModeEdit } from "react-icons/md";
@@ -21,8 +23,10 @@ const SampleKitModal = ({ handleKitForm, kitForm }) => {
 
   //   const dispatch = useDispatch();
   //   let navigate = useNavigate();
-
   // Modal box style
+  let baseUrl = import.meta.env.VITE_BASE_URL;
+  // Modal box style
+
   const style2 = {
     position: "absolute",
     top: "50%",
@@ -46,6 +50,47 @@ const SampleKitModal = ({ handleKitForm, kitForm }) => {
     zip: "",
     comment: "",
   });
+
+  let saveToDb = async () => {
+    // console.log("testing");
+    const kitFormData = new FormData();
+    kitFormData.append("name", formData.name);
+    kitFormData.append("phone", formData.phone);
+    kitFormData.append("email", formData.email);
+    kitFormData.append("comment", formData.comment);
+    kitFormData.append("requestType", "sampleKit");
+    kitFormData.append("company", formData.company);
+    kitFormData.append("address", formData.address);
+    kitFormData.append("city", formData.city);
+    kitFormData.append("zip", formData.zip);
+    kitFormData.append("state", formData.state);
+    try {
+      await axios
+        .post(`${baseUrl}/api/submitCallbackForm`, kitFormData)
+        .then((resp) => {
+          console.log("testing2", resp);
+
+          toast.success(resp?.data?.message);
+          setFormData({
+            name: "",
+            email: "",
+            company: "",
+            phone: "",
+            address: "",
+            city: "",
+            state: "",
+            zip: "",
+            comment: "",
+          });
+        });
+
+      // console.log(res);
+    } catch (error) {
+      console.log(error);
+      // toast.error(error?.response?.data?.message);
+    }
+  };
+
   return (
     <>
       <Modal
@@ -230,9 +275,9 @@ const SampleKitModal = ({ handleKitForm, kitForm }) => {
                       className="w-[90%] h-[90%] outline-none"
                       placeholder="Zip Code"
                       onChange={(e) =>
-                        setFormData({ ...formData, name: e.target.value })
+                        setFormData({ ...formData, zip: e.target.value })
                       }
-                      value={formData?.name}
+                      value={formData?.zip}
                     />
                   </div>
                 </div>
@@ -259,6 +304,7 @@ const SampleKitModal = ({ handleKitForm, kitForm }) => {
                 <div
                   className="w-[18%] h-[50px] border rounded-[10px] flex justify-center items-center bg-[#449F5A] text-white text-[18px] font-[500] cursor-pointer"
                   style={{ fontFamily: "Roboto" }}
+                  onClick={() => saveToDb()}
                 >
                   Submit
                 </div>

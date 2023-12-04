@@ -1,7 +1,9 @@
 import React from "react";
 
-const Details = ({ details }) => {
-  console.log(details);
+const Details = ({ longDesc, shortDesc }) => {
+  const renderHTML = () => {
+    return { __html: longDesc };
+  };
   return (
     <div className="p-2 w-[100%] h-[100%] flex  items-center flex-col">
       <div className="w-[100%]  flex flex-col items-center">
@@ -29,7 +31,7 @@ const Details = ({ details }) => {
           packaging.
         </p>
       </div>
-      <div className="w-[100%]">
+      <div className="w-[100%] ">
         {/* <div className="mt-2">
           <h2
             className="font-[700] text-2xl text-[#449F5A]"
@@ -55,24 +57,21 @@ const Details = ({ details }) => {
           </p>
         </div> */}
 
-        {details?.map((elm, i) => {
-          return (
-            <div className="mt-2" key={i}>
-              <h2
+        <div className="mt-2  h-[40%]">
+          {/* <h2
                 className="font-[600] text-xl text-[#449F5A]"
                 style={{ fontFamily: "Roboto" }}
               >
                 {elm?.heading}
-              </h2>
-              <p
-                className="font-[400] text-[16px] text-[#505050]"
-                style={{ fontFamily: "Roboto" }}
-              >
-                {elm?.description}
-              </p>
-            </div>
-          );
-        })}
+              </h2> */}
+          <p
+            className="font-[400] text-[16px] text-[#505050] max-h-[55%]  overflow-y-scroll"
+            style={{ fontFamily: "Roboto" }}
+          >
+            <div dangerouslySetInnerHTML={renderHTML()} />
+          </p>
+        </div>
+
         {/* 
         <div className="mt-2">
           <h2

@@ -15,6 +15,8 @@ import MobileNavbar from "../Components/MobileNavbar";
 import Branding from "../Components/Branding";
 import { getProductById } from "../redux/ApiSlice";
 import { useDispatch, useSelector } from "react-redux";
+import HomeFAQ from "../Components/HomeFAQ";
+import ProductReviews from "../Components/ProductsComponents/ProductReviews";
 
 const SinglePorduct = () => {
   const params = useParams();
@@ -36,7 +38,7 @@ const SinglePorduct = () => {
     (state) => state.ApiSlice.singleProduct?.data
   );
 
-  console.log(singleProduct);
+  console.log(singleProduct?.product);
 
   let baseUrl = import.meta.env.VITE_BASE_URL;
   useEffect(() => {
@@ -67,7 +69,7 @@ const SinglePorduct = () => {
   //   getProducts();
   // }, [Product?.category_id]);
 
-  console.log(Product?.images);
+  console.log(Product);
   console.log(Product);
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
 
@@ -130,8 +132,15 @@ const SinglePorduct = () => {
         brandHeading={singleProduct?.boxes?.sectionName}
         brandCircle={singleProduct?.productPage?.featureBoxCircleText}
       />
-      <ProductSepecification details={Product?.details} />
+      <ProductSepecification
+        details={singleProduct?.product?.details}
+        longDesc={singleProduct?.product?.longDescription}
+        shortDesc={singleProduct?.product?.shortDescription}
+        reviews={singleProduct?.product?.reviews}
+      />
       {/* <RelatedProducts relatedProducts={Products} /> */}
+      <HomeFAQ faqDesc="" faqs={singleProduct?.product?.faqs} isHome={true} />
+      {/* <ProductReviews reviews={singleProduct?.product?.reviews} /> */}
       <HomeOptions bg="#EAFFEF" btnClr="#449F5A" />
       <Footer bg="#2C703C" textClr="white" />
     </div>

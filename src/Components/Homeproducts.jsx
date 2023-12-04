@@ -11,7 +11,7 @@ const Homeproducts = ({ insDesignDesc }) => {
   let baseUrl = import.meta.env.VITE_BASE_URL;
   useEffect(() => {
     let getLatestProducts = async () => {
-      let res = await axios.get(`${baseUrl}/api/latestProduct`);
+      let res = await axios.get(`${baseUrl}/api/homeProduct`);
       setlatestProducts(res.data.data);
     };
     getLatestProducts();
@@ -41,13 +41,13 @@ const Homeproducts = ({ insDesignDesc }) => {
             style={{ fontFamily: "Poppins" }}
           >
             {/* Inspirational Designs */}
-            Ryt Box: Right Packaging Suppliers of Custom Boxes
+            Featured Custom Boxes
           </h1>
           <div className="sm:w-[38%] w-[23%]  h-[1px]  bg-[#696262] ml-2"></div>
         </div>
 
         <p
-          className="sm:w-[70%] w-[90%] text-center sm:mt-[25px] mt-[13px] font-[400] sm:text-xl text-[14px] text-[#0f0707]"
+          className="sm:w-[85%] w-[90%] text-center sm:mt-[25px] mt-[13px] font-[400] sm:text-lg text-[14px] text-[#0f0707]"
           style={{ fontFamily: "Roboto" }}
         >
           {/* <div dangerouslySetInnerHTML={{ __html: inspirationalDescription }} /> */}
@@ -78,14 +78,14 @@ const Homeproducts = ({ insDesignDesc }) => {
           })}
         </div>
 
-        <div
+        {/* <div
           className="sm:w-[297px] w-[200px] sm:text-lg text-[16px] sm:h-[69px] h-[59px] bg-[#449F5A] hover:bg-[#6AD37F] mt-[45px] rounded-[12px] flex justify-center items-center text-white  sm:font-[600] font-[500] cursor-pointer "
           style={{ fontFamily: "Roboto" }}
           onClick={() => navigate(`/category`)}
         >
           <CiBoxes className="sm:text-[35px] text-[30px] ml-1" />
           View all products
-        </div>
+        </div> */}
       </div>
       <br />
     </div>

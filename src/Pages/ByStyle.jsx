@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../Components/Navbar";
 import MobileNavbar from "../Components/MobileNavbar";
 import { useMediaQuery } from "react-responsive";
@@ -9,18 +9,25 @@ import StyleCategories from "../Components/ByStyle/StyleCategories";
 import HomeOptions from "../Components/HomeOptions";
 import Footer from "../Components/Footer";
 import { useDispatch, useSelector } from "react-redux";
-import { byStylePage } from "../redux/ApiSlice";
+import { byStylePage, getGallaryData } from "../redux/ApiSlice";
 import { Helmet } from "react-helmet";
+import ProductsModal from "../Components/ProductsModal";
 
 const ByStyle = () => {
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
   let dispatch = useDispatch();
   let byStyleData = useSelector((state) => state.ApiSlice.byStyleData);
+  let gallaryData = useSelector((state) => state.ApiSlice.gallaryData);
   let seoInfo = byStyleData?.data?.seo;
   console.log(byStyleData);
   useEffect(() => {
     dispatch(byStylePage());
+    dispatch(getGallaryData());
   }, []);
+
+
+
+  console.log(gallaryData);
 
   return (
     <div className="w-[100%]">
@@ -53,6 +60,7 @@ const ByStyle = () => {
           `}
         </script>
       </Helmet>
+     
       {isDesktopOrLaptop ? (
         <Navbar />
       ) : (
@@ -73,7 +81,7 @@ const ByStyle = () => {
         bottomHeading="Choose Your Boxes Styles"
       />
 
-      <StyleCategories />
+      <StyleCategories gallaryProduct={gallaryData?.data} />
       <HomeOptions bg="#EAFFEF" btnClr="#449F5A" />
       <Footer bg="#2C703C" textClr="white" />
     </div>

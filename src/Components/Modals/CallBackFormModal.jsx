@@ -11,6 +11,8 @@ import { MdEmail } from "react-icons/md";
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { MdOutlineCancel } from "react-icons/md";
+import axios from "axios";
+import { toast } from "react-toastify";
 // import { RxCross2 } from "react-icons/rx";
 // import { BsPlusLg } from "react-icons/bs";
 // import { MdModeEdit } from "react-icons/md";
@@ -23,6 +25,7 @@ const CallBackFormModal = ({ handleCallBackForm, callBackForm }) => {
   //   let navigate = useNavigate();
 
   // Modal box style
+  let baseUrl = import.meta.env.VITE_BASE_URL;
   const style2 = {
     position: "absolute",
     top: "50%",
@@ -37,15 +40,43 @@ const CallBackFormModal = ({ handleCallBackForm, callBackForm }) => {
   };
   let [formData, setFormData] = useState({
     name: "",
-    email: "",
-    company: "",
     phone: "",
-    address: "",
-    city: "",
-    state: "",
-    zip: "",
+    preferedDate: "",
     comment: "",
   });
+
+  // -----------------------------------------------save data to db----------------------------------------
+
+  let saveToDb = async () => {
+    // console.log("testing");
+    const callFormData = new FormData();
+    callFormData.append("name", formData.name);
+    callFormData.append("phone", formData.phone);
+    callFormData.append("preferedDate", formData.preferedDate);
+    callFormData.append("comment", formData.comment);
+    callFormData.append("requestType", "callback");
+    try {
+      await axios
+        .post(`${baseUrl}/api/submitCallbackForm`, callFormData)
+        .then((resp) => {
+          console.log("testing2", resp);
+
+          toast.success(resp?.data?.message);
+          setFormData({
+            name: "",
+            phone: "",
+            preferedDate: "",
+            comment: "",
+          });
+        });
+
+      // console.log(res);
+    } catch (error) {
+      console.log(error);
+      // toast.error(error?.response?.data?.message);
+    }
+  };
+
   return (
     <>
       <Modal
@@ -127,11 +158,14 @@ const CallBackFormModal = ({ handleCallBackForm, callBackForm }) => {
                     <input
                       type="text"
                       className="w-[90%] h-[90%] outline-none"
-                      placeholder="Email"
+                      placeholder="Time"
                       onChange={(e) =>
-                        setFormData({ ...formData, email: e.target.value })
+                        setFormData({
+                          ...formData,
+                          preferedDate: e.target.value,
+                        })
                       }
-                      value={formData?.email}
+                      value={formData?.preferedDate}
                     />
                   </div>
                 </div>
@@ -151,6 +185,13 @@ const CallBackFormModal = ({ handleCallBackForm, callBackForm }) => {
                     id=""
                     className="w-[95%] h-[150px] border outline-none rounded-[10px]  pl-[10px] pt-[10px] mt-1"
                     placeholder="Comments"
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        comment: e.target.value,
+                      })
+                    }
+                    value={formData?.comment}
                   ></textarea>
                 </div>
               </div>
@@ -159,6 +200,7 @@ const CallBackFormModal = ({ handleCallBackForm, callBackForm }) => {
                 <div
                   className="w-[18%] h-[50px] border rounded-[10px] flex justify-center items-center bg-[#449F5A] text-white text-[18px] font-[500] cursor-pointer"
                   style={{ fontFamily: "Roboto" }}
+                  onClick={() => saveToDb()}
                 >
                   Submit
                 </div>

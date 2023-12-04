@@ -48,7 +48,7 @@ const HomeBrandTrust = ({ trstBrndDesc }) => {
         </div>
 
         <p
-          className="sm:w-[70%] w-[90%] text-center sm:mt-[25px] mt-[13px] font-[400] sm:text-xl text-[14px] text-[#0f0707]"
+          className="sm:w-[70%] w-[90%] text-center sm:mt-[25px] mt-[13px] font-[400] sm:text-lg text-[14px] text-[#0f0707]"
           style={{ fontFamily: "Roboto" }}
         >
           <div dangerouslySetInnerHTML={renderHTML(trstBrndDesc)} />

@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../imgs/Urbanlogo1.png";
+import logo from "../imgs/rytbox.png";
 
 const LoadingScreen = () => {
   return (
@@ -7,7 +7,7 @@ const LoadingScreen = () => {
       <img
         src={logo}
         alt=""
-        className="sm:h-[100px] sm:w-[400px] h-[60px] w-[250px]"
+        className="sm:h-[120px] sm:w-[400px] h-[60px] w-[250px] object-cover"
       />
     </div>
   );

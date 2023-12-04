@@ -35,7 +35,7 @@ const SingleCategoryProducts = ({ id }) => {
             className={`lg:text-2xl md:text-lg text-sm text-center font-[600] `}
             style={{ fontFamily: "Poppins" }}
           >
-            Single Category
+            Product List
           </h2>
           <div className="lg:w-[32%] md:w-[30%] w-[25%]   h-[1px]  bg-[#696262] ml-2"></div>
         </div>
@@ -58,15 +58,15 @@ const SingleCategoryProducts = ({ id }) => {
               onClick={() => navigate(`/singleproduct/${elm?.id}`)}
               key={i}
             >
-              <div className="lg:h-[279px] md:h-[279px] h-[250px] rounded-[19px] bg-[#FEF3FE] flex justify-center items-center">
+              <div className="lg:h-[279px] md:h-[279px] h-[250px]  flex justify-center items-center">
                 <img
                   src={
                     elm?.images[0]?.image
                       ? elm?.images[0]?.image
-                      : "https://placehold.co/200x200"
+                      : "https://placehold.co/300x300"
                   }
                   alt=""
-                  className="h-[200px] w-[200px]"
+                  className="max-h-[90%] max-w-[90%]"
                 />
               </div>
               <div className="w-[100%] flex justify-center">
@@ -84,9 +84,9 @@ const SingleCategoryProducts = ({ id }) => {
                     {/* A collapsible version of a magnetic lid box where the tray
                     is glued to the base and the lid has magnets to securely
                     close the box. */}
-                    {elm?.details[0]?.description?.length <= 125
-                      ? elm?.details[0]?.description
-                      : reduceText(elm?.details[0]?.description)}
+                    {elm?.shortDescription?.length <= 125
+                      ? elm?.shortDescription
+                      : reduceText(elm?.shortDescription)}
                   </p>
                 </div>
               </div>

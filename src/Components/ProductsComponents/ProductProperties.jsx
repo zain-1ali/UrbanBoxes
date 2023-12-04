@@ -14,6 +14,7 @@ import {
   openCapabilities,
   openSpecialCapabilities,
   openCoating,
+  openReview,
   openAvailbaleStyle,
 } from "../../redux/productpropertySlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -24,8 +25,10 @@ import Coating from "../ProductPropertiesComponents/Coating";
 import SepecialCapabilities from "../ProductPropertiesComponents/SepecialCapabilities";
 import AvalableStyle from "../ProductPropertiesComponents/AvalableStyle";
 import { RiBox1Fill } from "react-icons/ri";
+import Review from "../ProductPropertiesComponents/Review";
+import { MdRateReview } from "react-icons/md";
 
-const ProductSepecification = ({ details }) => {
+const ProductSepecification = ({ details, longDesc, shortDesc, reviews }) => {
   let dispatch = useDispatch();
   const isDetails = useSelector(
     (state) => state.productpropertyHandeler.isDetails
@@ -50,11 +53,15 @@ const ProductSepecification = ({ details }) => {
     (state) => state.productpropertyHandeler.isAvailbaleStyle
   );
 
-  // console.log(details);
+  const isReview = useSelector(
+    (state) => state.productpropertyHandeler.isReview
+  );
+
+  console.log(details);
   return (
     <div className="w-[100%] mt-[60px]">
       <div className="w-[100%] flex justify-center">
-        <div className="sm:w-[85%] w-[98%] h-[730px]  flex sm:justify-between  sm:flex-row flex-col">
+        <div className="sm:w-[85%] w-[98%] h-[700px]  flex sm:justify-between  sm:flex-row flex-col">
           <div className="sm:h-[100%] sm:w-[13%] w-[100%] h-[150px] border flex sm:flex-col">
             <div
               className={`sm:w-[100%] sm:h-[130px] w-[20%] border cursor-pointer ${
@@ -122,23 +129,6 @@ const ProductSepecification = ({ details }) => {
 
             <div
               className={`sm:w-[100%] sm:h-[130px] w-[20%] border cursor-pointer ${
-                isAvailbaleStyle ? `bg-[#A6EAB8] shadow-xl ` : `bg-[#449F5A]`
-              } flex justify-center items-center flex-col hover:bg-[#A6EAB8]`}
-              onClick={() => dispatch(openAvailbaleStyle())}
-            >
-              {" "}
-              <CgStyle className="sm:text-[50px] text-[25px] text-white" />
-              <p
-                style={{ fontFamily: "Poppins" }}
-                className="font-[600] sm:text-[16px] text-[10px] text-white mt-2 text-center"
-              >
-                {" "}
-                Available Styles
-              </p>{" "}
-            </div>
-
-            <div
-              className={`sm:w-[100%] sm:h-[130px] w-[20%] border cursor-pointer ${
                 isSpecialCapabilities
                   ? `bg-[#A6EAB8] shadow-xl `
                   : `bg-[#449F5A]`
@@ -155,15 +145,42 @@ const ProductSepecification = ({ details }) => {
                 Special Finishes
               </p>{" "}
             </div>
+            <div
+              className={`sm:w-[100%] sm:h-[130px] w-[20%] border cursor-pointer ${
+                isReview ? `bg-[#A6EAB8] shadow-xl ` : `bg-[#449F5A]`
+              } flex justify-center items-center flex-col hover:bg-[#A6EAB8]`}
+              onClick={() => dispatch(openReview())}
+            >
+              {" "}
+              <MdRateReview className="sm:text-[50px] text-[25px] text-white" />
+              <p
+                style={{ fontFamily: "Poppins" }}
+                className="font-[600] sm:text-[16px] text-[10px] text-white mt-2 text-center"
+              >
+                {" "}
+                Reviews
+              </p>{" "}
+            </div>
           </div>
 
           <div className="h-[100%] sm:w-[85%] w-[100%]">
-            {isSepecification && <Sepecifications />}
-            {isDetails && <Details details={details} />}
-            {isCapabilities && <Capabilities />}
-            {isCoating && <Coating />}
-            {isSpecialCapabilities && <SepecialCapabilities />}
+            {isSepecification && (
+              <Sepecifications specifications={details?.specifications} />
+            )}
+            {isDetails && <Details longDesc={longDesc} shortDesc={shortDesc} />}
+            {isCapabilities && (
+              <Capabilities
+                specialCapabilities={details?.specialCapabilities}
+              />
+            )}
+            {isCoating && (
+              <Coating specialCapabilities={details?.CoatingLamination} />
+            )}
+            {isSpecialCapabilities && (
+              <SepecialCapabilities specifications={details?.specifications} />
+            )}
             {isAvailbaleStyle && <AvalableStyle />}
+            {isReview && <Review reviews={reviews} />}
           </div>
         </div>
       </div>

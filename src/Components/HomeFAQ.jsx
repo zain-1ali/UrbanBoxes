@@ -2,7 +2,7 @@ import React from "react";
 import idea from "../imgs/Idea.png";
 import { useMediaQuery } from "react-responsive";
 
-const HomeFAQ = ({ faqDesc, faqs }) => {
+const HomeFAQ = ({ faqDesc, faqs, isHome }) => {
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
   const renderHTML = (string) => {
     return { __html: string };
@@ -24,12 +24,14 @@ const HomeFAQ = ({ faqDesc, faqs }) => {
           <div className="w-[38%]  h-[1px]  bg-[#696262] ml-3"></div>
         </div>
 
-        <p
-          className="sm:w-[70%] w-[90%] text-center sm:mt-[25px] mt-[13px] font-[400] sm:text-xl text-[14px] text-[#2C2C2C]"
-          style={{ fontFamily: "Roboto", lineHeight: "24px" }}
-        >
-          <div dangerouslySetInnerHTML={renderHTML(faqDesc)} />
-        </p>
+        {isHome && (
+          <p
+            className="sm:w-[70%] w-[90%] text-center sm:mt-[25px] mt-[13px] font-[400] sm:text-xl text-[14px] text-[#2C2C2C]"
+            style={{ fontFamily: "Roboto", lineHeight: "24px" }}
+          >
+            <div dangerouslySetInnerHTML={renderHTML(faqDesc)} />
+          </p>
+        )}
       </div>
 
       <div

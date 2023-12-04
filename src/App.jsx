@@ -22,6 +22,7 @@ import ByStyle from "./Pages/ByStyle";
 import { useDispatch, useSelector } from "react-redux";
 import { siteData } from "./redux/SettingsApiSlice";
 import LoadingScreen from "./Components/LoadingScreen";
+import CustomPage from "./Pages/CustomPage";
 
 function App() {
   const isMobile = useMediaQuery({ maxWidth: 500 });
@@ -57,6 +58,7 @@ function App() {
             <Route path="/aboutUs" element={<AboutUs />} />
             <Route path="/contactus" element={<ContactUs />} />
             <Route path="/bystyle" element={<ByStyle />} />
+            <Route path="/customPage/:pageid" element={<CustomPage />} />
           </Routes>
           {isMobile && <Contactbar />}
         </BrowserRouter>

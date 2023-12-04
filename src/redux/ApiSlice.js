@@ -179,6 +179,54 @@ export const getProductById = createAsyncThunk(
   }
 );
 
+// ----------------------------------------get Other Pages----------------------------------------------
+
+export const getOtherPages = createAsyncThunk(
+  "getOtherPages",
+  async (id, { rejectWithValue }) => {
+    const response = await fetch(`${baseUrl}/api/getAllPages`);
+    try {
+      const result = await response.json();
+      console.log(result);
+      return result;
+    } catch (error) {
+      rejectWithValue(error);
+    }
+  }
+);
+
+// ----------------------------------------get Custom Pages----------------------------------------------
+
+export const getSingleCustomPage = createAsyncThunk(
+  "getSingleCustomPage",
+  async (id, { rejectWithValue }) => {
+    const response = await fetch(`${baseUrl}/api/getPageById/${id}`);
+    try {
+      const result = await response.json();
+      // console.log(result);
+      return result;
+    } catch (error) {
+      rejectWithValue(error);
+    }
+  }
+);
+
+// ----------------------------------------get Custom Pages----------------------------------------------
+
+export const getGallaryData = createAsyncThunk(
+  "getGallaryData",
+  async (id, { rejectWithValue }) => {
+    const response = await fetch(`${baseUrl}/api/getAllGalleries`);
+    try {
+      const result = await response.json();
+      // console.log(result);
+      return result;
+    } catch (error) {
+      rejectWithValue(error);
+    }
+  }
+);
+
 const initialState = {
   data: {},
   headerFoterData: {},
@@ -194,6 +242,9 @@ const initialState = {
   contactData: {},
   Products: {},
   singleProduct: {},
+  otherPages: {},
+  otherSinglePage: {},
+  gallaryData: {},
 };
 
 export const ApiSlice = createSlice({
@@ -364,6 +415,51 @@ export const ApiSlice = createSlice({
     [getProductById.rejected]: (state, action) => {
       state.loading = false;
       state.singleProduct = action.payload;
+    },
+
+    // ----------------------------------------get Other Pages----------------------------------------------
+
+    [getOtherPages.pending]: (state) => {
+      state.loading = true;
+    },
+
+    [getOtherPages.fulfilled]: (state, action) => {
+      state.otherPages = action.payload;
+      state.loading = false;
+    },
+    [getOtherPages.rejected]: (state, action) => {
+      state.loading = false;
+      state.otherPages = action.payload;
+    },
+
+    // ----------------------------------------get Other Pages----------------------------------------------
+
+    [getSingleCustomPage.pending]: (state) => {
+      state.loading = true;
+    },
+
+    [getSingleCustomPage.fulfilled]: (state, action) => {
+      state.otherSinglePage = action.payload;
+      state.loading = false;
+    },
+    [getSingleCustomPage.rejected]: (state, action) => {
+      state.loading = false;
+      state.otherSinglePage = action.payload;
+    },
+
+    // ----------------------------------------get Gallary Data----------------------------------------------
+
+    [getGallaryData.pending]: (state) => {
+      state.loading = true;
+    },
+
+    [getGallaryData.fulfilled]: (state, action) => {
+      state.gallaryData = action.payload;
+      state.loading = false;
+    },
+    [getGallaryData.rejected]: (state, action) => {
+      state.loading = false;
+      state.gallaryData = action.payload;
     },
   },
 });

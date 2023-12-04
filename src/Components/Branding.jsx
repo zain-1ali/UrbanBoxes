@@ -49,7 +49,12 @@ const SingleDescriptionBox = ({
             {number}
           </h2>
           {/* {icon} */}
-          <img src={icon} alt={tag} style={{ height: "70px", width: "70px" }} />
+          <img
+            src={icon}
+            alt={tag}
+            style={{ height: "70px", width: "70px" }}
+            className="object-cover"
+          />
           {/* <icon className="text-5xl text-[#666]" /> */}
         </div>
 
@@ -79,7 +84,7 @@ const Branding = ({ boxes, brandDesc, brandHeading, brandCircle }) => {
   };
   return (
     <div className="w-[100%] mt-[50px] flex flex-col items-center">
-      <div className="w-[100%] flex flex-col items-center">
+      {/* <div className="w-[100%] flex flex-col items-center">
         <div className="w-[95%] flex justify-center items-center mt-[30px] ">
           <div className="sm:w-[38%] w-[23%] h-[1px]  bg-[#696262] mr-2"></div>
           <h2
@@ -97,7 +102,7 @@ const Branding = ({ boxes, brandDesc, brandHeading, brandCircle }) => {
         >
           <div dangerouslySetInnerHTML={renderHTML()} />
         </p>
-      </div>
+      </div> */}
 
       <div
         className="w-[60%] flex justify-center items-center text-center font-[600] text-[40px] text-[#449F5A] mt-[0px]"

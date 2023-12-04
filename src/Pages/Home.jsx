@@ -29,7 +29,7 @@ const Home = () => {
 
   let dispatch = useDispatch();
   let homePageData = useSelector((state) => state.ApiSlice.homePageData);
-  // console.log();
+  console.log(homePageData);
   let seoInfo = homePageData?.data?.seo;
   useEffect(() => {
     dispatch(homePage());
@@ -114,6 +114,7 @@ const Home = () => {
       <HomeFAQ
         faqDesc={homePageData?.data?.faqDesc}
         faqs={homePageData?.data?.faqs}
+        isHome={true}
       />
       <Footer bg="#2C703C" textClr="white" />
     </div>

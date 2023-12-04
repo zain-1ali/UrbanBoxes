@@ -28,7 +28,7 @@ const HomeGreen = ({
         </div>
 
         <p
-          className="sm:w-[70%] w-[90%] text-center sm:mt-[25px] mt-[13px] font-[400] sm:text-xl text-[14px] text-[#2C2C2C]"
+          className="sm:w-[70%] w-[90%] text-center sm:mt-[25px] mt-[13px] font-[400] sm:text-lg text-[14px] text-[#2C2C2C]"
           style={{ fontFamily: "Roboto" }}
         >
           <div dangerouslySetInnerHTML={renderHTML(goGrenDesc)} />
@@ -45,14 +45,14 @@ const HomeGreen = ({
               OUR MISSION - WELLNESS FOR LIFE!
             </h2>
             <p
-              className="w-[100%] sm:text-[20px] sm:h-[40%] text-[8px] font-[400] sm:mt-[10px] mt-[5px] overflow-y-scroll scrollbar-hide"
+              className="w-[100%] sm:text-[16px] sm:h-[42%] text-[8px] font-[400] sm:mt-[10px] mt-[5px] "
               style={{ fontFamily: "Inter" }}
             >
               <div dangerouslySetInnerHTML={renderHTML(goGrenBoxTxt)} />
             </p>
 
             <div
-              className="sm:w-[184px] sm:h-[53px]  w-[95px] h-[30px] bg-[#449F5A] hover:bg-[#6AD37F] flex justify-center items-center text-white font-[600] sm:text-[20px] text-[12px] rounded-[8px] sm:mt-[60px] mt-[10px] cursor-pointer"
+              className="sm:w-[184px] sm:h-[53px]  w-[95px] h-[30px] bg-[#449F5A] hover:bg-[#6AD37F] flex justify-center items-center text-white font-[600] sm:text-[20px] text-[12px] rounded-[8px] sm:mt-[40px] mt-[10px] cursor-pointer"
               style={{ fontFamily: "Inter" }}
               onClick={() => window.open(goGrenBoxBtnLink)}
             >

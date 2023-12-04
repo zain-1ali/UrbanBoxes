@@ -21,7 +21,11 @@ import MediaQuery from "react-responsive";
 import TheDrawer from "./Drawer";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { categoryPage, headerFoterLayout } from "../redux/ApiSlice";
+import {
+  categoryPage,
+  getOtherPages,
+  headerFoterLayout,
+} from "../redux/ApiSlice";
 import HeaderFormModal from "./Modals/HeaderFormModal";
 import NavDropdown from "./NavDropdown";
 import { ListItem, Menu, MenuItem } from "@mui/material";
@@ -46,11 +50,14 @@ const Navbar = () => {
   let dispatch = useDispatch();
   let headerFoterData = useSelector((state) => state.ApiSlice.headerFoterData);
   let categoryData = useSelector((state) => state.ApiSlice.categoryData);
+  let otherPages = useSelector((state) => state.ApiSlice.otherPages);
   console.log(categoryData);
   useEffect(() => {
     dispatch(headerFoterLayout());
     dispatch(categoryPage());
+    dispatch(getOtherPages());
   }, []);
+  console.log(otherPages);
 
   let [headerForm, setHeaderForm] = useState(false);
   let handleHeaderForm = () => {
@@ -58,16 +65,7 @@ const Navbar = () => {
   };
 
   let [openMenu, setopenMenu] = useState(false);
-  let handleMenu = () => {
-    setopenMenu(!openMenu);
-  };
-  const options = [
-    "Show some love to MUI",
-    "Show all notification content",
-    "Hide sensitive notification content",
-    "Hide all notification content",
-  ];
-  const [selectedIndex, setSelectedIndex] = useState(1);
+
   const [anchorEl, setAnchorEl] = useState(null);
 
   const open = Boolean(anchorEl);
@@ -77,6 +75,19 @@ const Navbar = () => {
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  let [openPageMenu, setopenPageMenu] = useState(false);
+
+  const [anchorElPage, setAnchorElPage] = useState(null);
+
+  const openPages = Boolean(anchorElPage);
+
+  const handleClicPageItem = (event) => {
+    setAnchorElPage(event.currentTarget);
+  };
+  const handleClosePage = () => {
+    setAnchorElPage(null);
   };
 
   return (
@@ -164,7 +175,7 @@ const Navbar = () => {
                 <img
                   src={headerFoterData?.data?.logo?.headerLogo}
                   alt={headerFoterData?.data?.logo?.headerLogoTag}
-                  className="lg:h-[50px] lg:w-[200px] md:h-[40px] md:w-[180px]"
+                  className="lg:h-[75px] lg:w-[260px] md:h-[40px] md:w-[180px] object-cover"
                 />
                 {/* className="h-[50px] w-[84px]"  */}
                 {/* <h2
@@ -283,7 +294,7 @@ const Navbar = () => {
                 aria-haspopup="listbox"
                 aria-controls="lock-menu"
                 aria-label="when device is locked"
-                aria-expanded={openMenu ? "true" : undefined}
+                aria-expanded={openPageMenu ? "true" : undefined}
                 onClick={handleClickListItem}
                 style={
                   path === "/category"
@@ -321,6 +332,47 @@ const Navbar = () => {
                         },
                       }),
                         handleClose();
+                    }}
+                  >
+                    {option?.name}
+                  </MenuItem>
+                ))}
+              </Menu>
+
+              <div
+                className="text-[16px] font-medium flex ml-5 items-center cursor-pointer"
+                component="nav"
+                // aria-label="Device settings"
+                id="lock-button-menu"
+                aria-haspopup="listbox"
+                aria-controls="lock-menu2"
+                aria-label="when device is locked"
+                aria-expanded={openMenu ? "true" : undefined}
+                onClick={handleClicPageItem}
+              >
+                Other Pages
+                <IoIosArrowDown className="ml-1" />
+              </div>
+
+              <Menu
+                id="lock-menu2"
+                anchorEl={anchorElPage}
+                open={openPages}
+                onClose={handleClosePage}
+                MenuListProps={{
+                  "aria-labelledby": "lock-button-menu",
+                  role: "listbox",
+                }}
+              >
+                {otherPages?.data?.map((option, index) => (
+                  <MenuItem
+                    key={index}
+                    // disabled={index === 0}
+                    // selected={index === selectedIndex}
+                    // onClick={(event) => handleMenuItemClick(event, index)}
+                    onClick={() => {
+                      navigate(`/customPage/${option?.uniqueName}`),
+                        handleClosePage();
                     }}
                   >
                     {option?.name}

@@ -43,7 +43,7 @@ const Footer = ({ bg, textClr }) => {
               // src={textClr === "white" ? logo : blacklogo}
               src={headerFoterData?.data?.logo?.footerLogo}
               alt={headerFoterData?.data?.logo?.footerLogoTag}
-              className="sm:h-[55px] sm:w-[235px] h-[30px] w-[120px]"
+              className="sm:h-[77px] sm:w-[255px] h-[30px] w-[120px] object-cover"
             />
             {/* <h2
               className="text-2xl font-[800] ml-2 text-white"
