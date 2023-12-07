@@ -13,6 +13,7 @@ import MobileNavbar from "../Components/MobileNavbar";
 import { useDispatch, useSelector } from "react-redux";
 import { contactPage } from "../redux/ApiSlice";
 import { Helmet } from "react-helmet";
+import { useLocation } from "react-router-dom";
 
 const ContactUs = () => {
   let [msgInfo, setMsgInfo] = useState({
@@ -25,6 +26,11 @@ const ContactUs = () => {
   let dispatch = useDispatch();
   let contactData = useSelector((state) => state.ApiSlice.contactData);
   console.log(contactData);
+  let location = useLocation();
+  let { pathname } = location;
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   useEffect(() => {
     dispatch(contactPage());
   }, []);

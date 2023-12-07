@@ -21,6 +21,7 @@ import {
   BiLogoLinkedin,
 } from "react-icons/bi";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 let openLink = (link) => {
   let compltLink = link.includes("https://") ? link : `https://${link}`;
@@ -31,6 +32,7 @@ let openLink = (link) => {
 const Footer = ({ bg, textClr }) => {
   const data = useSelector((state) => state.siteDetails.data);
   let headerFoterData = useSelector((state) => state.ApiSlice.headerFoterData);
+  let navigate = useNavigate();
   return (
     <div
       className="sm:h-[400px] h-[200px] w-[100%] sm:mt-[65px] sm:mb-0 mb-[21px]"
@@ -74,8 +76,9 @@ const Footer = ({ bg, textClr }) => {
             COMPANY
           </h2>
           <p
-            className="sm:mt-[8px] mt-[5px] sm:text-[17px]  text-[7px] font-[400]"
+            className="sm:mt-[8px] mt-[5px] sm:text-[17px]  text-[7px] font-[400] cursor-pointer"
             style={{ fontFamily: "Roboto", color: textClr }}
+            onClick={() => navigate("/aboutUs")}
           >
             About Us
           </p>
@@ -110,8 +113,9 @@ const Footer = ({ bg, textClr }) => {
             Custom Quote
           </p>
           <p
-            className="sm:mt-[8px] mt-[5px] sm:text-[17px]  text-[7px] font-[400]"
+            className="sm:mt-[8px] mt-[5px] sm:text-[17px]  text-[7px] font-[400] cursor-pointer"
             style={{ fontFamily: "Roboto", color: textClr }}
+            onClick={() => navigate("/contactus")}
           >
             Contact Us
           </p>

@@ -50,7 +50,7 @@ const StaticPageUpper = ({
           <img
             src={img}
             alt={imgTag}
-            className="lg:w-[539px]   lg:h-[338px] lg:rounded-[33px] rounded-[13px]"
+            className="lg:w-[539px]   lg:h-[338px] lg:rounded-[33px] rounded-[13px] object-cover"
           />
         </div>
       </div>

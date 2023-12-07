@@ -9,7 +9,7 @@ const Review = ({ reviews }) => {
   };
 
   const splideOptions = {
-    perPage: reviews?.length,
+    perPage: 1,
     perMove: 1,
     type: "loop",
     rewind: true,
@@ -26,20 +26,31 @@ const Review = ({ reviews }) => {
     },
   };
   return (
-    <div className="w-[100%] mt-[50px] flex justify-center items-center flex-col">
+    <div className="w-[100%] mt-[50px] flex justify-center items-center flex-col ">
       <div
-        className="w-[60%] flex justify-center items-center text-center font-[600] text-[40px] text-[#449F5A] mt-[0px]"
+        className="w-[85%] flex justify-center items-center text-center font-[600] text-[40px] text-[#449F5A]"
         style={{ fontFamily: "Poppins" }}
       >
         check out how much setisfied our clients by us!
       </div>
       <div className="w-[100%] flex justify-center sm:mt-[40px] mt-[40px]">
-        <div className="w-[80%]">
+        <div
+          className="w-[40%]"
+          // style={
+          //   reviews?.length === 1
+          //     ? { width: "40%" }
+          //     : reviews?.length === 2
+          //     ? { width: "80%" }
+          //     : reviews?.length === 3
+          //     ? { width: "90%" }
+          //     : { width: "90%" }
+          // }
+        >
           <Splide options={splideOptions}>
             {reviews?.map((elm, i) => {
               return (
                 <SplideSlide key={i}>
-                  <div className="w-[300px] h-[350px] rounded-[19px] bg-[#449F5A] object-cover flex items-center  flex-col  ml-2 ">
+                  <div className="w-[300px] h-[350px] rounded-[19px] bg-[#449F5A] object-cover flex items-center  flex-col  ml-3 ">
                     <div className="h-[120px] w-[120px] rounded-full  shadow-xl  bg-[black] mt-3">
                       <img
                         src={user}

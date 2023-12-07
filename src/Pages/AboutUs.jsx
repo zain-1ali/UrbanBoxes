@@ -14,6 +14,7 @@ import MobileNavbar from "../Components/MobileNavbar";
 import { useDispatch, useSelector } from "react-redux";
 import { aboutPage } from "../redux/ApiSlice";
 import { Helmet } from "react-helmet";
+import { useLocation } from "react-router-dom";
 
 const AboutUs = () => {
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 640 });
@@ -27,6 +28,13 @@ const AboutUs = () => {
   const renderHTML = (string) => {
     return { __html: string };
   };
+
+  let location = useLocation();
+  let { pathname } = location;
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <div className="w-[100%]">
       <Helmet>

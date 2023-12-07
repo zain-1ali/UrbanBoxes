@@ -192,15 +192,15 @@ const Homeform = ({
                 </div>
               </div>
 
-              <div className="w-[100%] flex justify-center">
-                <div className="w-[87%]  sm:mt-[20px] mt-[20px]">
+              <div className="w-[100%] flex justify-center ">
+                <div className="w-[100%]  sm:mt-[20px] mt-[20px]">
                   <div className="w-[100%] flex sm:justify-between items-center sm:flex-row flex-col">
                     <div className="sm:w-[47%] w-[90%] h-[47px] border rounded-md border-[#c4c4c4] flex justify-end items-center">
-                      <BsFillPersonFill className="text-[#449F5A] text-2xl " />
+                      <BsFillPersonFill className="text-[#449F5A] text-xl " />
                       <input
                         type="text"
                         placeholder="Full Name"
-                        className="outline-none p-2 w-[88%] placeholder:text-sm"
+                        className="outline-none p-2 w-[90%] placeholder:text-sm"
                         onChange={(e) =>
                           setData({ ...data, name: e.target.value })
                         }
@@ -211,11 +211,11 @@ const Homeform = ({
                       className="sm:w-[47%] w-[90%] border rounded-md border-[#c4c4c4] flex justify-end items-center"
                       style={isDesktopOrLaptop ? null : { marginTop: "14px" }}
                     >
-                      <MdEmail className="text-[#449F5A] text-2xl " />
+                      <MdEmail className="text-[#449F5A] text-xl " />
                       <input
                         type="text"
                         placeholder="Email"
-                        className="outline-none p-2 w-[85%] placeholder:text-sm mr-1"
+                        className="outline-none p-2 w-[88%] placeholder:text-sm mr-1"
                         onChange={(e) =>
                           setData({ ...data, email: e.target.value })
                         }
@@ -225,12 +225,12 @@ const Homeform = ({
                   </div>
 
                   <div className="sm:mt-[25px] mt-[14px] w-[100%] flex sm:justify-between items-center sm:flex-row flex-col">
-                    <div className="sm:w-[47%] w-[90%] border rounded-md border-[#c4c4c4] flex justify-end items-center">
-                      <BsTelephoneFill className="text-[#449F5A] text-2xl " />
+                    <div className="sm:w-[47%] w-[88%] border rounded-md border-[#c4c4c4] flex justify-end items-center">
+                      <BsTelephoneFill className="text-[#449F5A] text-xl " />
                       <input
                         type="text"
                         placeholder="Phone"
-                        className="outline-none p-2 w-[85%]  placeholder:text-sm mr-1"
+                        className="outline-none p-2 w-[88%]  placeholder:text-sm mr-1"
                         onChange={(e) =>
                           setData({ ...data, phone: e.target.value })
                         }
@@ -241,11 +241,11 @@ const Homeform = ({
                       className="sm:w-[47%] w-[90%] border rounded-md border-[#c4c4c4] flex justify-end items-center"
                       style={isDesktopOrLaptop ? null : { marginTop: "14px" }}
                     >
-                      <BsBuildingsFill className="text-[#449F5A] text-2xl " />
+                      <BsBuildingsFill className="text-[#449F5A] text-xl" />
                       <input
                         type="text"
                         placeholder="Company Name"
-                        className="outline-none p-2 w-[85%] placeholder:text-sm mr-1"
+                        className="outline-none p-2 w-[88%] placeholder:text-sm mr-1"
                         onChange={(e) =>
                           setData({ ...data, company: e.target.value })
                         }
@@ -284,7 +284,7 @@ const Homeform = ({
 
               <div className="w-[100%] flex justify-center">
                 <div
-                  className="sm:w-[95%] w-[87%]  sm:mt-[20px] mt-[20px] sm:h-[340px] pr-2"
+                  className="sm:w-[100%] w-[87%]  sm:mt-[20px] mt-[20px] sm:h-[340px]"
                   // style={{ overflowY: "scroll", overflowX: "hidden" }}
                 >
                   <div className="w-[100%]  flex sm:justify-between items-center sm:flex-row flex-col">

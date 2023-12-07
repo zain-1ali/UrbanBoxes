@@ -71,6 +71,25 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
     quantity: "",
   });
 
+  let reset = () => {
+    setFormData({
+      name: "",
+      email: "",
+      company: "",
+      phone: "",
+      stock: "",
+      lamination: "",
+      printing: "",
+      deliveryDate: "",
+      artImg: "",
+      boxType: "",
+      dimention: "",
+      units: "",
+      comment: "",
+      quantity: "",
+    });
+  };
+
   let saveToDb = async () => {
     // console.log("testing");
     const headFormData = new FormData();
@@ -117,7 +136,7 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
       // console.log(res);
     } catch (error) {
       console.log(error);
-      // toast.error(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message);
     }
   };
   return (
@@ -606,7 +625,7 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
                     <div
                       className="hover:bg-[#F2F2F2] hover:text-[#585656] cursor-pointer hover:border-[#F2F2F2] sm:w-[120px] sm:h-[44px] w-[100px] h-[40px]  sm:text-[16px] text-[14px] rounded-md flex justify-center items-center mr-3 border border-[#449F5A]  font-[600] text-[#449F5A]"
                       style={{ fontFamily: "Inter" }}
-                      // onClick={() => reset()}
+                      onClick={() => reset()}
                     >
                       Reset
                     </div>

@@ -65,7 +65,7 @@ const Details = ({ longDesc, shortDesc }) => {
                 {elm?.heading}
               </h2> */}
           <p
-            className="font-[400] text-[16px] text-[#505050] max-h-[55%]  overflow-y-scroll"
+            className="font-[400] text-[16px] text-[#505050] max-h-[85%]  overflow-y-scroll"
             style={{ fontFamily: "Roboto" }}
           >
             <div dangerouslySetInnerHTML={renderHTML()} />

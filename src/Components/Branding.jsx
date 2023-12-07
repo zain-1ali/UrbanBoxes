@@ -64,7 +64,7 @@ const SingleDescriptionBox = ({
         >
           {heading}
         </h2>
-        <div className="mt-[6px]  h-[67%] overflow-y-scroll scrollbar-hide">
+        <div className="mt-[6px]  h-[60%] overflow-y-scroll scrollbar-hide ">
           <p
             className="text-[14px]  text-[#666] font-normal"
             style={{ fontFamily: "Poppins" }}
