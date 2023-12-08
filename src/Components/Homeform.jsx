@@ -160,7 +160,7 @@ const Homeform = ({
               </p>
             </div>
           </MediaQuery>
-          <div className="sm:w-[65%] w-[95%] sm:h-[833px] h-[910px]  rounded-2xl shadow-2xl flex sm:justify-end justify-center items-center ">
+          <div className="sm:w-[65%] w-[95%] sm:h-[833px] h-[1150px]  rounded-2xl shadow-2xl flex sm:justify-end justify-center items-center ">
             <div className="sm:h-[90%]  sm:w-[80%] w-[90%] h-[95%]  sm:mr-[35px]">
               <div className="w-[100%] ">
                 <h2
@@ -225,7 +225,7 @@ const Homeform = ({
                   </div>
 
                   <div className="sm:mt-[25px] mt-[14px] w-[100%] flex sm:justify-between items-center sm:flex-row flex-col">
-                    <div className="sm:w-[47%] w-[88%] border rounded-md border-[#c4c4c4] flex justify-end items-center">
+                    <div className="sm:w-[47%] w-[90%] border rounded-md border-[#c4c4c4] flex justify-end items-center">
                       <BsTelephoneFill className="text-[#449F5A] text-xl " />
                       <input
                         type="text"
@@ -288,7 +288,7 @@ const Homeform = ({
                   // style={{ overflowY: "scroll", overflowX: "hidden" }}
                 >
                   <div className="w-[100%]  flex sm:justify-between items-center sm:flex-row flex-col">
-                    <div className="sm:w-[30%] w-[90%]  ">
+                    <div className="sm:w-[30%] w-[100%]  ">
                       {/* <BsFillPersonFill className="text-[#449F5A] text-2xl " /> */}
                       <div>
                         <p
@@ -310,7 +310,7 @@ const Homeform = ({
                       />
                     </div>
                     <div
-                      className="sm:w-[30%] w-[90%] "
+                      className="sm:w-[30%] w-[100%] "
                       style={isDesktopOrLaptop ? null : { marginTop: "14px" }}
                     >
                       <div>
@@ -333,7 +333,7 @@ const Homeform = ({
                     </div>
 
                     <div
-                      className="sm:w-[30%] w-[90%] "
+                      className="sm:w-[30%] w-[100%] "
                       style={isDesktopOrLaptop ? null : { marginTop: "14px" }}
                     >
                       <div>
@@ -401,7 +401,7 @@ const Homeform = ({
                   </div>
 
                   <div className="sm:mt-[25px] mt-[14px] w-[100%] flex sm:justify-between items-center sm:flex-row flex-col">
-                    <div className="sm:w-[30%] w-[90%] ">
+                    <div className="sm:w-[30%] w-[100%] ">
                       <div>
                         <p
                           className="font-[400] sm:text-[12px]  text-[10px]"
@@ -422,7 +422,7 @@ const Homeform = ({
                         value={data?.quantity}
                       />
                     </div>
-                    <div className="sm:w-[30%] w-[90%] ">
+                    <div className="sm:w-[30%] w-[100%] sm:mt-[0px] mt-3">
                       <div>
                         <p
                           className="font-[400] sm:text-[12px]  text-[10px]"
@@ -481,7 +481,7 @@ const Homeform = ({
                       /> */}
                     </div>
                     <div
-                      className="sm:w-[30%] w-[90%] "
+                      className="sm:w-[30%] w-[100%] "
                       style={isDesktopOrLaptop ? null : { marginTop: "14px" }}
                     >
                       <div>
@@ -521,7 +521,7 @@ const Homeform = ({
                   {/* <div className="sm:mt-[25px] mt-[14px] w-[100%] flex sm:justify-between items-center sm:flex-row flex-col"></div> */}
 
                   <div className="sm:mt-[20px] mt-[14px] w-[100%] flex sm:justify-between items-center sm:flex-row flex-col">
-                    <div className="sm:w-[100%] w-[90%] ">
+                    <div className="sm:w-[100%] w-[100%] ">
                       <div>
                         <p
                           className="font-[400] sm:text-[12px]  text-[10px]"
@@ -533,7 +533,7 @@ const Homeform = ({
                       <div className="  w-[100%] h-[42px] border rounded-md border-[#c4c4c4] placeholder:text-sm mt-1 flex justify-center items-center">
                         <input
                           type="file"
-                          className="w-[94%]  outline-none"
+                          className="w-[100%]  outline-none"
                           onChange={(e) =>
                             setData({ ...data, artImg: e.target.files[0] })
                           }
@@ -570,8 +570,8 @@ const Homeform = ({
                     </div> */}
                   </div>
 
-                  <div className="sm:mt-[25px] mt-[14px] w-[100%] ">
-                    <div>
+                  <div className="sm:mt-[25px] mt-[14px] w-[100%] flex flex-col items-center">
+                    <div className="w-[100%]">
                       <p
                         className="font-[400] sm:text-[12px]  text-[10px]"
                         style={{ fontFamily: "Roboto", lineHeight: "13px" }}
@@ -586,68 +586,11 @@ const Homeform = ({
                         setData({ ...data, comment: e.target.value })
                       }
                       value={data.comment}
-                      className="outline-none p-2 sm:h-[80px] w-[100%] border rounded-md border-[#c4c4c4] placeholder:text-sm  mt-1"
+                      className="outline-none p-2 sm:h-[80px] w-[100%] border rounded-lg border-[#c4c4c4] placeholder:text-sm  mt-1"
                     ></textarea>
                   </div>
                 </div>
               </div>
-              {/* <div className="w-[100%] flex justify-center">
-                <div className="w-[87%]  mt-[35px]">
-                  <div className="w-[100%] flex justify-between">
-                    <div className="w-[47%] h-[47px] border rounded-lg flex justify-end items-center">
-                      
-                      <input
-                        type="text"
-                        placeholder="Full Name"
-                        className="outline-none p-2 w-[88%] placeholder:text-sm"
-                      />
-                    </div>
-                    <div className="w-[47%] h-[47px] border rounded-lg flex justify-end items-center">
-                      
-                      <input
-                        type="text"
-                        placeholder="Email"
-                        className="outline-none p-2 w-[88%] placeholder:text-sm"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="w-[100%] flex justify-between mt-[25px]">
-                    <div className="w-[47%] h-[47px] border rounded-lg flex justify-end items-center">
-                     
-                      <input
-                        type="text"
-                        placeholder="Phone"
-                        className="outline-none p-2 w-[88%] placeholder:text-sm"
-                      />
-                    </div>
-                    <div className="w-[47%] h-[47px] border rounded-lg flex justify-end items-center">
-                     
-                      <input
-                        type="text"
-                        id="mydate"
-                        placeholder="Date"
-                        className="outline-none p-2 w-[88%] placeholder:text-sm "
-                      />
-                    </div>
-                  </div>
-
-                  <div className="w-[100%] flex mt-[30px] justify-end">
-                    <div
-                      className="w-[155px] h-[55px]  text-[20px] rounded-md flex justify-center items-center mr-3 border border-[#449F5A]  font-[600] text-[#449F5A]"
-                      style={{ fontFamily: "Inter" }}
-                    >
-                      Reset
-                    </div>
-                    <div
-                      className="w-[155px] h-[55px] text-[20px] rounded-md flex justify-center items-center bg-[#449F5A] hover:bg-[#6AD37F] font-[600] text-white cursor-pointer"
-                      style={{ fontFamily: "Inter" }}
-                    >
-                      Submit
-                    </div>
-                  </div>
-                </div>
-              </div> */}
 
               <div className="w-[100%] flex sm:mt-[30px] mt-[25px] sm:justify-end justify-center">
                 <div

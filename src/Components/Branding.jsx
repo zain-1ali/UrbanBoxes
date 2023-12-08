@@ -105,12 +105,12 @@ const Branding = ({ boxes, brandDesc, brandHeading, brandCircle }) => {
       </div> */}
 
       <div
-        className="w-[60%] flex justify-center items-center text-center font-[600] text-[40px] text-[#449F5A] mt-[0px]"
+        className="sm:w-[60%] w-[95%] flex justify-center items-center text-center font-[600] sm:text-[40px] text-[22px] text-[#449F5A] mt-[0px]"
         style={{ fontFamily: "Poppins" }}
       >
         How to Order Custom Box Packaging with the Ryt Box?
       </div>
-      <div className="w-[87%] flex sm:justify-between justify-center flex-wrap sm:mt-[5px] mt-[40px]">
+      <div className="w-[87%] flex sm:justify-between justify-center flex-wrap sm:mt-[5px] mt-[10px]">
         {/* <div className="sm:w-[33%] w-[95%] sm:h-[459px] h-[150px] mt-2 ">
           <h4
             className="text-[16px] text-[#1d1d1d] font-normal"

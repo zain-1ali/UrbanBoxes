@@ -18,7 +18,7 @@ const WhatWeDo = ({ Box3heding, Box3desc, Box3image, Box3imageTag }) => {
             </h2>
 
             <p
-              className="font-[400] text-[20px] sm:h-[340px] overflow-y-scroll  mt-2 text-[#746F6F]"
+              className="sm:text-[20px] text-[6px] sm:h-[340px] overflow-y-scroll scrollbar-hide font-[400] sm:mt-[10px] mt-[5px]  w-[90%] text-end"
               style={{ fontFamily: "Roboto" }}
             >
               <div dangerouslySetInnerHTML={renderHTML(Box3desc)} />
