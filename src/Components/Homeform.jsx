@@ -112,6 +112,7 @@ const Homeform = ({
   const renderHTML = (string) => {
     return { __html: string };
   };
+  // console.log(data?.artImg);
   return (
     <div className="w-[100%] sm:mt-[50px] mt-[20px]">
       <div className="w-[100%] flex flex-col items-center ">
@@ -530,14 +531,41 @@ const Homeform = ({
                           Upload Artwork
                         </p>
                       </div>
-                      <div className="  w-[100%] h-[42px] border rounded-md border-[#c4c4c4] placeholder:text-sm mt-1 flex justify-center items-center">
-                        <input
-                          type="file"
-                          className="w-[100%]  outline-none"
-                          onChange={(e) =>
-                            setData({ ...data, artImg: e.target.files[0] })
-                          }
-                        />
+                      <div>
+                        <label htmlFor="img-picker">
+                          <input
+                            type="file"
+                            id="img-picker"
+                            className="  outline-none"
+                            style={{ display: "none" }}
+                            onChange={(e) =>
+                              setData({ ...data, artImg: e.target.files[0] })
+                            }
+                          />
+
+                          <div className="  w-[100%] h-[42px] border rounded-md border-[#c4c4c4] placeholder:text-sm mt-1 flex  items-center">
+                            <div
+                              className="h-[87%] sm:w-[25%] w-[40%] text-[white] border rounded-md bg-[#449F5A] hover:bg-[#6AD37F] ml-1 flex justify-center items-center cursor-pointer"
+                              style={{
+                                fontFamily: "Roboto",
+                                lineHeight: "13px",
+                              }}
+                            >
+                              Select File
+                            </div>
+                            <div
+                              className="ml-2 h-[87%] sm:w-[50%] w-[60%]  flex  items-center"
+                              style={{
+                                fontFamily: "Roboto",
+                                lineHeight: "13px",
+                              }}
+                            >
+                              {data?.artImg?.name
+                                ? data?.artImg?.name
+                                : "No file chosen"}
+                            </div>
+                          </div>
+                        </label>
                       </div>
 
                       {/* <input

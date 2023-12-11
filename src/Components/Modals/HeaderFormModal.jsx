@@ -22,18 +22,19 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
 
   //   const dispatch = useDispatch();
   //   let navigate = useNavigate();
-
+  let scrnWidth = window.innerWidth;
   // Modal box style
   const style2 = {
     position: "absolute",
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 800,
-    height: 550,
+    width: scrnWidth >= 600 ? 800 : "85%",
+    height: scrnWidth >= 600 ? 550 : 700,
     bgcolor: "white",
     borderRadius: "18px",
     boxShadow: 24,
+    // overflowY: "scroll",
   };
   let stockOptions = [
     "White Card Stock",
@@ -139,6 +140,8 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
       toast.error(error?.response?.data?.message);
     }
   };
+
+  console.log(formData?.artImg);
   return (
     <>
       <Modal
@@ -151,7 +154,7 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
       >
         <Box sx={style2}>
           <>
-            <div className="w-[100%] h-[100%]">
+            <div className="w-[100%] h-[100%] overflow-y-scroll scrollbar-hide">
               <div className="w-[100%] flex flex-col items-center">
                 <div className="w-[90%] flex justify-center items-center mt-[10px]">
                   <div className="sm:w-[38%] w-[27%]   mr-3 h-[1px]  bg-[#696262]"></div>
@@ -180,7 +183,7 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
                       />
                     </div>
                     <div
-                      className="sm:w-[23%] w-[90%] border rounded-md border-[#c4c4c4] flex justify-end items-center"
+                      className="sm:w-[23%] w-[90%] border rounded-md border-[#c4c4c4] flex justify-end items-center sm:mt-0 mt-3"
                       //   style={isDesktopOrLaptop ? null : { marginTop: "14px" }}
                     >
                       <MdEmail className="text-[#449F5A] text-2xl " />
@@ -195,7 +198,7 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
                       />
                     </div>
 
-                    <div className="sm:w-[23%] w-[90%] border rounded-md border-[#c4c4c4] flex justify-end items-center">
+                    <div className="sm:w-[23%] w-[90%] border rounded-md border-[#c4c4c4] flex justify-end items-center sm:mt-0 mt-3">
                       <BsTelephoneFill className="text-[#449F5A] text-2xl " />
                       <input
                         type="text"
@@ -208,7 +211,7 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
                       />
                     </div>
                     <div
-                      className="sm:w-[23%] w-[90%] border rounded-md border-[#c4c4c4] flex justify-end items-center"
+                      className="sm:w-[23%] w-[90%] border rounded-md border-[#c4c4c4] flex justify-end items-center sm:mt-0 mt-3"
                       //   style={isDesktopOrLaptop ? null : { marginTop: "14px" }}
                     >
                       <BsBuildingsFill className="text-[#449F5A] text-2xl " />
@@ -246,7 +249,7 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
                   //   style={{ overflowY: "scroll", overflowX: "hidden" }}
                 >
                   <div className="w-[100%]  flex sm:justify-between items-center sm:flex-row flex-col">
-                    <div className="sm:w-[30%] w-[90%] ">
+                    <div className="sm:w-[30%] w-[90%] sm:mt-0 mt-3">
                       <div>
                         <p
                           className="font-[400] sm:text-[12px]  text-[10px]"
@@ -268,7 +271,7 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
                         value={formData?.boxType}
                       />
                     </div>
-                    <div className="sm:w-[30%] w-[90%] ">
+                    <div className="sm:w-[30%] w-[90%] sm:mt-0 mt-3">
                       <div>
                         <p
                           className="font-[400] sm:text-[12px]  text-[10px]"
@@ -292,7 +295,7 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
                         value={formData?.dimention}
                       />
                     </div>
-                    <div className="sm:w-[30%] w-[90%] ">
+                    <div className="sm:w-[30%] w-[90%] sm:mt-0 mt-3">
                       <div>
                         <p
                           className="font-[400] sm:text-[12px]  text-[10px]"
@@ -315,9 +318,9 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
                       />
                     </div>
                   </div>
-                  <div className="sm:mt-[25px] mt-[14px] w-[100%] flex sm:justify-between items-center sm:flex-row flex-col">
+                  <div className="sm:mt-[25px]  w-[100%] flex sm:justify-between items-center sm:flex-row flex-col">
                     <div
-                      className="sm:w-[30%] w-[90%] "
+                      className="sm:w-[30%] w-[90%] sm:mt-0 mt-3"
                       //   style={isDesktopOrLaptop ? null : { marginTop: "14px" }}
                     >
                       <div>
@@ -351,7 +354,7 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
                       </LocalizationProvider>
                       <div></div>
                     </div>
-                    <div className="sm:w-[30%] w-[90%] ">
+                    <div className="sm:w-[30%] w-[90%] sm:mt-0 mt-3">
                       <div>
                         <p
                           className="font-[400] sm:text-[12px]  text-[10px]"
@@ -360,7 +363,7 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
                           Select Units <span className="text-red-500 ">*</span>
                         </p>
                       </div>
-                      <div className="w-[100%] h-[42px] border rounded-md border-[#c4c4c4] placeholder:text-sm mt-1 flex justify-center items-center">
+                      <div className="w-[100%] h-[42px] border rounded-md border-[#c4c4c4] placeholder:text-sm  flex justify-center items-center ">
                         <select
                           name=""
                           id=""
@@ -410,7 +413,7 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
                       /> */}
                     </div>
                     <div
-                      className="sm:w-[30%] w-[90%]"
+                      className="sm:w-[30%] w-[90%] sm:mt-0 mt-3"
                       //   style={isDesktopOrLaptop ? null : { marginTop: "14px" }}
                     >
                       <div>
@@ -480,8 +483,8 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
                     </div>
                   </div>
 
-                  <div className="sm:mt-[25px] mt-[14px] w-[100%] flex sm:justify-between items-center sm:flex-row flex-col">
-                    <div className="sm:w-[30%] w-[90%] ">
+                  <div className="sm:mt-[25px] w-[100%] flex sm:justify-between items-center sm:flex-row flex-col">
+                    <div className="sm:w-[30%] w-[90%] sm:mt-0 mt-3">
                       <div>
                         <p
                           className="font-[400] sm:text-[12px]  text-[10px]"
@@ -525,7 +528,7 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
                       </div>
                     </div>
                     <div
-                      className="sm:w-[30%] w-[90%]"
+                      className="sm:w-[30%] w-[90%] sm:mt-0 mt-3"
                       //   style={isDesktopOrLaptop ? null : { marginTop: "14px" }}
                     >
                       <div>
@@ -576,7 +579,7 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
 
                       <div></div>
                     </div>
-                    <div className="sm:w-[30%] w-[90%] ">
+                    <div className="sm:w-[30%] w-[90%] sm:mt-0 mt-3">
                       <div>
                         <p
                           className="font-[400] sm:text-[12px]  text-[10px]"
@@ -585,24 +588,50 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
                           Upload Artwork
                         </p>
                       </div>
-                      <div className="  w-[100%] h-[42px] border rounded-md border-[#c4c4c4] placeholder:text-sm mt-1 flex justify-center items-center">
-                        <input
-                          type="file"
-                          className="w-[94%]  outline-none"
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              artImg: e.target.files[0],
-                            })
-                          }
-                          // value={formData?.artImg}
-                        />
+                      <div>
+                        <label htmlFor="img-picker2">
+                          <input
+                            type="file"
+                            id="img-picker2"
+                            className="  outline-none"
+                            style={{ display: "none" }}
+                            onChange={(e) =>
+                              setFormData({
+                                ...formData,
+                                artImg: e.target.files[0],
+                              })
+                            }
+                          />
+
+                          <div className="  w-[100%] h-[42px] border rounded-md border-[#c4c4c4] placeholder:text-sm mt-1 flex  items-center ">
+                            <div
+                              className="h-[87%] sm:w-[40%] w-[40%] sm:text-sm text-[white] border rounded-md bg-[#449F5A] hover:bg-[#6AD37F] ml-1  flex justify-center items-center cursor-pointer"
+                              style={{
+                                fontFamily: "Roboto",
+                                lineHeight: "13px",
+                              }}
+                            >
+                              Select File
+                            </div>
+                            <div
+                              className="ml-2 h-[87%] sm:w-[50%] w-[60%]  flex  items-center"
+                              style={{
+                                fontFamily: "Roboto",
+                                lineHeight: "13px",
+                              }}
+                            >
+                              {formData?.artImg?.name
+                                ? formData?.artImg?.name
+                                : "No file chosen"}
+                            </div>
+                          </div>
+                        </label>
                       </div>
                     </div>
                   </div>
 
-                  <div className="sm:mt-[20px] mt-[14px] w-[100%] ">
-                    <div>
+                  <div className="sm:mt-[20px] mt-[14px] w-[100%] flex flex-col items-center">
+                    <div className="sm:w-[100%] w-[90%]">
                       <p
                         className="font-[400] sm:text-[12px]  text-[10px]"
                         style={{ fontFamily: "Roboto", lineHeight: "13px" }}
@@ -617,7 +646,7 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
                         setFormData({ ...formData, comment: e.target.value })
                       }
                       value={formData.comment}
-                      className="outline-none p-2 sm:h-[50px] w-[100%] border rounded-md border-[#c4c4c4] placeholder:text-sm  mt-1"
+                      className="outline-none p-2 sm:h-[50px] sm:w-[100%] w-[90%] border rounded-md border-[#c4c4c4] placeholder:text-sm  mt-1"
                     ></textarea>
                   </div>
 
@@ -637,7 +666,7 @@ const HeaderFormModal = ({ handleHeaderForm, headerForm }) => {
                       Submit
                     </div>
                   </div>
-                  {/* <br /> */}
+                  <br />
                 </div>
               </div>
             </div>

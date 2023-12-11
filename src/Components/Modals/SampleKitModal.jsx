@@ -25,6 +25,7 @@ const SampleKitModal = ({ handleKitForm, kitForm }) => {
   //   let navigate = useNavigate();
   // Modal box style
   let baseUrl = import.meta.env.VITE_BASE_URL;
+  let scrnWidth = window.innerWidth;
   // Modal box style
 
   const style2 = {
@@ -32,8 +33,8 @@ const SampleKitModal = ({ handleKitForm, kitForm }) => {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 900,
-    height: 550,
+    width: scrnWidth >= 600 ? 900 : "85%",
+    height: scrnWidth >= 600 ? 550 : 700,
     bgcolor: "white",
     borderRadius: "18px",
     boxShadow: 24,
@@ -103,7 +104,7 @@ const SampleKitModal = ({ handleKitForm, kitForm }) => {
       >
         <Box sx={style2}>
           <>
-            <div className="w-[100%] h-[100%]">
+            <div className="w-[100%] h-[100%] ">
               <div className="w-[99%] flex justify-end mt-2">
                 <MdOutlineCancel
                   className="cursor-pointer text-2xl"
@@ -117,8 +118,8 @@ const SampleKitModal = ({ handleKitForm, kitForm }) => {
                 Request A Sample Kit
               </h2>
 
-              <div className="w-[100%] flex justify-evenly items-center mt-7">
-                <div className="w-[22%]">
+              <div className="w-[100%] sm:flex justify-evenly items-center sm:mt-7">
+                <div className="sm:w-[22%] w-[90%] ml-4">
                   <p
                     className="font-[400] sm:text-[12px]  text-[10px]"
                     style={{ fontFamily: "Roboto", lineHeight: "13px" }}
@@ -139,7 +140,7 @@ const SampleKitModal = ({ handleKitForm, kitForm }) => {
                   </div>
                 </div>
 
-                <div className="w-[22%]">
+                <div className="sm:w-[22%] w-[90%] ml-4">
                   <p
                     className="font-[400] sm:text-[12px]  text-[10px]"
                     style={{ fontFamily: "Roboto", lineHeight: "13px" }}
@@ -159,7 +160,7 @@ const SampleKitModal = ({ handleKitForm, kitForm }) => {
                   </div>
                 </div>
 
-                <div className="w-[22%]">
+                <div className="sm:w-[22%] w-[90%] ml-4">
                   <p
                     className="font-[400] sm:text-[12px]  text-[10px]"
                     style={{ fontFamily: "Roboto", lineHeight: "13px" }}
@@ -180,7 +181,7 @@ const SampleKitModal = ({ handleKitForm, kitForm }) => {
                   </div>
                 </div>
 
-                <div className="w-[22%]">
+                <div className="sm:w-[22%] w-[90%] ml-4">
                   <p
                     className="font-[400] sm:text-[12px]  text-[10px]"
                     style={{ fontFamily: "Roboto", lineHeight: "13px" }}

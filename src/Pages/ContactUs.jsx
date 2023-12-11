@@ -124,7 +124,7 @@ const ContactUs = () => {
               </p>
               <input
                 type="text"
-                className="outline-none border border-black h-[50px] lg:w-[400px] w-[300px] mt-2 p-3"
+                className="outline-none border border-black lg:h-[50px] h-[40px] lg:w-[400px] w-[270px] mt-2 p-3"
                 onChange={(e) =>
                   setMsgInfo({ ...msgInfo, name: e.target.value })
                 }
@@ -141,7 +141,7 @@ const ContactUs = () => {
               </p>
               <input
                 type="text"
-                className="outline-none border border-black h-[50px] lg:w-[400px] w-[300px] mt-2 p-3"
+                className="outline-none border border-black lg:h-[50px] h-[40px] lg:w-[400px] w-[270px] mt-2 p-3"
                 onChange={(e) =>
                   setMsgInfo({ ...msgInfo, email: e.target.value })
                 }
@@ -158,7 +158,7 @@ const ContactUs = () => {
               </p>
               <input
                 type="text"
-                className="outline-none border border-black h-[50px] lg:w-[400px] w-[300px] mt-2 p-3"
+                className="outline-none border border-black lg:h-[50px] h-[40px] lg:w-[400px] w-[270px] mt-2 p-3"
                 required
                 onChange={(e) =>
                   setMsgInfo({ ...msgInfo, phone: e.target.value })
@@ -177,9 +177,7 @@ const ContactUs = () => {
               <textarea
                 name=""
                 id=""
-                cols="10"
-                rows="5"
-                className="outline-none border border-black lg:w-[400px] w-[300px] mt-2 p-3"
+                className="outline-none border border-black lg:w-[400px] lg:h-[150px] h-[100px] w-[270px] mt-2 p-3"
                 onChange={(e) =>
                   setMsgInfo({ ...msgInfo, message: e.target.value })
                 }
@@ -199,20 +197,20 @@ const ContactUs = () => {
 
           <div className="lg:w-[57%] w-[95%]">
             <h3
-              className="font-[600] text-[48px] text-[#449F5A] mt-4"
+              className="font-[600] lg:text-[48px] text-[24px] text-[#449F5A] mt-4"
               style={{ fontFamily: "Roboto" }}
             >
               {contactData?.data?.contact?.heading1}
             </h3>
             <p
-              className="font-[500] text-[40px]  mt-2 "
+              className="font-[500] lg:text-[40px] text-[24px]  mt-2 "
               style={{ fontFamily: "Roboto" }}
             >
               {/* Speak with our experts within a minute. */}
               {contactData?.data?.contact?.heading2}
             </p>
             <p
-              className="font-[400] text-[24px]  mt-1"
+              className="font-[400] lg:text-[24px] text-[16px]  mt-1"
               style={{ fontFamily: "Roboto" }}
             >
               <div
@@ -225,37 +223,37 @@ const ContactUs = () => {
             </p>
 
             <h3
-              className="font-[500] text-[32px] text-[#449F5A] mt-2"
+              className="font-[500] lg:text-[32px]  text-[24px] text-[#449F5A] mt-2"
               style={{ fontFamily: "Roboto" }}
             >
               Contact
             </h3>
-            <div className="w-[87%] flex justify-between sm:mt-[5px] mt-[5px]">
-              <div className="flex items-center w-[45%]">
-                <RiPhoneFill className="sm:text-2xl text-[7px]  mr-1 sm:mr-2" />
+            <div className="sm:w-[87%] w-[95%] lg:flex justify-between sm:mt-[5px] mt-[5px]">
+              <div className="flex items-center sm:w-[45%] w-[88%]">
+                <RiPhoneFill className="sm:text-2xl text-[16px]  mr-1 sm:mr-2" />
                 <p
-                  className="  sm:text-[20px] text-[7px] font-[400]   "
+                  className="  sm:text-[20px] text-[16px] font-[400]   "
                   style={{ fontFamily: "Roboto" }}
                 >
                   0000-000-0000
                 </p>
               </div>
 
-              <div className="flex items-center  justify-start w-[45%] ">
-                <MdEmail className="sm:text-2xl text-[7px]  mr-1 " />
+              <div className="flex items-center  justify-start sm:w-[45%] w-[88%] ">
+                <MdEmail className="sm:text-2xl text-[16px]  mr-1 " />
                 <p
-                  className="  sm:text-[20px] text-[7px] font-[400] ml-1  "
+                  className="  sm:text-[20px] text-[16px] font-[400] ml-1  "
                   style={{ fontFamily: "Roboto" }}
                 >
                   {contactData?.data?.contact?.contactEmail}
                 </p>
               </div>
             </div>
-            <div className="w-[87%] flex justify-between mt-1">
-              <div className="flex items-center sm:mt-[20px] mt-[5px]">
-                <HiLocationMarker className="sm:text-2xl text-[7px]  mr-1 sm:mr-2" />
+            <div className="sm:w-[87%] w-[95%]  lg:flex  justify-between mt-1 ">
+              <div className="flex items-center sm:mt-[20px] mt-[5px] sm:w-[45%] w-[88%]">
+                <HiLocationMarker className="sm:text-2xl text-[16px]  mr-1 sm:mr-2" />
                 <p
-                  className="  sm:text-[20px] text-[7px] font-[400]   "
+                  className="  sm:text-[20px] text-[16px] font-[400]   "
                   style={{ fontFamily: "Roboto" }}
                 >
                   {/* Los Vegas, LV 22001 */}
@@ -263,10 +261,10 @@ const ContactUs = () => {
                 </p>
               </div>
 
-              <div className="flex items-center  justify-start w-[45%] sm:mt-[20px] mt-[5px] ">
-                <BsFillStopwatchFill className="sm:text-2xl text-[7px]" />
+              <div className="flex items-center  justify-start sm:w-[45%] w-[88%] sm:mt-[20px] mt-[5px] ">
+                <BsFillStopwatchFill className="sm:text-2xl text-[16px]" />
                 <p
-                  className="  sm:text-[20px] text-[7px] font-[400] ml-2"
+                  className="  sm:text-[20px] text-[14px] font-[400] ml-2"
                   style={{ fontFamily: "Roboto" }}
                 >
                   Mon - Fri: 8:00 - 6:00 PM
@@ -275,25 +273,25 @@ const ContactUs = () => {
             </div>
 
             <h3
-              className="font-[500] text-[32px] text-[#449F5A] mt-9"
+              className="font-[500]  lg:text-[32px]  text-[24px] text-[#449F5A] mt-9"
               style={{ fontFamily: "Roboto" }}
             >
               Sales Inquiries
             </h3>
-            <div className="w-[87%] flex justify-between sm:mt-[5px] mt-[5px]">
+            <div className="sm:w-[87%] w-[95%] sm:flex justify-between sm:mt-[5px] mt-[5px]">
               <div className="flex items-center justify-start ">
-                <MdEmail className="sm:text-2xl text-[7px]  mr-1 sm:mr-2" />
+                <MdEmail className="sm:text-2xl text-[16px]  mr-1 sm:mr-2" />
                 <p
-                  className="  sm:text-[20px] text-[7px] font-[400]"
+                  className="  sm:text-[20px] text-[16px] font-[400]"
                   style={{ fontFamily: "Roboto" }}
                 >
                   {contactData?.data?.contact?.saleEmail}
                 </p>
               </div>
               <div className="flex items-center">
-                <BsFillStopwatchFill className="sm:text-2xl text-[7px]  mr-1 sm:mr-2" />
+                <BsFillStopwatchFill className="sm:text-2xl text-[16px]  mr-1 sm:mr-2" />
                 <p
-                  className="  sm:text-[20px] text-[7px] font-[400]"
+                  className="  sm:text-[20px] text-[16px] font-[400]"
                   style={{ fontFamily: "Roboto" }}
                 >
                   {contactData?.data?.contact?.startDay} -{" "}
@@ -303,6 +301,7 @@ const ContactUs = () => {
                 </p>
               </div>
             </div>
+            <br />
           </div>
         </div>
       </div>
