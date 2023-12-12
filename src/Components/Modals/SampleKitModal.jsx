@@ -104,7 +104,7 @@ const SampleKitModal = ({ handleKitForm, kitForm }) => {
       >
         <Box sx={style2}>
           <>
-            <div className="w-[100%] h-[100%] ">
+            <div className="w-[100%] h-[100%] overflow-y-scroll scrollbar-hide">
               <div className="w-[99%] flex justify-end mt-2">
                 <MdOutlineCancel
                   className="cursor-pointer text-2xl"
@@ -113,13 +113,13 @@ const SampleKitModal = ({ handleKitForm, kitForm }) => {
               </div>
               <h2
                 style={{ fontFamily: "Roboto" }}
-                className="text-center font-[600] text-[40px] text-[#449F5A] w-[100%] mt-1"
+                className="text-center font-[600] sm:text-[40px] text-[24px] text-[#449F5A] w-[100%] mt-1"
               >
                 Request A Sample Kit
               </h2>
 
               <div className="w-[100%] sm:flex justify-evenly items-center sm:mt-7">
-                <div className="sm:w-[22%] w-[90%] ml-4">
+                <div className="sm:w-[22%] w-[90%] sm:ml-0  ml-4 sm:mt-0 mt-3">
                   <p
                     className="font-[400] sm:text-[12px]  text-[10px]"
                     style={{ fontFamily: "Roboto", lineHeight: "13px" }}
@@ -140,7 +140,7 @@ const SampleKitModal = ({ handleKitForm, kitForm }) => {
                   </div>
                 </div>
 
-                <div className="sm:w-[22%] w-[90%] ml-4">
+                <div className="sm:w-[22%] w-[90%] sm:ml-0  ml-4 sm:mt-0 mt-3">
                   <p
                     className="font-[400] sm:text-[12px]  text-[10px]"
                     style={{ fontFamily: "Roboto", lineHeight: "13px" }}
@@ -160,7 +160,7 @@ const SampleKitModal = ({ handleKitForm, kitForm }) => {
                   </div>
                 </div>
 
-                <div className="sm:w-[22%] w-[90%] ml-4">
+                <div className="sm:w-[22%] w-[90%] sm:ml-0  ml-4 sm:mt-0 mt-3">
                   <p
                     className="font-[400] sm:text-[12px]  text-[10px]"
                     style={{ fontFamily: "Roboto", lineHeight: "13px" }}
@@ -181,7 +181,7 @@ const SampleKitModal = ({ handleKitForm, kitForm }) => {
                   </div>
                 </div>
 
-                <div className="sm:w-[22%] w-[90%] ml-4">
+                <div className="sm:w-[22%] w-[90%] sm:ml-0  ml-4 sm:mt-0 mt-3">
                   <p
                     className="font-[400] sm:text-[12px]  text-[10px]"
                     style={{ fontFamily: "Roboto", lineHeight: "13px" }}
@@ -202,8 +202,8 @@ const SampleKitModal = ({ handleKitForm, kitForm }) => {
                 </div>
               </div>
 
-              <div className="w-[100%] flex justify-evenly items-center mt-5">
-                <div className="w-[22%]">
+              <div className="w-[100%] sm:flex justify-evenly items-center sm:mt-7">
+                <div className="sm:w-[22%] w-[90%] sm:ml-0  ml-4 sm:mt-0 mt-3">
                   <p
                     className="font-[400] sm:text-[12px]  text-[10px]"
                     style={{ fontFamily: "Roboto", lineHeight: "13px" }}
@@ -223,7 +223,7 @@ const SampleKitModal = ({ handleKitForm, kitForm }) => {
                   </div>
                 </div>
 
-                <div className="w-[22%]">
+                <div className="sm:w-[22%] w-[90%] sm:ml-0  ml-4 sm:mt-0 mt-3">
                   <p
                     className="font-[400] sm:text-[12px]  text-[10px]"
                     style={{ fontFamily: "Roboto", lineHeight: "13px" }}
@@ -243,7 +243,7 @@ const SampleKitModal = ({ handleKitForm, kitForm }) => {
                   </div>
                 </div>
 
-                <div className="w-[22%]">
+                <div className="sm:w-[22%] w-[90%] sm:ml-0  ml-4 sm:mt-0 mt-3">
                   <p
                     className="font-[400] sm:text-[12px]  text-[10px]"
                     style={{ fontFamily: "Roboto", lineHeight: "13px" }}
@@ -263,7 +263,7 @@ const SampleKitModal = ({ handleKitForm, kitForm }) => {
                   </div>
                 </div>
 
-                <div className="w-[22%]">
+                <div className="sm:w-[22%] w-[90%] sm:ml-0  ml-4 sm:mt-0 mt-3">
                   <p
                     className="font-[400] sm:text-[12px]  text-[10px]"
                     style={{ fontFamily: "Roboto", lineHeight: "13px" }}
@@ -290,12 +290,12 @@ const SampleKitModal = ({ handleKitForm, kitForm }) => {
                 >
                   Comments
                 </p>
-                <div className="w-[100%] flex justify-center items-center ">
+                <div className="w-[100%] flex justify-center items-center">
                   <textarea
                     name="
                 "
                     id=""
-                    className="w-[95%] h-[150px] border outline-none rounded-[10px]  pl-[10px] pt-[10px] mt-1"
+                    className="sm:w-[95%] w-[90%] h-[150px] border outline-none rounded-[10px]  pl-[10px] pt-[10px] mt-1"
                     placeholder="Comments"
                   ></textarea>
                 </div>
@@ -303,13 +303,14 @@ const SampleKitModal = ({ handleKitForm, kitForm }) => {
 
               <div className="w-[100%] flex justify-center mt-4">
                 <div
-                  className="w-[18%] h-[50px] border rounded-[10px] flex justify-center items-center bg-[#449F5A] text-white text-[18px] font-[500] cursor-pointer"
+                  className="sm:w-[18%] w-[40%] h-[50px] border rounded-[10px] flex justify-center items-center bg-[#449F5A] text-white text-[18px] font-[500] cursor-pointer"
                   style={{ fontFamily: "Roboto" }}
                   onClick={() => saveToDb()}
                 >
                   Submit
                 </div>
               </div>
+              <br />
             </div>
           </>
         </Box>

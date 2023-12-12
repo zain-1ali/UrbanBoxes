@@ -23,7 +23,7 @@ const CallBackFormModal = ({ handleCallBackForm, callBackForm }) => {
 
   //   const dispatch = useDispatch();
   //   let navigate = useNavigate();
-
+  let scrnWidth = window.innerWidth;
   // Modal box style
   let baseUrl = import.meta.env.VITE_BASE_URL;
   const style2 = {
@@ -31,8 +31,10 @@ const CallBackFormModal = ({ handleCallBackForm, callBackForm }) => {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: 900,
-    height: 500,
+    // width: 900,
+    // height: 500,
+    width: scrnWidth >= 600 ? 900 : "85%",
+    height: scrnWidth >= 600 ? 500 : 600,
     bgcolor: "white",
     borderRadius: "18px",
     boxShadow: 24,
@@ -98,13 +100,13 @@ const CallBackFormModal = ({ handleCallBackForm, callBackForm }) => {
               </div>
               <h2
                 style={{ fontFamily: "Roboto" }}
-                className="text-center font-[600] text-[40px] text-[#449F5A] w-[100%] mt-1"
+                className="text-center font-[600] sm:text-[40px] text-[24px] text-[#449F5A] w-[100%] mt-1"
               >
                 Request a Call Back
               </h2>
 
-              <div className="w-[100%] flex justify-evenly items-center mt-7">
-                <div className="w-[30%]">
+              <div className="w-[100%] sm:flex justify-evenly items-center mt-7">
+                <div className="sm:w-[30%]  w-[90%] sm:ml-0  ml-4 sm:mt-0 mt-3">
                   <p
                     className="font-[400] sm:text-[12px]  text-[10px]"
                     style={{ fontFamily: "Roboto", lineHeight: "13px" }}
@@ -125,7 +127,7 @@ const CallBackFormModal = ({ handleCallBackForm, callBackForm }) => {
                   </div>
                 </div>
 
-                <div className="w-[30%]">
+                <div className="sm:w-[30%]  w-[90%] sm:ml-0  ml-4 sm:mt-0 mt-3">
                   <p
                     className="font-[400] sm:text-[12px]  text-[10px]"
                     style={{ fontFamily: "Roboto", lineHeight: "13px" }}
@@ -146,7 +148,7 @@ const CallBackFormModal = ({ handleCallBackForm, callBackForm }) => {
                   </div>
                 </div>
 
-                <div className="w-[30%]">
+                <div className="sm:w-[30%]  w-[90%] sm:ml-0  ml-4 sm:mt-0 mt-3">
                   <p
                     className="font-[400] sm:text-[12px]  text-[10px]"
                     style={{ fontFamily: "Roboto", lineHeight: "13px" }}
@@ -183,7 +185,7 @@ const CallBackFormModal = ({ handleCallBackForm, callBackForm }) => {
                     name="
                 "
                     id=""
-                    className="w-[95%] h-[150px] border outline-none rounded-[10px]  pl-[10px] pt-[10px] mt-1"
+                    className="sm:w-[95%] w-[90%] h-[150px] border outline-none rounded-[10px]  pl-[10px] pt-[10px] mt-1"
                     placeholder="Comments"
                     onChange={(e) =>
                       setFormData({
@@ -198,7 +200,7 @@ const CallBackFormModal = ({ handleCallBackForm, callBackForm }) => {
 
               <div className="w-[100%] flex justify-center mt-4">
                 <div
-                  className="w-[18%] h-[50px] border rounded-[10px] flex justify-center items-center bg-[#449F5A] text-white text-[18px] font-[500] cursor-pointer"
+                  className="sm:w-[18%] w-[40%] h-[50px] border rounded-[10px] flex justify-center items-center bg-[#449F5A] text-white text-[18px] font-[500] cursor-pointer"
                   style={{ fontFamily: "Roboto" }}
                   onClick={() => saveToDb()}
                 >

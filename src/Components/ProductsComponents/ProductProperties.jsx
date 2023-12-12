@@ -64,8 +64,8 @@ const ProductSepecification = ({ details, longDesc, shortDesc, reviews }) => {
         <div className="sm:w-[85%] w-[98%] h-[700px]  flex sm:justify-between  sm:flex-row flex-col">
           <div className="sm:h-[100%] sm:w-[13%] w-[100%] h-[150px] border flex sm:flex-col">
             <div
-              className={`sm:w-[100%] sm:h-[130px] w-[20%] border cursor-pointer ${
-                isSepecification ? `bg-[#A6EAB8] shadow-2xl ` : `bg-[#449F5A]`
+              className={`sm:w-[100%] sm:h-[130px] w-[20%] h-[100%] border cursor-pointer ${
+                isSepecification ? `bg-[#A6EAB8] shadow-2xl` : `bg-[#449F5A]`
               }  flex justify-center items-center flex-col hover:bg-[#A6EAB8]`}
               onClick={() => dispatch(openSepecification())}
             >
@@ -79,7 +79,7 @@ const ProductSepecification = ({ details, longDesc, shortDesc, reviews }) => {
               </p>
             </div>
             <div
-              className={`sm:w-[100%] sm:h-[130px] w-[20%] border cursor-pointer ${
+              className={`sm:w-[100%] sm:h-[130px] w-[20%] h-[120px] border cursor-pointer ${
                 isDetails ? `bg-[#A6EAB8] shadow-xl ` : `bg-[#449F5A]`
               } flex justify-center items-center flex-col hover:bg-[#A6EAB8]`}
               onClick={() => dispatch(openDetails())}
@@ -88,7 +88,7 @@ const ProductSepecification = ({ details, longDesc, shortDesc, reviews }) => {
               <BiSolidDetail className="sm:text-[50px] text-[25px] text-white" />
               <p
                 style={{ fontFamily: "Poppins" }}
-                className="font-[600] text-[16px] text-white mt-2"
+                className="font-[600] sm:text-[16px] text-[7px] text-white mt-2"
               >
                 {" "}
                 Details
@@ -104,7 +104,7 @@ const ProductSepecification = ({ details, longDesc, shortDesc, reviews }) => {
               <SiMoleculer className="sm:text-[50px] text-[25px] text-white" />
               <p
                 style={{ fontFamily: "Poppins" }}
-                className="font-[600] sm:text-[16px] text-[10px] text-white mt-2 text-center"
+                className="font-[600] sm:text-[16px] text-[8px] text-white mt-2 text-center"
               >
                 {" "}
                 Special Capabilities
@@ -120,7 +120,7 @@ const ProductSepecification = ({ details, longDesc, shortDesc, reviews }) => {
               <BsInboxFill className="sm:text-[50px] text-[25px] text-white" />
               <p
                 style={{ fontFamily: "Poppins" }}
-                className="font-[600] sm:text-[16px] text-[10px] text-white mt-2 text-center"
+                className="font-[600] sm:text-[16px] text-[8px] text-white mt-2 text-center"
               >
                 {" "}
                 Coating & Lamination

@@ -297,7 +297,7 @@ const Navbar = () => {
                 aria-expanded={openPageMenu ? "true" : undefined}
                 onClick={handleClickListItem}
                 style={
-                  path === "/category"
+                  path === "/categoryw"
                     ? { color: "#449F5A", fontFamily: "Poppins" }
                     : { fontFamily: "Poppins" }
                 }

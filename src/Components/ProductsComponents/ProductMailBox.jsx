@@ -143,7 +143,7 @@ const ProductMailBox = () => {
                   }
                   alt=""
                   // className="w-[100%] sm:w-[544px] sm:h-[544px] h-[400px] rounded-3xl"
-                  className="h-[420px] w-[420px] rounded-3xl object-cover"
+                  className="sm:h-[420px] sm:w-[420px] h-[300px] w-[300px] rounded-3xl object-cover"
                 />
               </div>
               <div
@@ -151,7 +151,7 @@ const ProductMailBox = () => {
                 // onClick={() => setBigDisplay(box2)}
               >
                 <div
-                  className="w-[31%] h-[140px] cursor-pointer "
+                  className="sm:w-[31%] sm:h-[140px] h-[100px] w-[100px] cursor-pointer "
                   onClick={() => setBigDisplay(box2)}
                 >
                   <img
@@ -161,11 +161,11 @@ const ProductMailBox = () => {
                         : "https://placehold.co/130x140"
                     }
                     alt=""
-                    className="w-[100%] h-[100%] rounded-3xl object-cover"
+                    className="w-[100%] h-[100%]  sm:rounded-3xl rounded-xl object-cover"
                   />
                 </div>
                 <div
-                  className="w-[31%] h-[140px] cursor-pointer"
+                  className="sm:w-[31%] sm:h-[140px] h-[100px] w-[100px] cursor-pointer"
                   onClick={() => setBigDisplay(box3)}
                 >
                   <img
@@ -175,11 +175,11 @@ const ProductMailBox = () => {
                         : "https://placehold.co/130x140"
                     }
                     alt=""
-                    className="w-[100%] h-[100%] rounded-3xl object-cover"
+                    className="w-[100%] h-[100%] sm:rounded-3xl rounded-xl object-cover"
                   />
                 </div>
                 <div
-                  className="w-[31%] h-[140px] cursor-pointer"
+                  className="sm:w-[31%] sm:h-[140px] h-[100px] w-[100px] cursor-pointer"
                   onClick={() => setBigDisplay(box4)}
                 >
                   <img
@@ -189,7 +189,7 @@ const ProductMailBox = () => {
                         : "https://placehold.co/130x140"
                     }
                     alt=""
-                    className="w-[100%] h-[100%] rounded-3xl object-cover"
+                    className="w-[100%] h-[100%] sm:rounded-3xl rounded-xl object-cover"
                   />
                 </div>
               </div>
